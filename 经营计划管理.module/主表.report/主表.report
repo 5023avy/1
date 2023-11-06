@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report id="__LuDLV8PdhAIY46WKhLs">
+  <name>主表</name>
+  <parentId>__jFu0Iao8HdByYKPzaHq</parentId>
+  <description></description>
+  <scriptTemplate><![CDATA[]]></scriptTemplate>
+  <xmlTemplate><![CDATA[]]></xmlTemplate>
+  <dataSourceType>DATASOURCE_TYPE_VIEW</dataSourceType>
+  <dataSourceSearchForm></dataSourceSearchForm>
+  <dataSourceSqlScript><![CDATA["select * from tlk_经营业务指标01"]]></dataSourceSqlScript>
+  <dataSourceCustomScript><![CDATA[]]></dataSourceCustomScript>
+  <expression><![CDATA[{}]]></expression>
+  <dataSourceName>数据源</dataSourceName>
+  <isDefaultStyle>0</isDefaultStyle>
+  <viewId>__zQW83pLFIgZJRvE7sCD</viewId>
+  <reportExampleName></reportExampleName>
+  <procedureScript></procedureScript>
+  <subReportId>__KREIeSiDGyQkDSAwfyI</subReportId>
+  <formId>__Lw68OhvJUhfXLcXwIys</formId>
+  <isPrint>1</isPrint>
+  <templateType>JRXML</templateType>
+</report>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__wpv4uWejDqgqI65WgBD">
+  <name>计划汇总视图</name>
+  <parentId>__svCgKmMgWG4C6u0toiz</parentId>
+  <description>计划汇总视图</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__svCgKmMgWG4C6u0toiz</superior>
+  <linkType>00</linkType>
+  <moduleid>__gLMfyh2vFXSlTkcrMd0</moduleid>
+  <actionContent><![CDATA[__l9Os1NwalacSl7p2lzH]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

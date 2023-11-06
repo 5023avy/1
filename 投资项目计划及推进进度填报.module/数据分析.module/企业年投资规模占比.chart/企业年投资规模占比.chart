@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__gVZN0ocHIe28DFikst8">
+  <name>企业年投资规模占比</name>
+  <parentId>__alXZEMuMy1DOQG3wmxK</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var sql = "select * from tlk_投资项目计划填报表 where YEAR(item_年份)='2023'";
+  var query = queryBySQL(sql);
+  var companyObj = {}
+  var total = 0;
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var companyId = item.getItemValueAsString('公司');
+      var dept = getDeptById(companyId)
+      var deptName = String(dept.getName())
+      var item_年计划投资额 = +(item.getItemValueAsString('年计划投资额'));
+      total += item_年计划投资额
+      if(!companyObj[deptName]){
+        companyObj[deptName] = 0
+      }
+      companyObj[deptName] += item_年计划投资额
+    }
+  }
+  var companyData = [];
+  for(var key in companyObj) {
+    var value = companyObj[key]
+    companyData.push({
+      name: key,
+      value: ((value/total)*100).toFixed(2)
+    })
+  }
+  var option = {
+    height: 360,
+    grid: [
+     { right: '8%', top: '10%', height: '45%' },
+   ],
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b} {c} %',
+    },
+    title: {
+      text: '企业年投资规模占比',
+      left: 'center'
+    },
+    series: [
+      {
+        name: '企业年投资规模占比',
+        type: 'pie',
+        center: ['50%', '50%'],
+        radius: '50%',
+        colorBy: 'data',
+        data: companyData,
+        label: {
+          show: true,
+          formatter: '{b}\n{percent|{c} %}',
+          rich: {
+            percent: {
+              padding:[6,0,0,0],
+              color: '#999'
+            }
+          }
+        },
+      },
+    ]
+  };
+   return option;
+  })()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

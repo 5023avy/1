@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__cEaGJaRuwHqj0ZSCRS8">
+  <name>财务树状图</name>
+  <parentId>__KwtCFs6N1jmrg65Gm1k</parentId>
+  <description></description>
+  <scripttext><![CDATA[
+(function () {
+  /**
+ * 财务数据统计
+ * @param {object array} originData  原始数据
+ * @param {string} type 财务类型，如收入、利润、折旧等
+ * @param {object array} subType  财务类型包含的子类，如高速运营、公交运营等
+ * @param {string array, boolean} showCompany 是否包含公司子类
+ * @param {boolean} others 是否显示其他
+ * @returns 
+ */
+  function getFinanceData (originData, type, subType, showCompany, others) {
+    var amount = 0;
+    var fromCompany = showCompany;
+    var subArr = subType.map(function(value) {
+      return {
+        name: value,
+        data: 0,
+        company: {}
+      }
+    })
+    if(others) {
+      subArr.push({
+        name: '其他',
+        data: 0
+      })
+    }
+    for(var key in originData) {
+      var monthList = originData[key];
+      monthList.forEach(function(item) {
+        subType.forEach(function (name) {
+          
+          if(typeof showCompany == "boolean") {
+            var currentItem = findDataInArray(name, 'name', FinanceBusiness)
+            fromCompany = currentItem && currentItem.from
+          }
+          var value = item.getItemValueAsDouble(name + type)
+          // 将非零数据转为零
+          if(value == null || isNaN(value) || value == '') {
+            value = 0
+          } 
+          value = value / 10000
+          // 统计总收入
+          amount = amount + value
+          // 统计分类收入 
+          var subIndex = subType.indexOf(name)
+          var subArrLength = subArr.length
+          var subItem = subArr[subArrLength-1]
+          if(subIndex >= 0) {
+            subItem = subArr[subIndex]
+            // 统计公司收入
+            if(showCompany) {
+              if(fromCompany.indexOf(key) >= 0) {
+                if(!subItem.company[key]) {
+                  subItem.company[key] = 0
+                }
+                subItem.company[key] =  (subItem.company[key] || 0) + value
+              }
+            }
+          }
+          subItem.data = subItem.data + value
+        })
+      })
+    }
+    return { amount: amount, subArr: subArr }
+  }
+
+  /**
+ * 将财务数据格式化为echarts tree
+ * @param {string} 类型，收入、利润、折旧等 
+ * @param {object array} 财务数据
+ * @param {boolean} 是否需要统计数据
+ * @returns 
+ */
+  function formatterFinanceTree (type, data, needSummary, backgroundColor) {
+    var dataTree = {
+      name: type + ': ' + data.amount.toFixed(2) + '亿元',
+      label: {
+        backgroundColor: backgroundColor
+      },
+      children: []
+    }
+    data.subArr.forEach(function (item) {
+      var children = []
+      if(item.company) {
+        for(var key in item.company) {
+          var value = item.company[key]
+          children.push({
+            name: key + ': ' + value.toFixed(2) + '亿元',
+            label: {
+              backgroundColor: backgroundColor
+            }
+          })
+        }
+      }
+      dataTree.children.push({
+        label: {
+          width: 125,
+          padding: [8,6,2,0],
+          backgroundColor: backgroundColor
+        },
+        name: item.name + ': ' + item.data.toFixed(2) + '亿元',
+        children: children
+      })
+    })
+    return needSummary ? dataTree : dataTree.children[0];
+  }
+
+  var process = getDepartmentProcess();
+  var sql = "select * from tlk_业务财务情况表 where YEAR(item_日期)='2023' and statelabel in ('',null,'完成')";
+  var query = queryBySQL(sql);
+  var companyMonthData = {}
+  // 收入
+  var incomeSubType = ['高速运营', '轨道运营', '成品油销售', '预制构件', '公交运营'];
+  // 利润
+  var profitSubType = ['高速运营', '成品油销售', '数字业务', '港航水运', '驾考服务', '停车服务', '轨道运营', '公交运营'];
+  // 成本
+  var costSubType = ['折旧', '人工成本', '商品成本', '利息', '其他成本'];
+  // 补贴
+  var allowanceType = ['补贴']
+  var allowanceCompany = ['市轨道公司', '东莞巴士公司'];
+  // 所得税
+  var incomeTaxType = ['所得税']
+  var incomeTaxCompany = ['东莞控股公司','市路桥公司', '福民公司'];
+
+  if(query!=null){
+    var iter  = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var company = item.getItemValueAsString('公司')
+      if(isNotNull(company)) {
+        var dept = process.doView(company);
+        var deptName = String(dept.getName());
+        if(!companyMonthData[deptName]) {
+          companyMonthData[deptName] = []
+        }
+        companyMonthData[deptName].push(item)
+      }
+    }
+  }
+
+  var incomeData = getFinanceData(companyMonthData, '收入', incomeSubType, true, true) // 函数库 jtBusiness
+  var profitData = getFinanceData(companyMonthData, '利润', profitSubType, false, true) // 函数库 jtBusiness
+  var costData = getFinanceData(companyMonthData, '', costSubType, false, false) // 函数库 jtBusiness
+  var allowanceData = getFinanceData(companyMonthData, '', allowanceType, allowanceCompany, true) // 函数库 jtBusiness 
+  var incomeTaxData = getFinanceData(companyMonthData, '', incomeTaxType, incomeTaxCompany, true) // 函数库 jtBusiness 
+  // 收入数据格式化
+  var incomeTree = formatterFinanceTree('收入', incomeData, true,'#cd8271')
+  var profitTree = formatterFinanceTree('净利润', profitData, true, '#3a5cc2')
+  var costTree = formatterFinanceTree('成本费用', costData, true,'#c3b819')
+  var allowanceTree = formatterFinanceTree('补贴', allowanceData,false,'#00a35e')
+  var incomeTaxTree = formatterFinanceTree('所得税', incomeTaxData,false,'#955b98')
+
+
+  var data = {
+    name: '交投集团',
+    label: {
+      width: 55,
+      padding: [8,6,2,0],
+    },
+    children: [
+      incomeTree,
+      costTree,
+      allowanceTree,
+      incomeTaxTree,
+      profitTree
+        
+    ]
+  };
+  var option = {
+    tooltip: {
+      trigger: 'item',
+      triggerOn: 'mousemove'
+    },
+    series: [
+      {
+        type: 'tree',
+        id: 0,
+        name: 'tree1',
+        data: [data],
+        top: '0%',
+        left: '12%',
+        bottom: '0%',
+        right: '20%',
+        symbolSize: 3,
+        //edgeShape: 'polyline',
+        edgeForkPosition: '38%',
+        roam: 'move',
+        initialTreeDepth: 4,
+        lineStyle: {
+          width: 1
+        },
+        label: {
+          backgroundColor: {
+            type: 'linear',
+            x: 0,     // 渐变起始点 x 坐标，范围为 0 到 1
+            y: 0,     // 渐变起始点 y 坐标，范围为 0 到 1
+            x2: 0,    // 渐变结束点 x 坐标，范围为 0 到 1
+            y2: 1,    // 渐变结束点 y 坐标，范围为 0 到 1
+            colorStops: [ {
+              offset: 0,   // 渐变起始点的偏移量，范围为 0 到 1
+              color: '#fbd786' // 渐变起始点的颜色
+            },{
+              offset: 1,   // 渐变结束点的偏移量，范围为 0 到 1
+              color: '#f7797d' // 渐变结束点的颜色
+            }]
+          },
+          position: 'left',
+          color: '#fff',
+          padding: [8,6,2,4],
+          borderRadius: 4,
+          distance: 0,
+          width: 130,
+          overflow: 'break',
+        },
+        leaves: {
+          label: {
+            position: 'right',
+            verticalAlign: 'middle',
+            align: 'left',
+          }
+        },
+        emphasis: {
+          focus: 'descendant'
+        },
+        expandAndCollapse: true,
+        animationDuration: 550,
+        animationDurationUpdate: 750
+      }
+    ]
+  };
+    return option;
+  })()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

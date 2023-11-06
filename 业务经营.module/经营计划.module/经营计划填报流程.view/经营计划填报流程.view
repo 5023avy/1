@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__EPG4ddY88AtD5rlQOzo">
+  <name>经营计划填报流程</name>
+  <parentId>__F7oqQ1ngSJSojLq44bL</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>1</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>10</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-05-05T01:37:55.000Z</lastModifyTime>
+  <readonly>false</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>true</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId>__ZihVciHOmhhbEmO6W1P</searchFormId>
+  <autoCompose>false</autoCompose>
+  <relatedForm>__EGRvGCgDmXDNMn3m4w0</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "process";
+(function(){
+  var search = [{
+    name: '公司',
+    type: 'string'
+  },{
+    name: '年份',
+    type: 'date',
+    format: '%Y'
+  }];
+  return getViewsData('经营计划表',search)
+})()
+]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[{"field":"年份","isCommonFilter":"true","paramKey":1687335722838}]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>293</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

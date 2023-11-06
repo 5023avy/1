@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__6UcbwpNeamaF1ujc4tk">
+  <name>经营计划汇总表</name>
+  <parentId>__F7oqQ1ngSJSojLq44bL</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>9</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>30</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-05-11T04:17:38.000Z</lastModifyTime>
+  <readonly>false</readonly>
+  <displayType>templateForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId>__ZihVciHOmhhbEmO6W1P</searchFormId>
+  <autoCompose>false</autoCompose>
+  <styleId>__DTYlCxzcY02mLZbuuE9</styleId>
+  <relatedForm>__dXwramnjOT0PVpuB8Hk</relatedForm>
+  <templateForm>__eRS3pwpNN5VyiDEWDMp</templateForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "globalMethods";
+(function () {
+  var user = getWebUser();
+  // 查询指标数据
+  var selectSql = "SELECT * FROM tlk_指标列表 ORDER BY item_序号";
+  var query = queryBySQL(selectSql);
+  var indexSql = ''
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var indexName = item.getItemValueAsString('指标项目');
+      indexSql += ", Max(case when item_指标项目='"+indexName+"' then ITEM_年度经营目标值 else null end) as item_"+indexName+"年度经营目标值 "
+    }
+  }
+  // 查询汇总表
+  var sql = "select * " + indexSql + " from tlk_季度表 where item_指标大类='财务指标' ";
+  var year =  getItemValueAsString("年份");
+  if(isNotNull(year)) {
+    sql = sql + " and DATE_FORMAT(item_年份, '%Y') = '" + year + "'"
+  }
+  var company = getItemValueAsString("公司"); 
+  var depIds = []
+  if(isNotNull(company)){
+    depIds = company.split(';')
+  } else {
+    depIds = getUserDepIdAndSubDepIds(user); // 函数库 globalMethods
+  }
+  var depIdStr = depIds.map(function (value) {
+    return "'"+value+"'";
+  })
+  sql += " AND ITEM_公司 in (" + depIdStr.join(',') +")";
+  sql += ' group by item_公司,item_年份';
+  return sql;
+  // return "select * from tlk_季度表 where 1=1 " + " AND ITEM_公司 in (" + depIdStr.join(',') +")"
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[{"field":"年份","isCommonFilter":"true","paramKey":1687335656990}]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>293</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

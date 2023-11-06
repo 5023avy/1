@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__8Jxp5n7ZaaGqtdDM3XM">
+  <name>同步企业微信用户</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>同步企业微信用户</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <linkType></linkType>
+  <actionContent><![CDATA[__Xsc9gUfB2DTiPvYl3FX]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>19</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

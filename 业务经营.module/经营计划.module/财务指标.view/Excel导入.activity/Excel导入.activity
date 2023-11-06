@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__sp1stAleqNCpL47kKur">
+  <name>Excel导入</name>
+  <parentId>__EQxyZjpQ3KImpKwqfao</parentId>
+  <type>27</type>
+  <onActionForm></onActionForm>
+  <onActionView></onActionView>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[#include "constant";
+(function () { 
+  var parentDoc = getParentDocument();
+  println('parentDoc-----------'+parentDoc)
+  var sql = "select * from tlk_财务指标 where parent='" + parentDoc.getId() + "' and item_原ID IS NOT NULL";
+  println('sql-----------'+sql)
+  var query = queryBySQL(sql);
+  var ids = []
+  if(query!=null && query.size() > 0) {
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      ids.push("'" + item.getItemValueAsString('原ID') + "'")
+    }
+  }
+  var deleteSql = "DELETE FROM tlk_财务指标 WHERE ID IN (" + ids.join(',') + ")";
+  println('deleteSql-----------'+deleteSql)
+  // deleteByDSName(dsName, deleteSql)
+})()]]></afterActionScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>4</orderno>
+  <parentView>__EQxyZjpQ3KImpKwqfao</parentView>
+  <impmappingconfigid>__3N2pA3MV92c6LafifpG</impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

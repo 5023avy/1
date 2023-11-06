@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report id="__pJnqz2UaPQHSC8iTPDU">
+  <name>财务指标报表</name>
+  <parentId>__xSTWtxZDyTP1C8gCvum</parentId>
+  <description></description>
+  <scriptTemplate><![CDATA[(function(){
+var FontBuilder = Packages.net.sf.dynamicreports.report.builder.style.FontBuilder;
+var DynamicReports = Packages.net.sf.dynamicreports.report.builder.DynamicReports;
+var Templates = Packages.cn.myapps.report.examples.Templates;
+var TextColumnBuilder = Packages.net.sf.dynamicreports.report.builder.column.TextColumnBuilder;
+var DRDataSource = Packages.net.sf.dynamicreports.report.datasource.DRDataSource;
+var DRException = Packages.net.sf.dynamicreports.report.exception.DRException;
+var JRDataSource = Packages.net.sf.jasperreports.engine.JRDataSource;
+var GroupHeaderLayout = Packages.net.sf.dynamicreports.report.constant.GroupHeaderLayout;
+
+var BigDecimal = Packages.java.math.BigDecimal;
+var Integer = Packages.java.lang.Integer;
+var String = Packages.java.lang.String;
+var Date = Packages.java.util.Date;
+var Calendar = Packages.java.util.Calendar;
+
+function toDate(year, month, day) {
+        var c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month - 1);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        return c.getTime();
+    }
+function createDataSource() {
+     var dataSource = new DRDataSource("item", "orderdate", "quantity", "unitprice");
+        dataSource.add("Tablet", toDate(2010, 1, 1), new Integer(5), new BigDecimal(300));
+        dataSource.add("Tablet", toDate(2010, 1, 3), new Integer(1), new BigDecimal(280));
+        dataSource.add("Tablet", toDate(2010, 1, 19), new Integer(5), new BigDecimal(320));
+        dataSource.add("Laptop", toDate(2010, 1, 5), new Integer(3), new BigDecimal(580));
+        dataSource.add("Laptop", toDate(2010, 1, 8), new Integer(1), new BigDecimal(620));
+        dataSource.add("Laptop", toDate(2010, 1, 15), new Integer(5), new BigDecimal(600));
+        dataSource.add("Smartphone", toDate(2010, 1, 18), new Integer(8), new BigDecimal(150));
+        dataSource.add("Smartphone", toDate(2010, 1, 20), new Integer(8), new BigDecimal(210));
+        return dataSource;
+}
+
+        var groupStyle = DynamicReports.stl.style().bold();
+
+        var itemGroup = DynamicReports.grp.group("item", String).setStyle(groupStyle).setTitle("Item").setTitleStyle(groupStyle).setTitleWidth(30).setHeaderLayout(GroupHeaderLayout.TITLE_AND_VALUE);
+
+return DynamicReports.report().setTemplate(Templates.reportTemplate)
+                    .columns(DynamicReports.col.column("Order date", "orderdate", DynamicReports.type.dateType()), DynamicReports.col.column("Quantity", "quantity", DynamicReports.type.integerType()),
+                             DynamicReports.col.column("Unit price", "unitprice", DynamicReports.type.bigDecimalType()))
+                    .groupBy(itemGroup)
+                    .title(Templates.createTitleComponent("FieldGroup"))
+                    .pageFooter(Templates.footerComponent)
+                    .setDataSource(createDataSource())
+		
+})();]]></scriptTemplate>
+  <xmlTemplate><![CDATA[(function(){
+var FontBuilder = Packages.net.sf.dynamicreports.report.builder.style.FontBuilder;
+var DynamicReports = Packages.net.sf.dynamicreports.report.builder.DynamicReports;
+var Templates = Packages.cn.myapps.report.examples.Templates;
+var TextColumnBuilder = Packages.net.sf.dynamicreports.report.builder.column.TextColumnBuilder;
+var DRDataSource = Packages.net.sf.dynamicreports.report.datasource.DRDataSource;
+var DRException = Packages.net.sf.dynamicreports.report.exception.DRException;
+var JRDataSource = Packages.net.sf.jasperreports.engine.JRDataSource;
+var GroupHeaderLayout = Packages.net.sf.dynamicreports.report.constant.GroupHeaderLayout;
+
+var BigDecimal = Packages.java.math.BigDecimal;
+var Integer = Packages.java.lang.Integer;
+var String = Packages.java.lang.String;
+var Date = Packages.java.util.Date;
+var Calendar = Packages.java.util.Calendar;
+
+function toDate(year, month, day) {
+        var c = Calendar.getInstance();
+        c.set(Calendar.YEAR, year);
+        c.set(Calendar.MONTH, month - 1);
+        c.set(Calendar.DAY_OF_MONTH, day);
+        return c.getTime();
+    }
+function createDataSource() {
+     var dataSource = new DRDataSource("item", "orderdate", "quantity", "unitprice");
+        dataSource.add("Tablet", toDate(2010, 1, 1), new Integer(5), new BigDecimal(300));
+        dataSource.add("Tablet", toDate(2010, 1, 3), new Integer(1), new BigDecimal(280));
+        dataSource.add("Tablet", toDate(2010, 1, 19), new Integer(5), new BigDecimal(320));
+        dataSource.add("Laptop", toDate(2010, 1, 5), new Integer(3), new BigDecimal(580));
+        dataSource.add("Laptop", toDate(2010, 1, 8), new Integer(1), new BigDecimal(620));
+        dataSource.add("Laptop", toDate(2010, 1, 15), new Integer(5), new BigDecimal(600));
+        dataSource.add("Smartphone", toDate(2010, 1, 18), new Integer(8), new BigDecimal(150));
+        dataSource.add("Smartphone", toDate(2010, 1, 20), new Integer(8), new BigDecimal(210));
+        return dataSource;
+}
+
+        var groupStyle = DynamicReports.stl.style().bold();
+
+        var itemGroup = DynamicReports.grp.group("item", String).setStyle(groupStyle).setTitle("Item").setTitleStyle(groupStyle).setTitleWidth(30).setHeaderLayout(GroupHeaderLayout.TITLE_AND_VALUE);
+
+return DynamicReports.report().setTemplate(Templates.reportTemplate)
+                    .columns(DynamicReports.col.column("Order date", "orderdate", DynamicReports.type.dateType()), DynamicReports.col.column("Quantity", "quantity", DynamicReports.type.integerType()),
+                             DynamicReports.col.column("Unit price", "unitprice", DynamicReports.type.bigDecimalType()))
+                    .groupBy(itemGroup)
+                    .title(Templates.createTitleComponent("FieldGroup"))
+                    .pageFooter(Templates.footerComponent)
+                    .setDataSource(createDataSource())
+		
+})();]]></xmlTemplate>
+  <dataSourceType>DATASOURCE_TYPE_VIEW</dataSourceType>
+  <dataSourceSearchForm></dataSourceSearchForm>
+  <dataSourceSqlScript><![CDATA[]]></dataSourceSqlScript>
+  <dataSourceCustomScript><![CDATA[]]></dataSourceCustomScript>
+  <expression><![CDATA[{}]]></expression>
+  <dataSourceName></dataSourceName>
+  <isDefaultStyle>0</isDefaultStyle>
+  <viewId>__Og6NNbUysTWBZiHcSbq</viewId>
+  <reportExampleName>FieldGroupReport</reportExampleName>
+  <procedureScript></procedureScript>
+  <subReportId></subReportId>
+  <formId></formId>
+  <isPrint>0</isPrint>
+  <templateType>SCRIPT</templateType>
+</report>

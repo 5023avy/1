@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__21eHFU6zVbijtEXHtIW">
+  <name>投资类型分类与占比</name>
+  <parentId>__HJBpBItQWEMZOZKMZoP</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var sql = "select * from tlk_投资项目计划填报表 where YEAR(item_年份)='2023'";
+  var query = queryBySQL(sql);
+  var investmentTypeObj = {}
+  var total = 0;
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      total ++;
+      var investment = item.getItemValueAsString('所属投资方向');
+      if(!investmentTypeObj[investment]){
+        investmentTypeObj[investment] = 0
+      }
+      investmentTypeObj[investment] ++
+    }
+  }
+  var investmentData = [];
+  for(var key in investmentTypeObj) {
+    var value = investmentTypeObj[key]
+    investmentData.push({
+      name: key,
+      value: ((value/total)*100).toFixed(2)
+    })
+  }
+  var option = {
+    tooltip: {
+      trigger: 'item',
+      formatter: '{b}： {c} %',
+    },
+    title: {
+      text: '投资类型分类与占比',
+      left: 'center'
+    },
+    series: [
+      {
+        name: '投资类型分类与占比',
+        type: 'pie',
+        radius: [30, 150],
+        center: ['50%', '50%'],
+        height: 500,
+        colorBy: 'data',
+        data: investmentData,
+        label: {
+          show: true,
+          formatter: '{b}\n{percent|{c} %}',
+          rich: {
+            percent: {
+              padding:[6,0,0,0],
+              color: '#999'
+            }
+          }
+        },
+      },
+    ]
+  };
+   return option;
+  })()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

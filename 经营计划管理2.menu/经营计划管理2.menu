@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__3pQP7UOYMr4WJOdGNN4">
+  <name>经营计划管理2</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>经营计划管理2</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p55_report.png","icontype":"img"}</ico>
+  <linkName>经营计划</linkName>
+  <linkType></linkType>
+  <actionContent><![CDATA[__Xsc9gUfB2DTiPvYl3FX]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>0</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>20</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

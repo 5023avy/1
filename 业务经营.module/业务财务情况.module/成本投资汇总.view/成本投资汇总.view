@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__8FoQvLg5PP28i4z3y1v">
+  <name>成本投资汇总</name>
+  <parentId>__CDrwwtEwcBtJPlymy2k</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>false</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>1</orderno>
+  <isAllowDrag>false</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>30</pageLines>
+  <showTotalRow>false</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <readonly>true</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId>__2Fra2A6mNJs7fZlBe8p</searchFormId>
+  <autoCompose>true</autoCompose>
+  <relatedForm></relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "constant";
+// 根据公司数组生成财务成本查询sql
+function getCostSqlByCompany(type) {
+  var result = ''
+  var domainid = getDomainid();
+  subsidiary.forEach(function(value) {
+    var valueId = getDeptIdByNameAndLevel(value, 1)
+    result = result + "IFNULL(SUM(CASE WHEN item_公司 = '" + valueId + "' THEN item_" + type +" ELSE 0 END), 0) AS item_" + value + ",";
+  })
+  result = result + "IFNULL(DOMAINID, '"+ domainid +"') as DOMAINID ";
+  return result;
+}
+(function(){
+  //and STATELABEL = '结束'
+  var date = getItemValueAsDate('日期')
+  var dateTime = format(date, "yyyy-MM")
+  var dateYear = format(date, "yyyy")
+  var costTypeFilter = getItemValueAsString('成本类型')
+  if(isNotNull(costTypeFilter)) {
+    costTypeFilter = costTypeFilter.split(';')
+  } else {
+    costTypeFilter = costType
+  }
+
+  var sql = '';
+  var k = 1;
+  var sort = '';
+  var costTypeLength = costTypeFilter.length
+  costTypeFilter.forEach(function(value, index) {
+    var item_value = getCostSqlByCompany(value)
+    sql = sql + " select '当期" + value + "(万元)' as 'item_类型', " + item_value + 
+    " from tlk_业务财务情况表 \
+    where DATE_FORMAT(ITEM_日期,'%Y-%m')= '" + dateTime + "'"
+    sort = sort + " when item_类型 = '当期" + value + "(万元)' then " + k;
+    k++ ;
+    if(value != '投资标的') { 
+      sql = sql + " union all \
+      select '当年累计" + value + "(万元)', " + item_value +
+      "from tlk_业务财务情况表 \
+      where YEAR(ITEM_日期) = '" + dateYear + "'";
+      sort = sort + " when item_类型 = '当年累计" + value + "(万元)' then " + k
+      k++;
+    }
+    if(index < costTypeLength - 1) {
+      sql = sql + " union all "
+    }
+  })
+  
+  sql = "select * from (" + sql + ") as sub order by case " + sort + " ELSE "+ k +" END ASC ";
+  return sql;
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[{"field":"日期","isCommonFilter":"true","paramKey":1689128688281},{"field":"成本类型","isCommonFilter":"true","paramKey":1689209725188}]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>1</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

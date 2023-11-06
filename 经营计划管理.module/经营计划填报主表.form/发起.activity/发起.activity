@@ -1,0 +1,163 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__LuLLHpk2JClWbNtLdHs">
+  <name>发起</name>
+  <parentId>__Lw68OhvJUhfXLcXwIys</parentId>
+  <type>13</type>
+  <onActionFlow></onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[(function () {
+  var receiveUsers = getItemValueAsString('接收部门');
+  if (receiveUsers == null || receiveUsers.trim().length() <= 0) {
+    return "'填报部门'必须填写";
+  }
+})()]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[(function () {
+ return isHideByImportAndState(false)
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>2</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__Lw68OhvJUhfXLcXwIys</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>1</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[#include "globalMethods";
+#include "集团经营部" 
+(function() {
+  var newFormName = '经营计划填报主表'
+  var roleName = subJyPersonInCharge; // 集团经营部
+  var flowId = '__oJLE2QmF9qxBpscWGKx'
+  var flowNodeId1 = '1684138590045'
+  var flowNodeId2 = '1681178950516'
+  var docProcess = getDocumentProcess(); 
+  var currentUser = getWebUser();
+  var receDeptStr = getItemValueAsString('接收部门')
+  var companyName = getItemValueAsString('公司名称')
+  var parentCompanyId = getItemValueAsString('公司')
+  var date = getItemValueAsDate('年份')
+  var deadline = getItemValueAsDate('截止时间')
+  var desc = getItemValueAsString('备注')
+  var files = getItemValueAsString('附件')
+  var dutyIndex = getItemValueAsString('填报内容')
+  var sendState = getItemValueAsString('下发分配状态')
+  
+  var newDocIds = []
+  var sendObj = {}
+  if(receDeptStr.length() > 0) {
+    // 获取指定角色下的所有用户对象集合
+    var roleid = getRoleIdByName(roleName);
+    var roleUsers = getUsersByRoleId(roleid)
+    for (var iter = roleUsers.iterator(); roleUsers != null && iter.hasNext();) {
+      var user = iter.next();
+      // 获取用户所属具体部门
+      var deptArr = getDeptByUserIdAndRoleName(user.getId(), roleid)
+      var item = deptArr.get(0)
+      var dataDeptId = item.get("departmentid")
+      var userDept = getCompanyTheDeptBelongto(dataDeptId).dept // 获取部门所属公司，即用户所属公司信息
+      // var userDept = getUserDep(user) // 获取
+      var deptId = String(userDept.getId())
+      if(receDeptStr.indexOf(deptId) >= 0) {
+        if(!sendObj[deptId]) {
+          // 获取用户所属具体部门
+          // var deptArr = getDeptByUserIdAndRoleName(user.getId(), roleid)
+          // var item = deptArr.get(0)
+          // var dataDeptId = item.get("departmentid")
+          // var dataDept = getDeptById(dataDeptId)
+          // println('dataDept-------------------'+dataDept.getName())
+
+          sendObj[deptId] = {
+            deptName: userDept.getName(),
+            user: user,
+            dataDeptId: dataDeptId
+          }
+        }
+      }
+    }
+  }
+
+  for(var deptId in sendObj) {
+    var item = sendObj[deptId]
+    var user = item.user
+    var userId = user.getId();
+
+    var insertData = [{
+      key: '公司',
+      value: deptId
+    }, {
+      key: '公司名称',
+      value: item.deptName
+    }, {
+      key: '下发用户',
+      value: userId
+    }, {
+      type: 'date',
+      key: '年份',
+      value: date
+    },  {
+      key: '上级公司ID',
+      value: parentCompanyId
+    }, {
+      type: 'date',
+      key: '截止时间',
+      value: deadline
+    }, {
+      key: '备注',
+      value: desc
+    }, {
+      key: '附件',
+      value: files
+    }, {
+      key: '填报内容',
+      value: dutyIndex
+    }, {
+      key: '下发分配状态',
+      value: sendState
+    }, {
+      key: '数据所属部门',
+      value: item.dataDeptId
+    }]
+    var newDoc = createNewFormData(newFormName, user, insertData)
+    var params = getParamsTable();
+    params.setParameter("_flowid", flowId);
+    docProcess.doStartFlowOrUpdate(newDoc, params, currentUser);
+    docProcess.doFlow(newDoc, params, flowNodeId1, [flowNodeId2], '80', '请按要求准时提交', currentUser);
+    newDocIds.push(newDoc.getId())
+  }
+
+  setSessionValue('newDocIdsStr', newDocIds.join(',')); 
+})()
+
+// (function(){
+//   initProcess("子公司经营管理部经办人","经营计划填报主表","__oJLE2QmF9qxBpscWGKx",
+//                     '1684138590045', '1681178950516', ["备注","附件"])
+// })()]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

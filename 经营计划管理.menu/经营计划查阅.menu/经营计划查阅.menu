@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__VYJU5pmy5QMyHASZg2y">
+  <name>经营计划查阅</name>
+  <parentId>__ng7ySCtA7odah0ZcXgG</parentId>
+  <description>经营计划查阅</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__ng7ySCtA7odah0ZcXgG</superior>
+  <linkName>经营计划查阅</linkName>
+  <linkType>01</linkType>
+  <moduleid>__jFu0Iao8HdByYKPzaHq</moduleid>
+  <actionContent><![CDATA[__p8qVjzQsjgBBkANp1bu]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>4</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

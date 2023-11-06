@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<pageWidget id="__dwVIs15uiA8yonkwmhI">
+  <name>交投集团各业务财务情况</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <type>chart</type>
+  <moduleid>__9m4zdkrmJKspDKrYqbc</moduleid>
+  <actionContent><![CDATA[__6VnUKIgD9UKnpP8GdT9]]></actionContent>
+  <width></width>
+  <height>400</height>
+  <authMode>0</authMode>
+  <authRolesId></authRolesId>
+  <authRolesName></authRolesName>
+  <tabTags><![CDATA[[]]]></tabTags>
+  <published>false</published>
+  <setup>true</setup>
+  <icon>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img", "imgUrl": "/uploads/lib/icon_menu_default.png"}</icon>
+  <icontype>img</icontype>
+  <carouselImg>[]</carouselImg>
+  <frequency>0</frequency>
+  <titleColor>#000</titleColor>
+  <iconShow>false</iconShow>
+  <widgetType>0</widgetType>
+  <orderno>5</orderno>
+  <countType>none</countType>
+  <isRefresh>true</isRefresh>
+  <wgtWidth>1X</wgtWidth>
+  <wgtHeight></wgtHeight>
+  <widgetGroupId></widgetGroupId>
+</pageWidget>

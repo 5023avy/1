@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleRepositoryVO id="__8FhGAldDeRjIkgXAtCE">
+  <name>formReset</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <content><![CDATA[.formwrapper .formTable-wrap .input-control,
+.formwrapper .formTable-wrap .textarea-control,
+.formwrapper .formTable-wrap .radio-control{
+  margin-bottom: 15px;
+}
+.el-input.is-disabled .el-input__inner {
+  color: #333;
+ cursor:auto;
+}
+
+.tab-container .tab-item{
+  margin-top: 15px;
+}
+
+.ordinary-wrap, .collapse-wrap {
+  width: 100%!important;
+  max-width: unset!important;
+}
+
+.common-dialog .el-dialog .el-dialog__header {
+  padding-top: 10px;
+}
+.el-dialog__headerbtn {
+  z-index: 99;
+ top: 10px;
+}
+.el-dialog .el-dialog__body .act-btns {
+  min-height: auto;
+}
+.el-dialog .el-dialog__body .act-btns .btn{
+ margin-bottom: 0;
+}
+.tab-control {
+  margin-top: 20px;
+}
+.el-tabs__header {
+  margin: 0;
+}
+
+.calctext-control,
+.calctext-control .content,
+.calctext-control .content .component-input-span {
+  width: 100%;
+}
+
+.el-tabs {
+margin-bottom: 20px;
+}
+
+.formwrapper .formTable-wrap .include-control .el-table {
+ height: 400px!important;
+}
+
+.formwrapper .formTable-wrap .tab-control .el-tabs__content .view-listview .el-table {
+}
+
+.formwrapper [title="保存草稿"] {
+  background: rgb(108, 158, 20)!important;
+  border-color: rgb(108, 158, 20)!important;
+}
+
+.main-chart .chart-wrap {
+  padding-top: 0;
+}]]></content>
+  <version>0</version>
+</styleRepositoryVO>

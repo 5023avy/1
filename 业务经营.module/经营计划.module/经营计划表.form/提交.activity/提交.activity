@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__iJZAH4NVi7usXWB9PS2">
+  <name>提交</name>
+  <parentId>__EGRvGCgDmXDNMn3m4w0</parentId>
+  <type>5</type>
+  <onActionFlow>__CwChApXiNZgmVFkCkcj</onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[#include "constant";
+#include "globalMethods";
+(function (){
+  var statelabel = getStateLabel();
+  if ( statelabel != "完成"){
+    return false;
+  }
+  var domainid = getDomainid();
+  var applicationId=getApplication();
+  var formid= getFormidByFormname('季度表')
+  var uuid = new Packages.cn.myapps.util.sequence.Sequence();
+  var year = getItemValueAsString('年份'); // 当前年份
+  var seasons = getSeasonsArr()// getItemValueAsString('季度'); // 当前季度
+  var company = getItemValueAsString('公司')
+
+  // 同步财务指标数据到季度表
+  var selectSql = "select t1.*, t2.item_公司,t2.item_年份 FROM tlk_财务指标 as t1 \
+  JOIN tlk_经营计划表 as t2 ON t1.parent = t2.id where YEAR(t2.item_年份)='" + year 
+  + "' and t2.item_公司 = '"+ company + "'";
+  println('selectSql-------------'+selectSql);
+  var query = queryBySQL(selectSql);
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      seasons.forEach(function (season) {
+        var sql = "insert into tlk_季度表 (item_公司,item_年份,item_季度,item_年度计划指标id,\
+          item_指标大类,item_指标分类, item_指标项目,item_指标序号,item_过去三年平均值,item_上年度实际值,\
+          item_年度预算值,item_年度战略目标值,item_年度经营目标值,id,domainid,applicationId,formid) values ('"
+          + item.getItemValueAsString('公司') + "','"
+          + item.getItemValueAsString('年份') + "','"
+          + season + "','" + item.getId()+ "','财务指标','" 
+          + item.getItemValueAsString('指标分类') + "','" 
+          + item.getItemValueAsString('指标项目') + "','"
+          + item.getItemValueAsString('指标序号') + "','"
+          + item.getItemValueAsString('过去三年平均值') + "','"
+          + item.getItemValueAsString('上年度实际值') + "','"
+          + item.getItemValueAsString('年度预算值') + "','"
+          + item.getItemValueAsString('年度战略目标值') + "','"
+          + item.getItemValueAsString('年度经营目标值') + "','"
+          + uuid.getSequence()+"--"+ formid + "','"
+          + domainid + "','"
+          + applicationId + "','" 
+          + formid + "')";
+          insertByDSName(dsName,sql);
+      })
+    } 
+  }
+  
+  // 同步经营业务指标数据到季度表
+  var selectSql = "select t1.*, t2.item_公司,t2.item_年份 FROM tlk_经营业务指标 as t1 JOIN tlk_经营计划表 as t2 ON t1.parent = t2.id";
+  var query = queryBySQL(selectSql)
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      seasons.forEach(function (season) {
+        var sql = "insert into tlk_季度表 (item_公司,item_年份,item_季度,item_年度计划指标id,\
+        item_指标大类,item_指标分类,item_版块细分,item_指标项目, item_指标序号, item_上年度实际值,item_年度战略目标值, \
+        item_年度经营目标值,id,domainid,applicationId,formid) values ('"
+        + item.getItemValueAsString('公司') + "','"
+        + item.getItemValueAsString('年份') + "','"
+        + season + "','" + item.getId()+ "','经营业务指标','" 
+        + item.getItemValueAsString('业务版块') + "','" 
+        + item.getItemValueAsString('版块细分') + "','"
+        + item.getItemValueAsString('业务指标') + "','"
+        + item.getItemValueAsString('指标序号') + "','"
+        + item.getItemValueAsString('上年度实际值') + "','"
+        + item.getItemValueAsString('年度战略目标值') + "','"
+        + item.getItemValueAsString('年度经营目标值') + "','"
+        + uuid.getSequence()+"--"+ formid + "','"
+        + domainid + "','"
+        + applicationId + "','" 
+        + formid + "')";
+        insertByDSName("数据源",sql);
+      })
+    } 
+  }
+  // 同步重点任务数据到季度表
+  var selectSql = "select t1.*, t2.item_公司,t2.item_年份 FROM tlk_重点任务 as t1 JOIN tlk_经营计划表 as t2 ON t1.parent = t2.id";
+  var query = queryBySQL(selectSql)
+  if(query!=null){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      seasons.forEach(function (season) {
+        var sql = "insert into tlk_季度表 (item_公司,item_年份,item_季度,item_年度计划指标id,\
+        item_指标大类,item_指标分类, item_指标序号,item_重点工作名称,\
+        item_任务性质,item_年度目标,item_节点计划, \
+        id,domainid,applicationId,formid) values ('"
+        + item.getItemValueAsString('公司') + "','"
+        + item.getItemValueAsString('年份') + "','"
+        + season + "','" + item.getId()+ "','重点任务','" 
+        + item.getItemValueAsString('业务版块') + "','" 
+        + item.getItemValueAsString('重点工作序号') + "','"
+        + item.getItemValueAsString('重点工作名称') + "','"
+        + item.getItemValueAsString('任务性质') + "','"
+        + item.getItemValueAsString('年度目标') + "','"
+        + item.getItemValueAsString('节点计划') + "','"
+        + uuid.getSequence()+"--"+ formid + "','"
+        + domainid + "','"
+        + applicationId + "','" 
+        + formid + "')";
+        insertByDSName(dsName,sql);
+      })
+    } 
+  }
+})()
+
+
+]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[(function () {
+ return isHideByImportAndState(true)
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>3</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__EGRvGCgDmXDNMn3m4w0</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__LU5E0Kqssm7x4tXTUPg">
+  <name>指标查询</name>
+  <parentId>__vHv47cjSW73vziKFclz</parentId>
+  <description></description>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="955cecfa-2278-33f9-36ce-8babef4107d4" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="2" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="指标项目名称" id="b583c869-bf14-2c3a-630c-de6c73edcba6" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" widthunit="px" style="display: inline-block; width: 100%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">指标项目名称</span>
+        </div><div class="baseCon fieldId" fieldid="b583c869-bf14-2c3a-630c-de6c73edcba6" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete"><i class="btn-delete" title="删除"></i></div></div><div class="placeholder d-none"></div></div>]]></templatecontext>
+  <type>256</type>
+  <styleId></styleId>
+  <showLog>false</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>1</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <layoutType>horizontal</layoutType>
+  <dataModelId></dataModelId>
+</form>

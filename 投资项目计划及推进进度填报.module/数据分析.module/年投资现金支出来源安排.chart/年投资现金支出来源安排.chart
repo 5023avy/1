@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__X4WMxXnzZ4fuXx1V90L">
+  <name>年投资现金支出来源安排</name>
+  <parentId>__alXZEMuMy1DOQG3wmxK</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var sql = "select * from tlk_投资项目计划填报表 where YEAR(item_年份)='2023'";
+  var query = queryBySQL(sql);
+  var cashSource = [
+    {
+      name:'自有资金', 
+    },
+    {
+      name: '权益性融资',
+      sumChilren: true,
+      children: [
+        {
+          name: '集团本部注资',
+          children: [
+            {
+              name: '财政资金',
+            },
+            {
+              name: '政策性金融工具',
+            }
+          ]
+        },
+        {
+          name: '其他股东注资', 
+        },
+        {
+          name: '其他权益类融资',
+        }
+      ]
+    },
+    {
+      name: '债务性融资',
+      sumChilren: true,
+      children: [
+        {
+          name: '银行贷款'
+        },
+         {
+          name: '政府专项债'
+        }, {
+          name: '集团内部占用资金'
+        }, {
+          name: '政策性金融工具'
+        }, {
+          name: '债券融资'
+        }, {
+          name: '融资租赁'
+        },
+      ]
+    }
+  ]
+  function setValue (target, source) {
+    if(target.sumChilren) {
+      return 0;
+    }
+    var data = +(source.getItemValueAsString(target.name + '金额'))
+    if(!target.value) {
+      target.value = 0
+    }
+    target.value = formatNumber(target.value + data)
+  }
+  function sumChildren(item) {
+    if(item.sumChilren) {
+      var sum = 0;
+      item.children.forEach(function(temp) {
+        sum += (+temp.value)
+      })
+      item.value = formatNumber(sum)
+    }
+  }
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      recursionArr(cashSource, item, setValue,sumChildren)
+    }
+  }
+  var option = {
+    height: 360,
+    grid: [
+      { right: '8%', top: '5%', height: '50%' },
+    ],
+    color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'],
+    tooltip: {
+      trigger: 'item',
+      // formatter: "{b}:  {c} 万元"
+   },
+    title: {
+      text: '年投资现金支出来源安排',
+      left: 'center'
+    },
+    series: [
+      {
+        radius: ['10%', '80%'],
+        center: ['50%', '35%'],
+        type: 'sunburst',
+        sort: undefined,
+        data: cashSource,
+        label: {
+          color: '#000',
+          textBorderColor: '#fff',
+          textBorderWidth: 2,
+        },
+      }
+    ]
+  };
+   return option;
+  })()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__bp4LRzsydMq2XPFweSE">
+  <name>集团经营管理部分管领导</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>jt-jy-charge-leader</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>168249845369500000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__OYwrjUEmmIaldVg2Ubl","resId":"__OYwrjUEmmIaldVg2Ubl","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__3jre89MJSbmLjWKxOXn","resId":"__3jre89MJSbmLjWKxOXn","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__3pQP7UOYMr4WJOdGNN4","resId":"__3pQP7UOYMr4WJOdGNN4","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__aluhbr6vY7J7Ghswo1o","resId":"__aluhbr6vY7J7Ghswo1o","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

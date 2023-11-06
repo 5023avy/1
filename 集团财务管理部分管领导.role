@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__AR2oLMpcqNDj87haguo">
+  <name>集团财务管理部分管领导</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>jt-cw-charge-leader</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>168249846669300000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__Sd6RIwTy8nExAKwjWql","resId":"__Sd6RIwTy8nExAKwjWql","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__6jh5uGE9RMfco3mgcVY","resId":"__6jh5uGE9RMfco3mgcVY","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__VzewJVcG2kHJ6cjojcy","resId":"__VzewJVcG2kHJ6cjojcy","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__pveY522TysVkDpHFloO","resId":"__pveY522TysVkDpHFloO","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__3jre89MJSbmLjWKxOXn","resId":"__3jre89MJSbmLjWKxOXn","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__EClIIvo9Jy2lseJFSLD","resId":"__EClIIvo9Jy2lseJFSLD","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

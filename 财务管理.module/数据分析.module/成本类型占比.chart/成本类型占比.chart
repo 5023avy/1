@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__xzw2tkihPHVKSM9KUqb">
+  <name>成本类型占比</name>
+  <parentId>__KwtCFs6N1jmrg65Gm1k</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+
+  var sql = "select * from tlk_业务财务情况表 where YEAR(item_日期)='2023' and statelabel in ('',null,'完成')";
+  var query = queryBySQL(sql); // FinanceBusiness 
+  var costObj = {}; // 成本
+
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var data = iter.next();
+      costType.forEach(function(value) {
+        if(!costObj[value]) {
+          costObj[value] = 0
+        }
+        costObj[value] += data.getItemValueAsDouble(value)
+      })
+    }
+  }
+  var cost = []
+  for(var key in costObj) {
+    var value = costObj[key]
+    cost.push({
+      name: key,
+      value: formatNumber(value)
+    })
+  }
+  var option = {
+    height: 400,
+     grid: [
+      { right: '8%', top: '10%', height: '40%' },
+    ],
+    title: {
+      text: '各项成本支出（万元）',
+      left: 'center'
+    },
+    tooltip: {
+      trigger: 'item'
+    },
+    legend: {
+      orient: 'vertical',
+      left: 'left'
+    },
+    series: [
+      {
+        type: 'pie',
+        radius: '35%',
+        center: ['50%', '40%'],
+        data: cost,
+  
+      }
+    ]
+  };
+  return option;
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

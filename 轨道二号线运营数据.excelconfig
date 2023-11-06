@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<impMappingConfigVO id="__9j9BCp8LNjUkY8ze2Ou">
+  <name>轨道二号线运营数据</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <xml><![CDATA[<cn.myapps.runtime.dynaform.dts.excelimport.ExcelMappingDiagram>
+<flowstatus>16</flowstatus>
+<flowpath></flowpath>
+<deleteMSG></deleteMSG>
+<width>2048</width>
+<height>1536</height>
+<needRollback>rollback</needRollback>
+<cn.myapps.runtime.dynaform.dts.excelimport.MasterSheet>
+<id>1689920743815</id>
+<name>轨道二号线运营数据</name>
+<scale>0</scale>
+<x>203</x>
+<y>72</y>
+<width>142</width>
+<height>34</height>
+<formName>轨道二号线运营数据</formName>
+</cn.myapps.runtime.dynaform.dts.excelimport.MasterSheet>
+<cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<id>1689920764502</id>
+<name>日期</name>
+<scale>0</scale>
+<x>104</x>
+<y>29</y>
+<width>142</width>
+<height>34</height>
+<formName></formName>
+<fieldName>日期</fieldName>
+<primaryKey>false</primaryKey>
+<valueScript>(function(){  
+  var value = getItemValueAsString(@quot;日期@quot;);   
+    
+  return value;  
+  })()</valueScript>
+<validateRule></validateRule>
+</cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<id>1689920764921</id>
+<name>备注</name>
+<scale>0</scale>
+<x>104</x>
+<y>175</y>
+<width>142</width>
+<height>34</height>
+<formName></formName>
+<fieldName>备注</fieldName>
+<primaryKey>false</primaryKey>
+<valueScript></valueScript>
+<validateRule></validateRule>
+</cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<id>1689920765158</id>
+<name>轨道二号线客流量（万人次）</name>
+<scale>0</scale>
+<x>402</x>
+<y>85</y>
+<width>142</width>
+<height>34</height>
+<formName></formName>
+<fieldName>轨道二号线客流量</fieldName>
+<primaryKey>false</primaryKey>
+<valueScript></valueScript>
+<validateRule></validateRule>
+</cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<state></state>
+<startnodeid>1689920764502</startnodeid>
+<endnodeid>1689920743815</endnodeid>
+<ispassed>false</ispassed>
+<isreturn>false</isreturn>
+<condition></condition>
+<pointstack>203;72;104;29</pointstack>
+<id>1689920803578</id>
+<name></name>
+</cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<state></state>
+<startnodeid>1689920765158</startnodeid>
+<endnodeid>1689920743815</endnodeid>
+<ispassed>false</ispassed>
+<isreturn>false</isreturn>
+<condition></condition>
+<pointstack>203;72;100;100</pointstack>
+<id>1689920805832</id>
+<name></name>
+</cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<state></state>
+<startnodeid>1689920764921</startnodeid>
+<endnodeid>1689920743815</endnodeid>
+<ispassed>false</ispassed>
+<isreturn>false</isreturn>
+<condition></condition>
+<pointstack>203;72;104;175</pointstack>
+<id>1689920807278</id>
+<name></name>
+</cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<id>1690340709132</id>
+<name>是否导入</name>
+<scale>0</scale>
+<x>310</x>
+<y>166</y>
+<width>142</width>
+<height>34</height>
+<formName></formName>
+<fieldName>是否导入</fieldName>
+<primaryKey>false</primaryKey>
+<valueScript>(function () {  
+    return @quot;是@quot;;  
+  })()</valueScript>
+<validateRule></validateRule>
+</cn.myapps.runtime.dynaform.dts.excelimport.Column>
+<cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+<state></state>
+<startnodeid>1690340709132</startnodeid>
+<endnodeid>1689920743815</endnodeid>
+<ispassed>false</ispassed>
+<isreturn>false</isreturn>
+<condition></condition>
+<pointstack>203;72;310;166</pointstack>
+<id>1690340721147</id>
+<name></name>
+</cn.myapps.runtime.dynaform.dts.excelimport.Relation>
+</cn.myapps.runtime.dynaform.dts.excelimport.ExcelMappingDiagram>
+]]></xml>
+  <templatePath>/uploads/exceltemplate/轨道二号线运营数据 .xlsx</templatePath>
+</impMappingConfigVO>

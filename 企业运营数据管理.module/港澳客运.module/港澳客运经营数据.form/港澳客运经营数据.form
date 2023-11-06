@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__Gsk7uU9mIKxtoCKSJyc">
+  <name>港澳客运经营数据</name>
+  <parentId>__2fyoNSCNTicikkcQ6Hy</parentId>
+  <description></description>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="1ad7d3d2-bd88-4c77-1a58-955765d44f8c" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="25" myselfrows="100" containerheight="100" borderwidth="1" containerwidth="500" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="日期" id="eea39543-fa3c-904d-2d11-1bba182d8fc1" draggable="true" scope="dataField" myselfrows="25" layout="horizontal" datepattern="YMD" limit="false" prev_name="" texttype="text" readonlyshowvalonly="false" refreshonchanged="false" calculateonrefresh="false" mobile="true" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editDataField" editmode="01" valuescript="(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;return@nbsp;getToday();&#13;})()" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="true" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;var@nbsp;doc@nbsp;=@nbsp;getCurrentDocument()&#13;	@nbsp;@nbsp;return@nbsp;!doc.getIstmp()&#13;})()" fieldtype="VALUE_TYPE_DATE" width="200" style="display: inline-block; width: 25%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">日期</span>
+        </div><div class="baseCon fieldId" fieldid="eea39543-fa3c-904d-2d11-1bba182d8fc1" style="height: 30px;width:90%">
+        <input type="text" class="base-field" readonly="" style="width:200px"><i class="publicFieldIcon dataFieldIcon" style="position:relative"></i></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="港澳客运客流量" id="e17c3e8d-c86d-c94d-64ad-e122a4141f12" draggable="true" scope="inputField" myselfrows="75" layout="horizontal" fieldtype="VALUE_TYPE_NUMBER" numberpattern="0" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="false" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="港澳客运客流量（人次）" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 75%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">港澳客运客流量</span>
+        </div><div class="baseCon fieldId" fieldid="e17c3e8d-c86d-c94d-64ad-e122a4141f12" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="备注" id="0a41484d-5399-84b4-c6e9-43060af6498d" draggable="true" scope="textareaField" myselfrows="100" layout="horizontal" textareaheight="" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editTextareaField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" fieldtype="VALUE_TYPE_TEXT" textareawidth="" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">备注</span>
+        </div><div class="baseCon fieldId" fieldid="0a41484d-5399-84b4-c6e9-43060af6498d" style="">
+        <textarea type="text" readonly="" class="base-field"></textarea></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="是否导入" id="2b3d9349-7dad-f83e-3c43-15fc6ef42737" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="hidden" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">是否导入</span>
+        </div><div class="baseCon fieldId" fieldid="2b3d9349-7dad-f83e-3c43-15fc6ef42737" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div></div>]]></templatecontext>
+  <type>1</type>
+  <styleId>__8FhGAldDeRjIkgXAtCE</styleId>
+  <showLog>true</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>1</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[#include "businessOperation"
+(function () {
+  return ifCanEditByImport()
+})()]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"港澳客运经营数据","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <layoutType>horizontal</layoutType>
+</form>

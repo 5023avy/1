@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__LvkAEzO40VMihFuqfg1">
+  <name>轨道二号线</name>
+  <parentId>__xTqKMsUMtf2Xnv2STyO</parentId>
+  <description>轨道二号线</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__xTqKMsUMtf2Xnv2STyO</superior>
+  <linkType>01</linkType>
+  <moduleid>__5kHentorA4NbgQB3leg</moduleid>
+  <actionContent><![CDATA[__KZTHPQcU6zZjn4hUtEM]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>1</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

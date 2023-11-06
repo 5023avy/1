@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__wnQD5XvyNLDy25knpxr">
+  <name>提交</name>
+  <parentId>__mHNWCzOldzpjIWij5Ce</parentId>
+  <type>5</type>
+  <onActionFlow>__oJLE2QmF9qxBpscWGKx</onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[// 同步指标数据到进度父表
+function SyncDataToSucheduleParent(formName, subTaskName, parentId, updateField) {
+  var process = getDocumentProcess(); 
+  var sql = "select * from tlk_" + formName + " where item_子任务指标='" + subTaskName  + "' and parent='" + parentId + "'";
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0) {
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var item_上级数据ID = item.getItemValueAsString('上级数据ID')
+      var sql2 = "select * from tlk_" + formName + " where item_子任务指标='" + subTaskName 
+      + "' and item_初始ID='" + item_上级数据ID + "'";
+      var parentData = findBySQL(sql2)
+      if(isNotNull(parentData)) {
+        updateField.forEach(function(fieldName) {
+          parentData.findItem(fieldName).setValue(item.getItemValueAsString(fieldName))
+        })
+        process.doUpdate(parentData)
+      }
+    }
+  }
+}
+(function () {
+  updateFlowUser();
+  var statelabel = getStateLabel();
+  if ( statelabel != "数据汇总"){
+    return false;
+  }
+  var doc = getCurrentDocument()
+  var docId = doc.getId()
+  var dataField = ['季度预估值','季度实际值','同比增长率', '年度经营目标累计完成率','上半年预测值',
+      '上半年实际值', '下半年预测值', '下半年实际值']
+  SyncFileAttachmentToParent()
+  SyncDataToSucheduleParent("数据指标进度", '财务指标', docId, dataField)
+  SyncDataToSucheduleParent("数据指标进度", '经营业务指标', docId, dataField)
+  var taskField = ['目前工作进展', '下一步计划', '存在问题']
+  SyncDataToSucheduleParent("任务指标进度", '重点任务', docId, taskField)
+})()]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[(function () {
+ return isHideByImportAndState(true)
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>3</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__mHNWCzOldzpjIWij5Ce</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>
