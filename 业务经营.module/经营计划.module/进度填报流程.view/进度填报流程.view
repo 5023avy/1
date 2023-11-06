@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__KV5ePUNYoiWjFPQLbVF">
+  <name>进度填报流程</name>
+  <parentId>__F7oqQ1ngSJSojLq44bL</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>5</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>10</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-05-09T08:16:58.000Z</lastModifyTime>
+  <readonly>false</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId></searchFormId>
+  <autoCompose>false</autoCompose>
+  <relatedForm>__OUKGBuBFoD3fdiTxe0z</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "process";
+(function(){
+  return getViewsData('季度落实情况')
+})()
+]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>1</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

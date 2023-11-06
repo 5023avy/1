@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__gpLfwuCItEmrPNkXKaJ">
+  <name>同步用户</name>
+  <parentId>__8Jxp5n7ZaaGqtdDM3XM</parentId>
+  <description>同步用户</description>
+  <multiLanguageLabel></multiLanguageLabel>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__8Jxp5n7ZaaGqtdDM3XM</superior>
+  <linkName></linkName>
+  <linkType>00</linkType>
+  <moduleid>__1kypgTi9UkeuXY2odQE</moduleid>
+  <directory></directory>
+  <actionContent><![CDATA[__H3BGhz3tf58TQqwOt3u]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

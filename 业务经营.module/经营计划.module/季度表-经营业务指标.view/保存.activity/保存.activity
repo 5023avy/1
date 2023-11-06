@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__lxMTpR6kh6jIP4ljafo">
+  <name>保存</name>
+  <parentId>__L3KAF4X53xMpDAE9XYN</parentId>
+  <type>34</type>
+  <onActionForm></onActionForm>
+  <onActionView></onActionView>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <hiddenScript><![CDATA[#include "globalMethods";
+#include "constant";
+(function () {
+  var user = getWebUser();
+  return !ifUserBelongsToRole(user, subJyPersonInCharge)
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>0</orderno>
+  <parentView>__L3KAF4X53xMpDAE9XYN</parentView>
+  <impmappingconfigid></impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

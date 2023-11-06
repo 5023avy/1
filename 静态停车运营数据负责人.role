@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__kz6Ybd86hlsjfdqG5X2">
+  <name>静态停车运营数据负责人</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>静态停车运营数据负责人</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>169035184469900000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__KndnJ33DpA6KMCQDurS","resId":"__KndnJ33DpA6KMCQDurS","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__qSUBwXgJkgu1l53t2wp","resId":"__qSUBwXgJkgu1l53t2wp","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

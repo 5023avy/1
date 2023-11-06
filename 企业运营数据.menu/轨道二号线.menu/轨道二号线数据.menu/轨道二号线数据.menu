@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__6z593yNifPAjIR2L5YI">
+  <name>轨道二号线数据</name>
+  <parentId>__Ewvenv9NR3N82fMSsox</parentId>
+  <description>轨道二号线数据</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <superior>__Ewvenv9NR3N82fMSsox</superior>
+  <linkName>轨道二号线数据</linkName>
+  <linkType>01</linkType>
+  <moduleid>__5kHentorA4NbgQB3leg</moduleid>
+  <actionContent><![CDATA[__uCS9hLFtwbRIArPKLB6]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+</resourceVO>

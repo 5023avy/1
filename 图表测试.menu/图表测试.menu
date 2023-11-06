@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__luUeE7FgssnycGbiF62">
+  <name>图表测试</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>图表测试</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <linkName>图表测试</linkName>
+  <linkType>00</linkType>
+  <moduleid>__PMMAGdh7XQSkW07Mjea</moduleid>
+  <actionContent><![CDATA[__tiwmExgu6NO4nDQLc3g]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>4</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

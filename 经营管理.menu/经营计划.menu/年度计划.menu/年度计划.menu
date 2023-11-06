@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__HDDvj5YYLsKl5NjR1OD">
+  <name>年度计划</name>
+  <parentId>__yOQo3eY9dmkci6oSrgx</parentId>
+  <description>年度计划</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p80_Record2.png","icontype":"img"}</ico>
+  <superior>__yOQo3eY9dmkci6oSrgx</superior>
+  <linkType>01</linkType>
+  <moduleid>__jFu0Iao8HdByYKPzaHq</moduleid>
+  <actionContent><![CDATA[__Q4jvwHOYemzq3CfswWj]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>1</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

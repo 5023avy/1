@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__phbO4Y8UlTfUiQGJIQW">
+  <name>共性指标库</name>
+  <parentId>__yOQo3eY9dmkci6oSrgx</parentId>
+  <description>共性指标库</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p65_query.png","icontype":"img"}</ico>
+  <superior>__yOQo3eY9dmkci6oSrgx</superior>
+  <linkType>01</linkType>
+  <moduleid>__vHv47cjSW73vziKFclz</moduleid>
+  <actionContent><![CDATA[__Xsc9gUfB2DTiPvYl3FX]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

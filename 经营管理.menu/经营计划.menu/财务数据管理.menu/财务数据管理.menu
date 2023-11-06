@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__3M5iSq8xoehUdAd2iR6">
+  <name>财务数据管理</name>
+  <parentId>__yOQo3eY9dmkci6oSrgx</parentId>
+  <description>财务数据管理</description>
+  <multiLanguageLabel></multiLanguageLabel>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__yOQo3eY9dmkci6oSrgx</superior>
+  <linkName></linkName>
+  <linkType>01</linkType>
+  <moduleid>__xSTWtxZDyTP1C8gCvum</moduleid>
+  <directory></directory>
+  <actionContent><![CDATA[__btlSvgmcRx8zsWSrd2z]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

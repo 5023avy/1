@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__QNHNOZ85IqfCN3ycdH8">
+  <name>信息变更</name>
+  <parentId>__YhwAbCC9oX2Ge5SQ1gy</parentId>
+  <description>信息变更</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p75_change.png","icontype":"img"}</ico>
+  <superior>__YhwAbCC9oX2Ge5SQ1gy</superior>
+  <linkType>00</linkType>
+  <moduleid>__w4cctsUvjX1wfcxQpxv</moduleid>
+  <actionContent><![CDATA[__vAtz1ePEN5SnSIsmy0j]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>1</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

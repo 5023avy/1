@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__YhwAbCC9oX2Ge5SQ1gy">
+  <name>物业资产</name>
+  <parentId>__KAlBCSUWFZE4tbGdwZo</parentId>
+  <description>物业资产</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/icon_administrators.png","icontype":"img"}</ico>
+  <superior>__KAlBCSUWFZE4tbGdwZo</superior>
+  <linkType>06</linkType>
+  <directory>protal</directory>
+  <actionContent><![CDATA[http://10.12.3.2/static/dist/index.html#/]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>1</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

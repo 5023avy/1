@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__XOhiYmsChqRUs2SmwXs">
+  <name>jtBusiness</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>集团业务</description>
+  <content><![CDATA[var managementIndex = ['财务指标', '经营业务指标', '重点任务']
+// 根据角色判断是否隐藏
+function isHideByRoleName(user,showRole){
+  var userid = user.getId();//获取当前用户ID
+  var roles = user.getRoles()  //获取指定用户的所属角色集合
+  var hide = true
+  for(var iter=roles.iterator();roles !=null && iter.hasNext();){
+    var role=iter.next();
+    var rolename=role.getName();
+    if(rolename == showRole) {
+    				   hide = false;
+       break;
+    }
+  }
+  return hide
+}
+
+// 根据公司显示指标
+function isHideByCompany(companylist,fieldName) {
+  fieldName = fieldName || '公司'
+		  var company = getItemValueAsString(fieldName)
+  var hide = true
+  var campanyId = companylist.map(function(item) {
+	  		  return getDeptIdByNameAndLevel(item,1)// 默认公司levels为1
+	  })
+  if(campanyId.join().indexOf(company)>-1) {
+    hide = false
+  }
+  return hide;
+}
+
+// 分别获取经营计划三个汇总表
+function getBusinessPlanCollect(type,order) {
+  var rdoc = getRelateDocument();
+  var company = rdoc.getItemValueAsString('公司');
+  var year = rdoc.getItemValueAsString('年份');
+  var sql = "select *,\
+  (case when item_季度='第一季度' then item_预估值 end) as item_第一季度预估值 \
+  from tlk_季度表 where item_指标大类='" + type + "' and item_公司='" 
+    + company + "' and YEAR(item_年份)='" + year + "' \
+  order by item_" + order;
+  return sql;
+}
+
+// 分别获取经营计划三个季度表
+function getBusinessPlanSchedule(type,order) {
+  var doc = getRelateDocument();
+	  var company = doc.getItemValueAsString("公司");
+  var year = doc.getItemValueAsString("年份");
+  var season = doc.getItemValueAsString("季度");
+  var sql = "select * from tlk_季度表 where item_公司='" + company 
+  + "' and YEAR(item_年份)='" + year 
+  + "' and item_季度='" + season 
+  + "' and item_指标大类='" + type + "'" 
+  + " order by item_" + order
+  return sql;
+}
+
+/**
+ * 根据已选指标项目匹配所属字段的数据
+ * @param {String} origin 
+ * @param {string} fieldName 
+ * @returns 
+ */
+function getIndexData(origin,fieldName){
+  var doc = getCurrentDocument();
+  // 字段数据不为空，直接返回数据
+  // var attrValue = doc.getItemValueAsString(fieldName)
+  // if(attrValue != null && attrValue != '') {
+  //   return attrValue
+  // }
+  // 否则，默认匹配对应数据
+  var projectName = doc.getItemValueAsString(origin);
+  var itemName = "item_" + origin
+  var sql = "select * from tlk_指标定义 where " +  itemName + "='" +projectName+"'";
+  var data = findBySQL(sql);
+  if(data != null){
+    var indexData = data.getItemValueAsString(fieldName);
+  }
+  return indexData;
+}
+
+/**
+ * 过滤投资计划列表数据
+ * @param formName 表单名称  
+ * @returns 
+ */
+function getInvestmentPlan(formName, search) {
+  var sql = "select * from tlk_"+ formName +" where 1=1 ";
+  // 视图列表，根据筛选条件
+  if(ifViewSourceFromMenu()) { // globalMethods
+    sql = getViewsData(formName, search) // process
+  } else {
+    // 表单子表，根据父表条件筛选列表
+    var doc = getRelateDocument();
+    var company = doc.getItemValueAsString("公司");
+    var year = doc.getItemValueAsString("年份");
+    sql = "select * from tlk_"+ formName +" where item_公司='" + company
+    + "' and YEAR(item_年份)='" + year + "'"
+  }
+  return sql;
+}
+]]></content>
+  <version>0</version>
+</repositoryVO>

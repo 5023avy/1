@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__I4pZDthTVKSpFpmlSUB">
+  <name>营业收入季度值</name>
+  <parentId>__PMMAGdh7XQSkW07Mjea</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function(){     
+  var user = getWebUser();
+  var dept = getUserDep(user) // globalMethods;
+  var depid = dept.did;
+  var sql = "select t1.*, t2.STATELABEL as T2_STATELABEL from tlk_季度表 as t1 JOIN tlk_季度落实情况 as t2 \
+    ON t1.item_公司 = t2.item_公司 AND t1.item_年份 = t2.item_年份 \
+    AND t1.item_季度 = t2.item_季度 where t2.STATELABEL in ('', '完成') and t1.item_公司='" 
+    + depid + "' and YEAR(t1.item_年份)='2023' and t1.item_指标大类='财务指标'";
+  var field = '营业收入';
+  var query = queryBySQL(sql);
+  var seasonData = [0,0,0,0]
+  if(query!=null){
+    var iter  = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var item_指标项目 = item.getItemValueAsString('指标项目')
+      var item_季度 = item.getItemValueAsString('季度')
+      if(item_指标项目 == field) {
+        var seasonTemp = item.getItemValueAsString('季度预估值')
+        getSeasonsArr().forEach(function(season, index) {
+          if(season == item_季度 && !!seasonTemp) {
+            seasonData[index] = +item.getItemValueAsString('季度预估值')
+          }
+        })
+      }
+    }
+  }
+  var option = {
+    height: 350,
+     grid: [
+      { right: '8%', top: '10%', height: '35%' },
+    ],
+    title: {
+      text:'营业收入季度值'
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'none'
+      },
+      formatter: "function (params) {\
+        return params[0].name + ': ' + params[0].value;\
+      }"
+    },
+    legend: [],
+    xAxis: {
+      data: ['第一季度', '第二季度','第三季度','第四季度'],
+      axisTick: { show: false },
+      axisLine: { show: false },
+      axisLabel: {
+        color: '#4b97f1'
+      }
+    },
+    yAxis: {
+      type: 'value',
+      axisLabel: {
+        formatter: '{value} 万元'
+      }
+    },
+    color: ['#4b97f1'],
+    series: [
+      {
+        name: 'hill',
+        type: 'pictorialBar',
+        barCategoryGap: '-30%',
+        symbol: 'path://M0,10 L10,10 C5.5,10 5.5,5 5,0 C4.5,5 4.5,10 0,10 z',
+        itemStyle: {
+          opacity: 0.5
+        },
+        emphasis: {
+          itemStyle: {
+            opacity: 1
+          }
+        },
+        data: seasonData,
+        z: 10
+      }
+    ]
+  };
+            
+  return option;      
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__yQWaKoAy7nD02MgHDki">
+  <name>经营计划进度跟踪查阅</name>
+  <parentId>__jFu0Iao8HdByYKPzaHq</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>10</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>30</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-08-02T02:37:12.000+08:00</lastModifyTime>
+  <readonly>false</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId>__9T7VGBymcDQzDFNFDx2</searchFormId>
+  <autoCompose>false</autoCompose>
+  <relatedForm>__mHNWCzOldzpjIWij5Ce</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "process";
+(function () {
+  var formName = '经营计划进度跟踪'
+  return getViewsData(formName, [])
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[{"field":"公司名称","operator":"LIKE","type":"03","ipField":"","numField":0,"daField":"","sfField":"公司名称","syField":"","match":"公司名称"},{"field":"公司名称","operator":"IN","type":"03","ipField":"","numField":0,"daField":"","sfField":"是否筛选集团主流程","syField":"","match":"是否筛选集团主流程"}]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[{"field":"公司名称","isCommonFilter":"true","paramKey":1697000159789},{"field":"是否筛选集团主流程","isCommonFilter":"true","paramKey":1697180722237}]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>293</openType>
+  <editMode>00</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

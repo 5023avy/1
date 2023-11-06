@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__ssRSbAnmbbMgsYLqFz8">
+  <name>删除</name>
+  <parentId>__Qagc06ovEaeavufQwRi</parentId>
+  <type>3</type>
+  <onActionForm></onActionForm>
+  <onActionView></onActionView>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[// (function () {
+//   var sid = getParameter("_selects");  
+//   var delDocIdArr = sid.split(";")
+//   var depts = []
+//   delDocIdArr.forEach(function(docId) {
+//     var doc = findDocument(docId);      
+//     var deptId = doc.getItemValueAsString('公司')
+//     var year = doc.getItemValueAsString('年份')
+//     depts.push(deptId + "," + year)
+//   })
+//   setSessionValue('delDepts', depts.join(";")); 
+// })()
+]]></beforeActionScript>
+  <afterActionScript><![CDATA[
+// #include "constant";
+// (function () {
+//   var delDepts = getSessionValue('delDepts')
+//   var delDeptArr = delDepts.split(";"); 
+//   delDeptArr.forEach(function(str) {
+//     var deptyear = str.split(",")
+//     var deptid = deptyear[0]
+//     var year = deptyear[1]
+//     var sql = "delete from tlk_财务指标01 where item_关联公司列表 like '%" 
+//     + deptid + "%' and YEAR(item_年份)='" + year +"'";
+//     deleteByDSName(dsName, sql)
+//     var sql = "delete from tlk_重点任务01 where item_关联公司列表 like '%" 
+//     + deptid + "%' and YEAR(item_年份)='" + year +"'";
+//     deleteByDSName(dsName, sql)
+//     var sql = "delete from tlk_经营业务指标01 where item_关联公司列表 like '%" 
+//     + deptid + "%' and YEAR(item_年份)='" + year +"'";
+//     deleteByDSName(dsName, sql)
+//   })
+// })()
+]]></afterActionScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>1</orderno>
+  <parentView>__Qagc06ovEaeavufQwRi</parentView>
+  <impmappingconfigid></impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

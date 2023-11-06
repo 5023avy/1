@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__45zCuPg9QIfnAoA27DS">
+  <name>运营管理</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>运营管理</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p124_datastatistics.png","icontype":"img"}</ico>
+  <linkType></linkType>
+  <actionContent><![CDATA[__X32x0kd1gNIwVZPmRdK]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>2</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

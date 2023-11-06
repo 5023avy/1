@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__SoLfXAtuXPoopTJO5kp">
+  <name>导入Excel</name>
+  <parentId>__3gfewsuCz38YqRZevMH</parentId>
+  <type>27</type>
+  <onActionForm></onActionForm>
+  <onActionView></onActionView>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[/*(function () {
+  var user = getWebUser();
+  var doc = getCurrentDocument();
+  println("doc==="+doc);
+  var dept = getUserDep(user) // 获取用户所属公司信息
+  var deptname = dept.depName
+  var deptid = dept.did
+  println("deptname==="+deptname);
+  println("deptid==="+deptid);
+  //var value1 = getItemValueAsString('公司')
+  //var value2 = getItemValueAsString('公司名称')
+  doc.findItem("公司").setValue(deptid); 
+  process.doUpdate(doc);
+  doc.findItem("公司名称").setValue(deptname); 
+  process.doUpdate(doc);
+})()*/]]></afterActionScript>
+  <hiddenScript><![CDATA[true]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>1</orderno>
+  <parentView>__3gfewsuCz38YqRZevMH</parentView>
+  <impmappingconfigid>__trRi40deg1d1J6pj2eU</impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

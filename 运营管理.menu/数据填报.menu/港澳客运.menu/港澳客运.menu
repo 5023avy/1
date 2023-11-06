@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__0c2sjH1Na2nYL8mXzVb">
+  <name>港澳客运</name>
+  <parentId>__xTqKMsUMtf2Xnv2STyO</parentId>
+  <description>港澳客运</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__xTqKMsUMtf2Xnv2STyO</superior>
+  <linkType>01</linkType>
+  <moduleid>__2fyoNSCNTicikkcQ6Hy</moduleid>
+  <actionContent><![CDATA[__XjAHPKEvEFSEyshkXqk]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>3</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

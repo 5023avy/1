@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__aBkKZppprC6y93Ns0SS">
+  <name>信息总览</name>
+  <parentId>__etAxo5UebTVCyUS4hzk</parentId>
+  <description>信息总览</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/icondepartmen.png","icontype":"img"}</ico>
+  <superior>__etAxo5UebTVCyUS4hzk</superior>
+  <linkType>00</linkType>
+  <moduleid>__mJfQDLm8NzwJoki8LOL</moduleid>
+  <actionContent><![CDATA[__cqu5flKjT8E35djAmXY]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>
