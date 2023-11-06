@@ -1,0 +1,422 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__XYgy2WIqmZFxfMI5if3">
+  <name>发起</name>
+  <parentId>__mHNWCzOldzpjIWij5Ce</parentId>
+  <type>13</type>
+  <onActionFlow></onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[(function () {
+  var receiveUsers = getItemValueAsString('接收部门');
+  if (receiveUsers == null || receiveUsers.trim().length() <= 0) {
+    return "'填报部门'必须填写";
+  }
+})()]]></beforeActionScript>
+  <afterActionScript><![CDATA[#include "constant";
+#include "globalMethods";
+#include "baselibrary";
+/**
+ * 财务指标：从经营计划表中同步到进度跟踪表中
+ * @param {*} subTaskName 
+ * @param {*} sourceForm 
+ * @param {*} companyFilter 
+ * @param {*} year 
+ * @param {*} season 
+ * @param {*} user 
+ * @param {*} parentId 
+ */
+function SyncCaiWuFromPlan (subTaskName, sourceForm, sourceParentId, targetParentId, season, user) {
+
+  var targetForm = "数据指标进度"
+  var subSql = "select * from tlk_" + sourceForm + " where parent='" + sourceParentId + "'"
+  var subQuery = queryBySQL(subSql);
+  var subIter = subQuery.iterator();
+  while(subIter != null && subIter.hasNext()){
+    var subItem = subIter.next();
+    var item_初始ID = getUniqueId();
+    var dataArr = [{
+      type: 'parent',
+      value: targetParentId,
+    },{
+      key: '季度',
+      value: season
+    },{
+      key: '子任务指标',
+      value: subTaskName
+    },{
+      type: 'date',
+      key: '年份',
+      value: subItem.getItemValueAsDate('年份')
+    },{
+      key: '所属公司',
+      value: subItem.getItemValueAsString('所属公司')
+    },{
+      key: '所属公司名称',
+      value: subItem.getItemValueAsString('所属公司名称')
+    },{
+      key: '公司',
+      value: subItem.getItemValueAsString('公司')
+    },{
+      key: '公司名称',
+      value: subItem.getItemValueAsString('公司名称')
+    },{
+      type: 'int',
+      key: '序号',
+      value: subItem.getItemValueAsInt('序号')
+    },{
+      type: 'int',
+      key: '全局序号',
+      value: subItem.getItemValueAsInt('全局序号')
+    },{
+      key: '指标分类',
+      value: subItem.getItemValueAsString('指标分类')
+    },{
+      key: '指标项目',
+      value: subItem.getItemValueAsString('指标项目')
+    },{
+      key: '年度经营目标值',
+      value: subItem.getItemValueAsString('年度经营目标值')
+    },{
+      key: '关联计划表子指标的ID',
+      value: subItem.getId()
+    }, {
+      key: '初始ID',
+      value: item_初始ID
+    }]
+    createNewFormData(targetForm, user, dataArr)
+  }
+}
+
+function SyncJingYingYeWuFromPlan (subTaskName, sourceForm, sourceParentId, targetParentId, season, user) {
+  var targetForm = "数据指标进度"
+  var subSql = "select * from tlk_" + sourceForm + " where parent='" + sourceParentId + "'"
+  var subQuery = queryBySQL(subSql);
+  var subIter = subQuery.iterator();
+  while(subIter != null && subIter.hasNext()){
+    var subItem = subIter.next();
+    var item_初始ID = getUniqueId();
+    var dataArr = [{
+      type: 'parent',
+      value: targetParentId,
+    },{
+      key: '季度',
+      value: season
+    },{
+      key: '子任务指标',
+      value: subTaskName
+    },{
+      type: 'date',
+      key: '年份',
+      value: subItem.getItemValueAsDate('年份')
+    },{
+      key: '所属公司',
+      value: subItem.getItemValueAsString('所属公司')
+    },{
+      key: '所属公司名称',
+      value: subItem.getItemValueAsString('所属公司名称')
+    },{
+      key: '公司',
+      value: subItem.getItemValueAsString('公司')
+    },{
+      key: '公司名称',
+      value: subItem.getItemValueAsString('公司名称')
+    },{
+      type: 'int',
+      key: '序号',
+      value: subItem.getItemValueAsInt('序号')
+    },{
+      type: 'int',
+      key: '全局序号',
+      value: subItem.getItemValueAsInt('全局序号')
+    },{
+      key: '指标分类',
+      value: subItem.getItemValueAsString('业务版块')
+    },{
+      key: '子任务版块',
+      value: subItem.getItemValueAsString('子任务版块')
+    },{
+      key: '指标项目',
+      value: subItem.getItemValueAsString('业务指标')
+    },{
+      key: '年度经营目标值',
+      value: subItem.getItemValueAsString('年度经营目标值')
+    },{
+      key: '关联计划表子指标的ID',
+      value: subItem.getId()
+    }, {
+      key: '初始ID',
+      value: item_初始ID
+    }]
+    createNewFormData(targetForm, user, dataArr) 
+  }
+}
+
+/**
+ * 重点任务：从经营计划表中同步到进度跟踪表中
+ * @param {*} subTaskName 
+ * @param {*} sourceForm 
+ * @param {*} companyFilter 
+ * @param {*} year 
+ * @param {*} season 
+ * @param {*} user 
+ * @param {*} parentId 
+ */
+function SyncZhongDianFromPlan (subTaskName, sourceForm, sourceParentId, targetParentId, season, user) {                            
+
+  var targetForm = "任务指标进度"
+  var subIndex = "select * from tlk_" + sourceForm + " where parent='" + sourceParentId + "'"
+  var subQuery = queryBySQL(subIndex);
+  var subIter = subQuery.iterator();
+  while(subIter != null && subIter.hasNext()){
+    var subItem = subIter.next();
+    var item_初始ID = getUniqueId();
+    var dataArr = [{
+      type: 'parent',
+      value: targetParentId,
+    },{
+      key: '季度',
+      value: season
+    },{
+      key: '子任务指标',
+      value: subTaskName
+    },{
+      type: 'date',
+      key: '年份',
+      value: subItem.getItemValueAsDate('年份')
+    },{
+      key: '所属公司',
+      value: subItem.getItemValueAsString('所属公司')
+    },{
+      key: '所属公司名称',
+      value: subItem.getItemValueAsString('所属公司名称')
+    },{
+      key: '公司',
+      value: subItem.getItemValueAsString('公司')
+    },{
+      key: '公司名称',
+      value: subItem.getItemValueAsString('公司名称')
+    },{
+      type: 'int',
+      key: '序号',
+      value: subItem.getItemValueAsInt('序号')
+    },{
+      type: 'int',
+      key: '全局序号',
+      value: subItem.getItemValueAsInt('全局序号')
+    },{
+      key: '业务版块',
+      value: subItem.getItemValueAsString('业务版块')
+    },{
+      key: '其他版块',
+      value: subItem.getItemValueAsString('其他版块')
+    },{
+      key: '重点工作名称',
+      value: subItem.getItemValueAsString('重点工作名称')
+    },{
+      key: '年度目标',
+      value: subItem.getItemValueAsString('年度目标')
+    },{
+      key: '节点计划',
+      value: subItem.getItemValueAsString('节点计划')
+    },{
+      key: '关联计划表子指标的ID',
+      value: subItem.getId()
+    }, {
+      key: '初始ID',
+      value: item_初始ID
+    }]
+    createNewFormData(targetForm, user, dataArr) 
+  }
+}
+
+(function (){
+  var currentUser = getWebUser();
+
+  var formName = "经营计划进度跟踪"
+  var formName2 = "经营计划填报主表"
+  // var seasons = getSeasonsArr()
+  // 获取刚创建生成的数据
+  var newDocIdsStr = getSessionValue('newDocIdsStr')
+  var newDocId = newDocIdsStr.split(",")
+  var idstr = []
+  newDocId.forEach(function(value) {
+    idstr.push("'" + value + "'")
+  })
+  var sql = "select * from tlk_" + formName + " where id in (" + idstr.join(',') + ")"
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var itemId = item.getId()
+      var year = item.getItemValueAsString('年份'); // 当前年份
+      var companyId = item.getItemValueAsString('公司')
+      var season = item.getItemValueAsString('季度')
+      // 读取当前公司在计划表中的数据
+      var sql2 = "select * from tlk_" + formName2 + " where item_公司='" + companyId 
+      + "' and YEAR(item_年份)='" + year + "' order by CREATED DESC"
+      var relaItem = findBySQL(sql2)
+      var relaItemId = relaItem.getId()
+
+      SyncCaiWuFromPlan ("财务指标", "财务指标01", relaItemId, itemId, season, currentUser);
+      SyncJingYingYeWuFromPlan ("经营业务指标", "经营业务指标01", relaItemId, itemId, season, currentUser)
+      SyncZhongDianFromPlan ("重点任务", "重点任务01", relaItemId, itemId, season, currentUser)
+    }
+  }
+  removeSessionValue('newDocIdsStr')
+})()
+
+
+]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[(function () {
+ return isHideByImportAndState(false)
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>3</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__mHNWCzOldzpjIWij5Ce</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>1</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[#include "globalMethods";
+#include "集团经营部" 
+(function() {
+  var newFormName = '经营计划进度跟踪'
+  var roleName = subJyPersonInCharge; // 集团经营部
+  var flowId = '__oJLE2QmF9qxBpscWGKx'
+  var flowNodeId1 = '1684138590045'
+  var flowNodeId2 = '1681178950516'
+  var docProcess = getDocumentProcess(); 
+  var currentUser = getWebUser();
+  var receDeptStr = getItemValueAsString('接收部门')
+  var companyName = getItemValueAsString('公司名称')
+  var parentCompanyId = getItemValueAsString('公司')
+  var date = getItemValueAsDate('年份')
+  var deadline = getItemValueAsDate('截止时间')
+  var desc = getItemValueAsString('备注')
+  var files = getItemValueAsString('附件')
+  var dutyIndex = getItemValueAsString('填报内容')
+  var sendState = getItemValueAsString('下发分配状态')
+  var season = getItemValueAsString('季度')
+  
+  var newDocIds = []
+  var sendObj = {}
+  if(receDeptStr.length() > 0) {
+    // 获取指定角色下的所有用户对象集合
+    var roleid = getRoleIdByName(roleName);
+    var roleUsers = getUsersByRoleId(roleid)
+    for (var iter = roleUsers.iterator(); roleUsers != null && iter.hasNext();) {
+      var user = iter.next();
+       // 获取用户所属具体部门
+      var deptArr = getDeptByUserIdAndRoleName(user.getId(), roleid)
+      var item = deptArr.get(0)
+      var dataDeptId = item.get("departmentid")
+      var userDept = getCompanyTheDeptBelongto(dataDeptId).dept // 获取部门所属公司，即用户所属公司信息
+      // var userDept = getUserDep(user) // 获取
+      var deptId = String(userDept.getId())
+      if(receDeptStr.indexOf(deptId) >= 0) {
+        // 获取用户所属具体部门
+        // var deptArr = getDeptByUserIdAndRoleName(user.getId(), roleid)
+        // var item = deptArr.get(0)
+        // var dataDeptId = item.get("departmentid")
+
+        if(!sendObj[deptId]) {
+          sendObj[deptId] = {
+            deptName: userDept.getName(),
+            user: user,
+            dataDeptId: dataDeptId
+          }
+        }
+      }
+    }
+  }
+
+
+  for(var deptId in sendObj) {
+    var item = sendObj[deptId]
+    var user = item.user
+    var userId = user.getId();
+
+    var insertData = [{
+      key: '公司',
+      value: deptId
+    }, {
+      key: '公司名称',
+      value: item.deptName
+    }, {
+      key: '下发用户',
+      value: userId
+    }, {
+      type: 'date',
+      key: '年份',
+      value: date
+    }, {
+      key: '季度',
+      value: season
+    },  {
+      key: '上级公司ID',
+      value: parentCompanyId
+    }, {
+      type: 'date',
+      key: '截止时间',
+      value: deadline
+    }, {
+      key: '备注',
+      value: desc
+    }, {
+      key: '附件',
+      value: files
+    }, {
+      key: '填报内容',
+      value: dutyIndex
+    }, {
+      key: '下发分配状态',
+      value: sendState
+    }, {
+      key: '数据所属部门',
+      value: item.dataDeptId
+    }]
+    var newDoc = createNewFormData(newFormName, user, insertData)
+    var params = getParamsTable();
+    params.setParameter("_flowid", flowId);
+    docProcess.doStartFlowOrUpdate(newDoc, params, currentUser);
+    docProcess.doFlow(newDoc, params, flowNodeId1, [flowNodeId2], '86', '请按要求准时提交', currentUser);
+    newDocIds.push(newDoc.getId())
+  }
+
+  setSessionValue('newDocIdsStr', newDocIds.join(',')); 
+})()
+
+// #include "process";
+// (function(){
+// 	  initProcess("子公司经营管理部经办人","经营计划进度跟踪","__oJLE2QmF9qxBpscWGKx",
+//                       '1684138590045', '1681178950516', ["季度","备注","附件"],true)
+// })()]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

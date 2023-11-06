@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__lelGxj2KjBNkPkhmFZY">
+  <name>组织架构图</name>
+  <parentId>__0BKUkNQndhlpKaWAQqE</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var data = {
+    name: '交投集团',
+    children: [
+      {
+        name: '市轨道公司',
+        children: [
+        ]
+      },
+      {
+        name: '市路桥公司',
+        children: [
+          {
+            name: '经纬公司',
+            
+          } ,{
+            name: '常虎分公司',
+          } ,{
+            name: '交投石化公司',
+          },{
+            name: '湾区装配公司',
+          }
+           
+        ]
+      },
+      {
+        name: '东莞控股公司',
+        children: [
+          {
+            name: '轨道一号线公司',
+           
+          } ,{
+            name: '莞深高速分公司',
+            
+          } ,{
+           
+            name: '融通宏通公司',
+            
+          } ,{
+            
+            name: '金信公司',
+          } ,{
+            
+            name: '东能公司'
+          } 
+        ]
+      },
+      {
+        name: '东莞巴士公司',
+        children: [
+          {
+            name: '东部分公司',
+           
+          } ,{
+            name: '滨海湾公共交通公司',
+            
+          } ,{
+           
+            name: '松山湖公共交通公司',
+            
+          } ,{
+            
+            name: '城巴公司',
+          } ,{
+            
+            name: '小巴公司'
+          } ,{
+            
+            name: '鸿运公司'
+          } 
+        ]
+      },
+      {
+        name: '东莞通公司',
+      },
+      {
+        name: '东莞控股公司',
+      },
+      {
+        name: '交通实业公司',
+      },
+      {
+        name: '城轨公司',
+      },
+      {
+        name: '数汇公司',
+      },
+      {
+        name: '虎门港澳客运公司',
+      },
+      {
+        name: '数据互联公司',
+      },
+      {
+        name: '交投置业公司',
+      },
+      {
+        name: '轨道二号线三期公司',
+      }
+        
+    ]
+  };
+  var option = {
+    series: [
+      {
+        type: 'tree',
+        id: 0,
+        name: 'tree1',
+        data: [data],
+        top: '5%',
+        left: '8%',
+        bottom: '50%',
+        right: '5%',
+        symbolSize: 6,
+        orient: 'vertical',
+        edgeForkPosition: '50%',
+        initialTreeDepth: 4,
+        lineStyle: {
+          width: 1
+        },
+        label: {
+          position: 'top',
+          distance: 10,
+          rotate: 0,
+          verticalAlign: 'middle',
+          align: 'center',
+          fontSize: 12,
+          borderRadius: 4,
+          backgroundColor: '#C0C1FF',
+          padding: [7,10,3,10],
+          color: '#fff'
+        },
+         leaves: {
+          label: {
+            position: 'bottom',
+            rotate: -90,
+            distance: 0,
+            verticalAlign: 'center',
+            align: 'bottom',
+            color: '#7587CB',
+            backgroundColor: '#F0F3FF'
+          }
+        },
+        emphasis: {
+          focus: 'descendant'
+        },
+        expandAndCollapse: true,
+        animationDuration: 550,
+        animationDurationUpdate: 750
+      }
+    ]
+  };
+    return option;
+  })()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__W7gI7IMBOm5ZhxqZiZo">
+  <name>汇总表-重点任务</name>
+  <parentId>__F7oqQ1ngSJSojLq44bL</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>false</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>12</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>false</pagination>
+  <pageLines>5</pageLines>
+  <showTotalRow>false</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <readonly>true</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId></searchFormId>
+  <autoCompose>false</autoCompose>
+  <relatedForm></relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[(function () {
+  // return getBusinessPlanCollect('重点任务','重点工作序号')
+  var type = '重点任务';
+  var order = '重点工作序号';
+  var rdoc = getRelateDocument();
+  var company = rdoc.getItemValueAsString('公司');
+  var year = rdoc.getItemValueAsString('年份');
+  var tempSql = '' 
+  getSeasonsArr().map(function(value){
+    tempSql = tempSql + "MAX(case when item_季度='"+ value +"' then item_目前工作进展 end) as item_"+ value +"工作进展,"
+    tempSql = tempSql + "MAX(case when item_季度='"+ value +"' then item_下一步计划 end) as item_"+ value +"下一步计划,"
+  })
+
+  var sql = "select *, " +
+  tempSql.slice(0, -1) + 
+  " from tlk_季度表 where item_指标大类='" + type + "' and item_公司='" 
+  + company + "' and YEAR(item_年份)='" + year + "' group by item_指标分类,item_重点工作名称 \
+  order by item_" + order;
+  return sql;
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>1</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

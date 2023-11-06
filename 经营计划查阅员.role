@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__dijaFhyhGfcyBGDdZNS">
+  <name>经营计划查阅员</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>经营计划查阅</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>169699983607200000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__ng7ySCtA7odah0ZcXgG","resId":"__ng7ySCtA7odah0ZcXgG","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__VYJU5pmy5QMyHASZg2y","resId":"__VYJU5pmy5QMyHASZg2y","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__pH5YIrcbYBWKROTkNsj","resId":"__pH5YIrcbYBWKROTkNsj","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__Iq4F0dOWP3Zx4aHSFCh","resId":"__Iq4F0dOWP3Zx4aHSFCh","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

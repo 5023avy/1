@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleRepositoryVO id="__8ndla4BeaUw9jE65cp4">
+  <name>经营计划汇总表</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <content><![CDATA[.el-table .cell.el-tooltip {
+  white-space: normal;
+}
+.el-table th div {
+  white-space: normal;
+}
+.delegate .view-listview .listview-container-other .el-table th .cell .new-header-box .header-title, 
+.delegate .view-listview .listview-container .el-table th .cell .new-header-box .header-title{
+  white-space: normal;
+}
+.formwrapper .formTable-wrap .tab-control .collapse-wrap .tab-item{
+  margin-top: 20px;
+ margin-bottom: 0px;
+}
+
+
+]]></content>
+  <version>0</version>
+</styleRepositoryVO>

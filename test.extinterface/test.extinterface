@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ExtInterface id="__8zfIFQAvbreB4JzSbCx">
+  <name>test</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <type>restful</type>
+  <requestType>GET</requestType>
+  <requestScheme>HTTP</requestScheme>
+  <requestUrl>test</requestUrl>
+  <requestParams>[{"name":"name","type":"string","comment":"","example":""}]</requestParams>
+  <definitions>[]</definitions>
+  <encode>UTF-8</encode>
+  <exampleCode><![CDATA[(function(){
+//请求地址
+var url = "test?name=";
+//请求接口
+var result = $HTTPREQUESTUTIL.get(url, null);
+})()]]></exampleCode>
+  <wsdl><![CDATA[]]></wsdl>
+  <jarPath></jarPath>
+</ExtInterface>

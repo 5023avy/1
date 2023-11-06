@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__WV6wFtfDMLkivgiwcad">
+  <name>工程计划查询表单</name>
+  <parentId>__gLMfyh2vFXSlTkcrMd0</parentId>
+  <description></description>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="66335f67-7251-82d4-aeb1-f20bf8e93a58" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="11" myselfrows="100" containerheight="100" borderwidth="1" containerwidth="500" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="公司" id="7529b2aa-f914-ccd3-e4c8-6a42561756aa" draggable="true" scope="selectField" myselfrows="70" layout="horizontal" texttype="text" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" multiselect="false" refreshmode="0" refreshfields="" discript="管理处" placeholder="" editprop="editSelectField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" module="" dialogview="" optionsvalue="" optionstext="" optionseditmode="01" optionsscript="(function(){&#10;var@nbsp;opts=createOptions();&#10;var@nbsp;deptUnderList=getDepartmentByLevel(2);&#10;opts.add(@quot;@quot;,@quot;@quot;);&#10;for(var@nbsp;iter=deptUnderList.iterator();iter.hasNext();){&#10;@nbsp;@nbsp;var@nbsp;deptUnder=iter.next();&#10;@nbsp;@nbsp;var@nbsp;deptName=deptUnder.getName();&#10;@nbsp;@nbsp;var@nbsp;deptId=deptUnder.getId();&#10;@nbsp;@nbsp;if@nbsp;(deptName.contains(@quot;管理处@quot;)){&#10;@nbsp;@nbsp;@nbsp;@nbsp;opts.add(deptName,@nbsp;deptId);&#10;@nbsp;@nbsp;}&#10;}&#10;return@nbsp;opts;&#10;})()" fieldtype="VALUE_TYPE_VARCHAR" selectwidth="" style="display: inline-block; width: 70%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">公司</span>
+        </div><div class="baseCon fieldId" fieldid="7529b2aa-f914-ccd3-e4c8-6a42561756aa" style="height: 30px;">
+        <select class="selectField" readonly="" style="width:px"></select></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="年份" id="206f658d-5561-a0b6-ff55-957c88cfb2a7" draggable="true" scope="dataField" myselfrows="30" layout="horizontal" datepattern="Y" limit="false" prev_name="" texttype="text" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editDataField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" fieldtype="VALUE_TYPE_DATE" width="200" style="display: inline-block; width: 30%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">年份</span>
+        </div><div class="baseCon fieldId" fieldid="206f658d-5561-a0b6-ff55-957c88cfb2a7" style="height: 30px;width:90%">
+        <input type="text" class="base-field" readonly="" style="width:200px"><i class="publicFieldIcon dataFieldIcon" style="position:relative"></i></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div></div>]]></templatecontext>
+  <type>256</type>
+  <styleId>__8FhGAldDeRjIkgXAtCE</styleId>
+  <showLog>false</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>1</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"工程计划查询表单","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <layoutType>horizontal</layoutType>
+</form>

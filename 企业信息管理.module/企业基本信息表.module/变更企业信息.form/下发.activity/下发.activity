@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__LVpQybHT63cztl6p89f">
+  <name>下发</name>
+  <parentId>__AMZFpuyWR5QJNjVmQaQ</parentId>
+  <type>13</type>
+  <onActionFlow></onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[#include "constant";
+(function () {
+  // 如果选择的单位已在执行变更流程，则暂停下发
+  var companys = getItemValueAsString('单位简称');
+  var roleid = getRoleIdByName(subJyPersonInCharge); //获取对应角色ID
+  var userArr = getUsersByRoleId(roleid); //根据角色，获取该角色下所有用户集合
+  var formName = '企业基础信息总览'
+  var inProcess = []
+  // 判断该用户所属公司是否在companys中
+  for (var iter = userArr.iterator(); userArr != null && iter.hasNext(); ) {
+    var user = iter.next();
+    var userDep = getUserDep(user)// 获取用户所属公司, 函数库 globalMethods
+    var depName = userDep.depName;
+    if(companys.indexOf(depName) >= 0) {
+      var sql = "select * from tlk_" + formName + " where item_公司='" + depName 
+      +"' and statelabel IS NOT NULL and statelabel <> '' and statelabel <> '完成'";
+      var datas = findBySQL(sql);
+      if(isNotNull(datas)) {
+        inProcess.push(depName)
+      }
+    }
+  }
+  if(inProcess.length) return inProcess.join('; ') + '已在执行变更流程。'
+})()
+
+]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>1</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__AMZFpuyWR5QJNjVmQaQ</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[#include "constant";
+(function () {
+  function startProcess(user, userDep) {
+    var currentUser =  getWebUser()
+    var userId = user.getId();
+    var docProcess = getDocumentProcess(); //获取文档操作对象
+    var formProcess = getFormProcess(); //获取表单操作对象
+    var Form = formProcess.doViewByFormName(formName, getApplication()); //获取要生成数据的表单名称
+    var userDepName = userDep.depName
+    var sql = "select * from tlk_" + formName + " where item_公司='" + userDepName +"' and item_是否最新版本='是'";
+    var datas = findBySQL(sql);
+    var itemMap = datas.getItemMap()
+    var keySet = itemMap.keySet()
+    var version = datas.getItemValueAsInt('版本号') + 1;
+
+    var newDoc = docProcess.doNew(Form, user, createParamsTable());
+    newDoc.addStringItem("下发用户", userId);
+    newDoc.addDateItem("截止时间", deadline);
+    newDoc.addIntItem("版本号", version);
+    newDoc.addStringItem("是否最新版本", '否');
+    for (var iter = keySet.iterator(); keySet != null && iter.hasNext(); ) {
+      var key = iter.next();
+      if(key!='截止时间' && key != '版本号' && key!='是否最新版本' && key != '下发用户') {
+        newDoc.addStringItem(key, itemMap.get(key));
+      }
+    }
+
+    docProcess.doCreate(newDoc); //生成数据
+    var params = getParamsTable();
+    params.setParameter("_flowid", '__KTgIdIw5NSi39oP5nIX');
+    docProcess.doStartFlowOrUpdate(newDoc, params, currentUser);
+    docProcess.doFlow(newDoc, params, '1684138590045', ['1681178950516'], '86', '请按要求准时提交', currentUser);
+  }
+
+  var companys = getItemValueAsString('单位简称');
+  var deadline = getItemValueAsDate('截止时间')
+  var roleid = getRoleIdByName(subJyPersonInCharge); //获取对应角色ID
+  var userArr = getUsersByRoleId(roleid); //根据角色，获取该角色下所有用户集合
+  var users = []
+  var formName = '企业基础信息总览'
+  // 判断该用户所属公司是否在companys中
+  for (var iter = userArr.iterator(); userArr != null && iter.hasNext(); ) {
+    var user = iter.next();
+    var userDep = getUserDep(user)// 获取用户所属公司, 函数库 globalMethods
+    var depName = userDep.depName;
+    if(companys.indexOf(depName) >= 0) {
+      users.push(user);
+      startProcess(user, userDep)
+    }
+  }
+})()
+
+]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

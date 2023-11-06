@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__jHkkuSqGPqzkKWfUCp2">
+  <name>process</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>流程</description>
+  <content><![CDATA[/**
+ * 自定义发起流程
+ * 同时启动多个流程
+ * @roleName string，下发角色名，将下发给改角色下的所有用户
+ * @formName string，表单名称，即当前调用该方法的表单名称
+ * @flowId string，流程Id
+ * @flowNodeId1 string，流程中除开始节点外第一个节点Id，当前主要为集团下发节点
+ * @flowNodeId2 string，流程中除开始节点外第二个节点Id，当前主要为子公司经办人填报节点
+ * @fields array，父表单中除了“下发用户”和“公司”的其他字段
+ */
+function initProcess(roleName, formName, flowId, flowNodeId1,flowNodeId2,fields, ifStore) {
+  var receiveUsers = getItemValueAsString('下发用户');
+  var deadline = getItemValueAsDate('截止时间');
+  var currentUser = getWebUser();
+  var fieldsTemp = fields || []
+  if (receiveUsers == null || receiveUsers.trim().length() <= 0) {
+    return;
+  } else {
+      // 选择了下发用户，根据用户id获取用户对象
+      var usersArr = receiveUsers.split(";")
+          var users = usersArr.map(function (value) {
+          return getUserById(value)
+      })
+  }
+  var fieldsData = fieldsTemp.map(function (value) {
+    return getItemValueAsString(value)
+  })
+  var newDocIds = []
+  // var sendCompany = []
+  for (var i = 0; i < users.length; i++) {
+      var user = users[i];
+      var userId = user.getId();
+      // 获取用户对应公司
+      // var field = doc.getItemValueAsDate("日期");//获取当前文档字段
+      var docProcess = getDocumentProcess(); //获取文档操作对象
+      var formProcess = getFormProcess(); //获取表单操作对象
+      var Form = formProcess.doViewByFormName(formName, getApplication()); //获取要生成数据的表单名称
+      var userDep = getUserDep(user) // 获取用户所属公司信息, 函数库 globalMethods
+      var userDepid =  userDep.did; // 获取用户所属公司id
+      var userDeplevel = userDep.depLevel;
+      var userDepName = userDep.depName
+     	 // 不下发给0级公司用户，即总部、管理员等
+      if(userDeplevel == 0) {
+        continue;
+      }
+      var newDoc = docProcess.doNew(Form, user, createParamsTable());
+      newDoc.addStringItem("公司", userDepid); //第一个是生成数据的字段，第二个是当前文档的字段
+      newDoc.addStringItem("公司名称", userDepName);
+      newDoc.addStringItem("下发用户", userId);
+      newDoc.addDateItem("截止时间", deadline);
+      fieldsTemp.forEach(function (value, index) {
+        newDoc.addStringItem(value, fieldsData[index]);
+      })
+      // sendCompany.push(userDepid);
+      docProcess.doCreate(newDoc); //生成数据
+      var params = getParamsTable();
+      params.setParameter("_flowid", flowId);
+      docProcess.doStartFlowOrUpdate(newDoc, params, currentUser);
+      docProcess.doFlow(newDoc, params, flowNodeId1, [flowNodeId2], '86', '请按要求准时提交', currentUser);
+      newDocIds.push(newDoc.getId())
+      // newDocArr.push(newDoc)
+  }
+  // setSessionValue('company', sendCompany.join(',')); 
+  if(ifStore) {
+    setSessionValue('newDocIdsStr', newDocIds.join(',')); 
+    // setSessionValue('newDocArr', newDocArr.join(",")); 
+  }
+}
+
+/**
+ * 获取流程的视图数据，默认查看权限为：可查看默认公司的数据、本人创建的、需审批、已审批过的数据
+ * @param {*} formName 表名
+ * @param {*} search 筛选条件
+ * @param {*} filterStr 其他过滤条件
+ * @param {string array} rolePermis 拥有查阅权限的角色名，可查看用户该角色所属公司和公司所有部门的数据及下一级子公司的数据
+ * @returns 
+ */
+function getViewsData(formName, search, filterStr, rolePermis){
+  // var subids = getUserDepIdAndSubDepIds(webuser)
+  var webuser = getWebUser();
+  var userDept = getUserDep(webuser); // 用户所属公司
+  var targetLevel = userDept.depLevel + 1
+  var subids = getUserDepIdAndSubDepIds(webuser, targetLevel, true)
+
+  var subidStr = subids.map(function(value) {
+    return "'" + value + "'"
+  })
+
+  var searchStr = ''
+  var search_公司 = false
+  if(search){// 目前少用，可忽略，2023-09-20
+    search.forEach(function (item) {
+      var name = item.name
+      var type = item.type
+      var value = getItemValueAsString(name)
+      if(value != '' && value != null) {
+        if(name == '公司') {
+          search_公司 = true
+        }
+        if(type == 'date') {
+          var format = item.format || '%Y-%m'
+          searchStr = searchStr + ' and DATE_FORMAT(item_' + 
+          name + ", '" + format + "') = '" + value + "'"
+        }
+        if(type == 'string') {
+          var arr = value.split(';')
+          value = arr.map(function(str) {
+            return "'" + str + "'"
+          })
+          searchStr = searchStr + ' and item_' + name + " in (" + value.join(',') + ")"
+        }
+      }
+    })
+  }
+ 
+  var currentUserId = webuser.getId()
+  var deptids = []
+  if(rolePermis && rolePermis.length > 0) {
+    rolePermis.forEach(function(name) {
+      var roleId = getRoleIdByName(name)
+      var query = getDeptByUserIdAndRoleName(currentUserId, roleId)
+      if(query!=null && query.size() > 0){
+        var iter = query.iterator();
+        while(iter != null && iter.hasNext()){
+          var item = iter.next();
+          var deptId = item.get('departmentid') // 用户在当前角色下所属具体部门
+          var company = getCompanyTheDeptBelongto(deptId).dept // 部门所属公司
+          var targetLevel = company.getLevel() + 1
+          deptids = getUserDepIdAndSubDepIds(webuser, targetLevel, true, deptId) // 获取用户所属公司、部门和一级子公司的id集合
+        }
+      }
+    })
+  }
+  // println('deptids--------------'+deptids)
+  var sql = "select *,\
+  DATE_FORMAT(created, '%Y-%m-%d %H:%i') as item_创建时间,\
+  DATE_FORMAT(LASTMODIFIED, '%Y-%m-%d %H:%i') as item_最后修改时间,\
+  DATE_FORMAT(AuditDate, '%Y-%m-%d %H:%i') as item_最后审批时间 \
+  from tlk_" + formName + " where 1=1" + searchStr;
+  if(isNotNull(filterStr)) {
+    sql += " and " + filterStr
+  }
+  if(deptids.length > 0) {
+    deptids = deptids.map(function(value) {
+      return "'" + value + "'"
+    })
+    sql = sql + " and (item_公司 in (" + deptids.join(",") + ") "
+  } else if(!search_公司) {
+    // sql = sql + " and item_公司 in (" + subidStr.join(',') +")"
+    sql = sql + " and ((item_公司 like '%" + userDept.did + "%' or INITIATOR like '%" + currentUserId 
+    + "%' or AUTHOR like '%" + currentUserId 
+    +"%' or item_全流程参与审批人 like '%" + currentUserId + "%' or AUDITORLIST like '%" + currentUserId + "%')"
+  }
+  // 将当前用户的数据排前
+  sql = sql + " and AUDITORLIST like '%" + currentUserId +"%') UNION " + 
+        sql + " and AUDITORLIST not like '%" + currentUserId +"%')"
+  // println('sql----------------'+ sql)
+  return sql
+}
+
+function ifBatchApproval(formName) {
+  var sql = getViewsData(formName);
+  var query = queryBySQL(sql);
+  var ifBatch = false
+  if(query!=null){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var ifBatch = ifUserInAuditorList(item)
+      if(ifBatch) {
+        break
+      }
+    }
+  } 
+  return ifBatch
+}
+
+function ifCanEditByState() {
+  var state = getStateLabel()
+  if(state == '经办人填报') {
+    return true
+  } else {
+    return false
+  }
+}
+
+function ifCanEditByUser() {
+  var user = getWebUser();
+  var userrole = ifUserBelongsToRole(user,'集团经营管理部经办人');
+  return userrole;
+}
+
+
+/**
+ * 判断用户是否在审批列表中
+ * @param {*} doc 
+ * @returns 
+ */
+function ifUserInAuditorList(doc) {
+  var user = getWebUser();
+  var userId = user.getId();
+  var auditorListStr = doc.getAuditorList()
+  var coAuditorListStr = doc.getCoAuditorList()
+  var auditorList = JSON.parse(auditorListStr)
+  var coAuditorList = JSON.parse(coAuditorListStr)
+  var inList = false
+  for(key in auditorList) {
+    var value = auditorList[key];
+    if(String(value).indexOf(String(userId))>=0) {
+      inList = true
+    }
+    if(inList) {
+      break;
+    }
+  }
+  for(key in coAuditorList) {
+    var value = coAuditorList[key];
+    if(String(value).indexOf(String(userId))>=0) {
+      inList = true
+    }
+    if(inList) {
+      break;
+    }
+  }
+  return inList
+}
+
+function isHideByImportAndState (type) {
+  var hide = false
+  var isImport = getItemValueAsString('是否导入');
+  var state = getStateLabel()
+  if(isImport == '是') {
+    hide = true 
+  } else {
+    if(state.trim() == '' || state.length <= 0 || state == null) {
+      hide = type
+    } else {
+      hide = !type
+    }
+  }
+  return hide
+}
+
+/**
+ * 流程数据的可见（可编辑）条件：当前流程处于经办人填报节点且用户在审批人列表中
+ * @param {*} doc 
+ * @returns 
+ */
+function ifCanEditOfProcesNode(doc) {
+  var ifEdit = ifCanEditByState()
+  if(ifEdit) {
+    return ifUserInAuditorList(doc)
+  } else {
+    return false
+  }
+}]]></content>
+  <version>0</version>
+</repositoryVO>

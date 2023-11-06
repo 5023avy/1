@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__m8reTHiyt7YmfHPPL5s">
+  <name>客服呼叫中心</name>
+  <parentId>__KndnJ33DpA6KMCQDurS</parentId>
+  <description>客服呼叫中心</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__KndnJ33DpA6KMCQDurS</superior>
+  <linkName>客服呼叫中心</linkName>
+  <linkType>01</linkType>
+  <moduleid>__04l4BmbmacxhteyMYUv</moduleid>
+  <actionContent><![CDATA[__y8066qdjC6Hyhnhkt0Q]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>7</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__BOTRV5ZUkMXlzuk7Iuz">
+  <name>驾考服务运营数据经办人</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>驾考服务运营数据经办人</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>169033964224900000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__KndnJ33DpA6KMCQDurS","resId":"__KndnJ33DpA6KMCQDurS","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__MQosvAd4hYipDGJIyQS","resId":"__MQosvAd4hYipDGJIyQS","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

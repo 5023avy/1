@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__rC19l4WojAAnQ23QhOu">
+  <name>数据汇总</name>
+  <parentId>__MkSfrC6OEAbQ7hj6vpw</parentId>
+  <description>数据汇总</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p101_Accountquery.png","icontype":"img"}</ico>
+  <superior>__MkSfrC6OEAbQ7hj6vpw</superior>
+  <linkName>营业收入汇总</linkName>
+  <linkType>01</linkType>
+  <moduleid>__HmemzPekoJ68uw25EHY</moduleid>
+  <actionContent><![CDATA[__kHGtP9hwZQjbkiTCVFH]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>1</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

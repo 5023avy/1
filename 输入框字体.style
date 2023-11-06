@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleRepositoryVO id="__i00ZD65JaBrwrDeegQf">
+  <name>输入框字体</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <content><![CDATA[.form-control{ 
+       color: red !important; 
+ }]]></content>
+  <version>0</version>
+</styleRepositoryVO>

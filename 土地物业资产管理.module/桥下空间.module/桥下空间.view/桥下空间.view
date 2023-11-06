@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__3gfewsuCz38YqRZevMH">
+  <name>桥下空间</name>
+  <parentId>__uOq2pw8gvEbra1y9K9V</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>1</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>10</pageLines>
+  <showTotalRow>false</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <readonly>false</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId></searchFormId>
+  <autoCompose>true</autoCompose>
+  <styleId>__8FhGAldDeRjIkgXAtCE</styleId>
+  <relatedForm>__FKbsBobu7RG82oPu3QF</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "process";
+(function () {
+  var formName = '桥下空间'
+  var sql = getViewsData(formName, [], " item_最新版本='是'")
+  //sql = sql + " order by CASE WHEN item_利用情况 = '未利用' THEN 1 ELSE 2 END, item_序号"
+  return sql
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>293</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

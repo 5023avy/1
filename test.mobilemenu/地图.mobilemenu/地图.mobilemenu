@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__C153JoP9cIdgQ4QTGMU">
+  <name>地图</name>
+  <parentId>__cd1uvwjaIrVBMTUWtOM</parentId>
+  <description>地图</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__cd1uvwjaIrVBMTUWtOM</superior>
+  <linkType>07</linkType>
+  <actionContent><![CDATA["http://58.255.92.155:9080/static/dist/index.html#/"]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>true</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

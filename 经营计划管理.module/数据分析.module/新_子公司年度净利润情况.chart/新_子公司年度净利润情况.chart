@@ -1,0 +1,173 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__8dWjXLrNoaRgFB8kHuj">
+  <name>新_子公司年度净利润情况</name>
+  <parentId>__PMMAGdh7XQSkW07Mjea</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var formName = "数据指标进度";
+  var field1 = '净利润'
+  var field2 = '年度经营目标值'
+  var field = field1 + field2;
+  var sql = "select * from tlk_" + formName + " where YEAR(item_年份)='2023' and item_子任务指标='财务指标' \
+  and item_所属公司名称 LIKE '%公司' and item_所属公司名称 NOT LIKE '%/%' and item_指标项目='" + field1 + "'";
+  var query = queryBySQL(sql);
+  var companyArr = {}
+  var seasons = getSeasonsArr();
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var companyId = item.getItemValueAsString('所属公司');
+      var dept = getDeptById(companyId)
+      var deptName = String(dept.getName())
+      if(!companyArr[deptName]) {
+        companyArr[deptName] = {}
+        companyArr[deptName][field] = 0
+        companyArr[deptName]['seasons'] = [0,0,0,0]
+      }
+      if(!companyArr[deptName][field]) {
+        companyArr[deptName][field] = +(item.getItemValueAsString(field2).replace(",", ""))
+      }
+      
+      var itemSeason = item.getItemValueAsString('季度')
+      seasons.forEach(function(season,index) {
+        if(itemSeason == season) {
+          var seasonValue = item.getItemValueAsString('季度预估值')
+          seasonValue = seasonValue.replace(",", "")
+          companyArr[deptName]['seasons'][index] += +seasonValue
+        }
+      })
+    }
+  }
+  
+  var colors = ['#afbadc', '#f092a5', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc'];
+  var xAxisData = [];
+  var budgetData = [];
+  var totalData = [];
+  var stackName = '当期累计实际净利润总额';
+  var stackData = [[],[],[],[]];
+  var completionRate = [];
+  for (var key in companyArr) {
+    xAxisData.push(key)
+    var item = companyArr[key]
+    var targetValue = 0;
+    for(var key2 in item) {
+      if(key2 == field) {
+        targetValue = item[key2]
+        budgetData.push(targetValue)
+      }
+    }
+    var seasonArr = item.seasons
+    var totalTemp = 0
+    seasonArr.forEach(function(data, index) {
+      stackData[index].push(data)
+      totalTemp += data
+    })
+    totalData.push(formatNumber(totalTemp))
+    if(targetValue != 0) {
+    	  completionRate.push(formatNumber((totalTemp/targetValue)*100))
+    } else {
+      completionRate.push(0)
+    }
+  }
+
+  var stackArr = [{
+    name: '预算年净利润总额',
+    type: 'bar',
+    barMaxWidth: 40,
+    itemStyle: {
+      color: colors[0]
+     },
+    data: budgetData,
+    emphasis: {
+      focus: 'series'
+    },
+  },{
+    name: stackName,
+    type: 'bar',
+    barMaxWidth: 40,
+    itemStyle: {
+      color: colors[1]
+     },
+    data: totalData,
+    emphasis: {
+      focus: 'series'
+    },
+  }];
+  seasons.forEach(function(season, index) {
+    stackArr.push({
+      name: season,
+      type: 'bar',
+      barMaxWidth: 40,
+      stack: stackName,
+      emphasis: {
+        focus: 'series'
+      },
+      itemStyle: {
+        color: colors[index+2]
+       },
+      data: stackData[index]
+    })
+  })
+  stackArr.push({
+    name: '净利润总额达成率',
+    type: 'line',
+    yAxisIndex: 1,
+    smooth: true,
+    data: completionRate
+  })
+
+  var option = {
+    height: 400,
+    grid: [
+      {left: '10%', right: '8%', top: '15%', height: '65%' },
+    ],
+    title: {
+      text: '直属企业2023年净利润情况',
+    },
+    toolbox: {
+      show: true,
+      feature: {
+        //restore: {},
+        saveAsImage: {}
+      }
+    },
+     legend: {
+      top: '4%'
+    },
+    tooltip: {
+      trigger: 'axis',
+      axisPointer: {
+        type: 'shadow'
+      }
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: xAxisData,
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        axisLabel: {
+          formatter: '{value} 万元'
+        }
+      },{
+        type: 'value',
+        splitLine: {show: false},
+        axisLabel: {
+          formatter: '{value} %'
+        }
+      }
+    ],
+    series: stackArr
+  };  
+  return option;
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

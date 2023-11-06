@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__MMsgz7o7wae7sYajWPa">
+  <name>控股股东</name>
+  <parentId>__ntIEpfptPdg4kZQCgpK</parentId>
+  <description></description>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="c7077c6a-0a14-8ccb-67df-468d6a26b4ee" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="12" myselfrows="100" containerheight="100" borderwidth="1" containerwidth="500" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="单位名称" id="a4edf76a-56a2-e126-b23b-4677a7d1a853" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;var@nbsp;parentDoc@nbsp;=@nbsp;getParentDocument();&#13;@nbsp;@nbsp;return@nbsp;parentDoc.getItemValueAsString(@#146;单位名称@#146;)&#13;})()" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 100%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">单位名称</span>
+        </div><div class="baseCon fieldId" fieldid="a4edf76a-56a2-e126-b23b-4677a7d1a853" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete"><i class="btn-delete" title="删除"></i></div></div><div name="股东单位名称" id="783b8e6a-1ab4-b383-42fc-34f2126a3cf8" draggable="true" scope="inputField" myselfrows="25" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 25%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">股东单位名称</span>
+        </div><div class="baseCon fieldId" fieldid="783b8e6a-1ab4-b383-42fc-34f2126a3cf8" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="股东组织机构代码" id="4ab9406a-abfe-8f46-26b4-176c6742f8a0" draggable="true" scope="inputField" myselfrows="25" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 25%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">股东组织机构代码</span>
+        </div><div class="baseCon fieldId" fieldid="4ab9406a-abfe-8f46-26b4-176c6742f8a0" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="对本单位控股比例" id="2c22cd20-25fc-ac7d-f9cb-a81077df4bca" draggable="true" scope="inputField" myselfrows="25" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" style="display: inline-block; width: 25%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">对本单位控股比例</span>
+        </div><div class="baseCon fieldId" fieldid="2c22cd20-25fc-ac7d-f9cb-a81077df4bca" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div></div>]]></templatecontext>
+  <type>1</type>
+  <styleId></styleId>
+  <showLog>true</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>1</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"控股股东","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <layoutType>horizontal</layoutType>
+</form>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__JDkNyOZT5BEuTxup0G8">
+  <name>桥下空间信息</name>
+  <parentId>__M0j3sr7tjWsvY7smrLD</parentId>
+  <description>桥下空间信息</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__M0j3sr7tjWsvY7smrLD</superior>
+  <linkType>01</linkType>
+  <moduleid>__uOq2pw8gvEbra1y9K9V</moduleid>
+  <actionContent><![CDATA[__3gfewsuCz38YqRZevMH]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>2</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

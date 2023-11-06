@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__7qs4pP8KZrar6NPkteX">
+  <name>经营计划</name>
+  <parentId>__D3w5La93CtMufF7AyBk</parentId>
+  <description>经营计划</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__D3w5La93CtMufF7AyBk</superior>
+  <linkType>01</linkType>
+  <moduleid>__jFu0Iao8HdByYKPzaHq</moduleid>
+  <actionContent><![CDATA[__Qagc06ovEaeavufQwRi]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>true</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

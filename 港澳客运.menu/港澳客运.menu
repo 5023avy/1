@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__uauJ8Q7hFSVcegxf7zA">
+  <name>港澳客运</name>
+  <parentId>__XjVyGUmK9DIoiqko5OT</parentId>
+  <description>港澳客运</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p144_Ship.png","icontype":"img"}</ico>
+  <superior>__XjVyGUmK9DIoiqko5OT</superior>
+  <linkType>01</linkType>
+  <moduleid>__2fyoNSCNTicikkcQ6Hy</moduleid>
+  <actionContent><![CDATA[__XjAHPKEvEFSEyshkXqk]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>3</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

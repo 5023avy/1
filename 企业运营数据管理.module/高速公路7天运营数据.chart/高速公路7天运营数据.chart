@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__ujJC58axDWFhS31NoJE">
+  <name>高速公路7天运营数据</name>
+  <parentId>__WPhrxy08jmaYUEbr9dv</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function (){
+  var startdate = getItemValueAsDate('开始日期')
+  var enddate = getItemValueAsDate('结束日期')
+
+  var formName = '高速公路运营数据'
+  var dateString = ''
+  var dateRange = getPreviousWeekDates(dateString)
+  if(isNotNull(startdate) && isNotNull(enddate)) {
+    dateRange = getDatesBetween(startdate, enddate)
+  }
+  var formatDate = []
+  var xAxisData = []
+  var sqlFilter = []
+  var data1 = []
+  var data2 = []
+  dateRange.forEach(function(value) {
+    formatDate.push(String(format(value,"M月dd日")))
+    sqlFilter.push("'" + format(value,"yyyy-MM-dd") + "'");
+    data1.push(0)
+    data2.push(0)
+    xAxisData.push('')
+  })
+
+  var sql = "select * from tlk_" + formName + " where DATE_FORMAT(item_日期, '%Y-%m-%d') in (" + sqlFilter.join(',') + ")";
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var date = item.getItemValueAsDate('日期')
+      dateRange.forEach(function(value, index) {
+        
+        if(format(value,"yyyy-MM-dd").equals(format(date,"yyyy-MM-dd"))) {
+          var itemValue1 = item.getItemValueAsFloat('各路段总车流量')
+          var itemValue2 = item.getItemValueAsFloat('收费站出入口总车流')
+          var accident = item.getItemValueAsInt('交通事故')
+          var injured = item.getItemValueAsString('受伤人数')
+          var trafficjam = item.getItemValueAsInt('高速路面情况')
+          data1[index] = parseFloat(itemValue1.toFixed(2))
+          data2[index] = parseFloat(itemValue2.toFixed(2))
+          
+          var xAxisDataIndex = formatDate[index]
+          xAxisData[index] = xAxisDataIndex+ '\n\n' + trafficjam + '次行车缓慢\n\n交通事故' + accident + '宗\n(' + injured + '人受伤)'
+        }
+      })
+    }
+  }
+
+  xAxisData.forEach(function(value, index) {
+    if(!isNotNull(value)) {
+      xAxisData[index] = "（无数据）\n\n" + formatDate[index]
+    }
+  })
+  var length = formatDate.length - 1
+  var year = getYear(dateRange[length])
+  var legend = ['各路段总车流量（万辆）', '收费站出入口总车流（万辆）']
+  var option = {
+    grid: [
+      {left: '5%', right: '5%', height: '50%', top: '10%', bottom: '10%' },
+    ],
+    title: {
+      text: '高速公路' + year + '年' + formatDate[0] + '-' + formatDate[length] + "运营数据图",
+      left: 'center',
+    },
+    tooltip: {
+      trigger:'axis'
+    },
+    toolbox: {
+      right: '10%',
+      feature: {
+        saveAsImage: { show: true }
+      }
+    },
+    legend: {
+      data: legend,
+      bottom: '18%'
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: xAxisData,
+        axisLabel: {
+          //interval: 0
+        }
+        
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        name: '',
+        axisLabel: {
+          formatter: '{value} 万辆'
+        }
+      },
+    ],
+    series: [
+      {
+        name: legend[0],
+        type: 'bar',
+        barMaxWidth: '40',
+        barGap: '0%',
+        label: {
+          show: true,
+          position: 'top'
+        },
+        data: data1
+      },
+      {
+        name: legend[1],
+        type: 'bar',
+        barMaxWidth: '40',
+        label: {
+          show: true,
+          position: 'top'
+        },
+        itemStyle: {
+          color: '#c0504d'
+        },
+        data: data2
+      }
+    ]
+  };
+  return option
+ })()
+
+]]></scripttext>
+  <commonFilterCondition><![CDATA[[{"field":"开始日期","isCommonFilter":"true","paramKey":1690360947460},{"field":"结束日期","isCommonFilter":"true","paramKey":1690419019178}]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId>__nNgS85xE0Mqvz2Kqiwl</searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

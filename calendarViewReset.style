@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<styleRepositoryVO id="__coa4ePnPsggUG9sYCCY">
+  <name>calendarViewReset</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <content><![CDATA[.test {}
+.calendar-view .calendar-wrap .cal-box .mon-view .scrollbar .t-body-td .td-box .monthdatabox .content-box .div-child-list>span {
+  margin-right: 0
+}
+.calendar-view .calendar-wrap .cal-box .mon-view .scrollbar .t-body-td .td-box .monthdatabox .content-box {
+  overflow: initial
+}
+.calendar-view .calendar-wrap .cal-box .mon-view .scrollbar .t-body-td .td-box .monthdatabox .content-box .div-child-list {
+  display: flex;
+  overflow: initial;
+  text-overflow: unset;
+  white-space: unset;
+}
+.calendar-view .calendar-wrap .cal-box .monthdatabox .content-box .div-child-list #date-content-box .custom-date-box-card {
+  border-radius: 2px;
+  background-color: #e6eefb;
+  color: #333;
+  padding:0 4px;
+  margin-right: 3px;
+  font-size: 12px;
+} 
+.calendar-view .calendar-wrap .cal-box .monthdatabox .content-box .div-child-list #date-content-box .custom-date-box-card .custom-date-box-card-label{
+  overflow: hidden;
+  width: 100%;
+  text-align:center;
+}
+.calendar-view .calendar-wrap .cal-box .monthdatabox .content-box .div-child-list #date-content-box .custom-date-box-card .custom-date-box-card-value{
+  width: 100%;
+  text-align: center;
+  font-weight:bold;
+  color: #434a74;
+  font-size: 16px;
+}]]></content>
+  <version>0</version>
+  <description><![CDATA[]]></description>
+</styleRepositoryVO>
