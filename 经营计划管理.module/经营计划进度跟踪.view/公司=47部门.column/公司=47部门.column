@@ -18,7 +18,7 @@
   <orderno>0</orderno>
   <sum>false</sum>
   <total>false</total>
-  <isOrderByField>true</isOrderByField>
+  <isOrderByField>false</isOrderByField>
   <orderType>ASC</orderType>
   <multiLanguageLabel></multiLanguageLabel>
   <actionScript><![CDATA[]]></actionScript>

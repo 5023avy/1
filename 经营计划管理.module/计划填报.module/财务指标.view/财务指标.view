@@ -2,19 +2,19 @@
 <ListView id="__TMzy3zqmbMSm2hdkqYX">
   <name>财务指标</name>
   <parentId>__8xR5QstkqIflP8HoPDz</parentId>
-  <showIsEdit>true</showIsEdit>
+  <showIsEdit>false</showIsEdit>
   <selectCheckbox>true</selectCheckbox>
   <expandQueryForm>false</expandQueryForm>
   <orderno>0</orderno>
   <isAllowDrag>true</isAllowDrag>
   <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
-  <pagination>true</pagination>
+  <pagination>false</pagination>
   <pageLines>30</pageLines>
   <showTotalRow>true</showTotalRow>
   <refresh>false</refresh>
   <refreshAll>false</refreshAll>
   <newPage>false</newPage>
-  <lastModifyTime>2023-07-09T03:56:31.000+08:00</lastModifyTime>
+  <lastModifyTime>2023-07-02T11:56:31.000+08:00</lastModifyTime>
   <readonly>false</readonly>
   <displayType>relatedForm</displayType>
   <defaultShowMode>month</defaultShowMode>

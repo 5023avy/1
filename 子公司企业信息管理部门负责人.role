@@ -6,5 +6,5 @@
   <status>1</status>
   <defaultRole>false</defaultRole>
   <sortId>168376949726300000</sortId>
-  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__aluhbr6vY7J7Ghswo1o","resId":"__aluhbr6vY7J7Ghswo1o","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__aluhbr6vY7J7Ghswo1o","resId":"__aluhbr6vY7J7Ghswo1o","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__TgZKgraHSY0ornsm753","resId":"__TgZKgraHSY0ornsm753","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
 </role>

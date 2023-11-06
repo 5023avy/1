@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__9XGoYXE6rIRj80n8ZUS">
+  <name>信息变更</name>
+  <parentId>__TgZKgraHSY0ornsm753</parentId>
+  <description>信息变更</description>
+  <type>00</type>
+  <opentarget>detail</opentarget>
+  <superior>__TgZKgraHSY0ornsm753</superior>
+  <linkName>信息变更</linkName>
+  <linkType>01</linkType>
+  <moduleid>__ntIEpfptPdg4kZQCgpK</moduleid>
+  <actionContent><![CDATA[__d8ngUulWxgY1qBwnx9Z]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+</resourceVO>

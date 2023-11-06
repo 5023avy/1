@@ -14,7 +14,7 @@
   <refresh>false</refresh>
   <refreshAll>false</refreshAll>
   <newPage>false</newPage>
-  <lastModifyTime>2023-05-25T04:06:51.000+08:00</lastModifyTime>
+  <lastModifyTime>2023-05-25T04:06:51.000Z</lastModifyTime>
   <readonly>false</readonly>
   <displayType>relatedForm</displayType>
   <defaultShowMode>month</defaultShowMode>
@@ -22,8 +22,8 @@
   <showWaterMark>false</showWaterMark>
   <showActivityColumnType>0</showActivityColumnType>
   <searchFormId></searchFormId>
-  <autoCompose>true</autoCompose>
-  <styleId>__DTYlCxzcY02mLZbuuE9</styleId>
+  <autoCompose>false</autoCompose>
+  <styleId>__jijYD14OgHqthej8xle</styleId>
   <relatedForm>__9OkWZWvkS2p0XXeAFsm</relatedForm>
   <permissionType>public</permissionType>
   <filterScript><![CDATA[]]></filterScript>

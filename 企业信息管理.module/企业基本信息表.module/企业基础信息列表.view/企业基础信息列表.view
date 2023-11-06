@@ -14,7 +14,7 @@
   <refresh>false</refresh>
   <refreshAll>false</refreshAll>
   <newPage>false</newPage>
-  <lastModifyTime>2023-05-23T08:15:39.000+08:00</lastModifyTime>
+  <lastModifyTime>2023-05-22T08:15:39.000+08:00</lastModifyTime>
   <readonly>false</readonly>
   <displayType>relatedForm</displayType>
   <defaultShowMode>month</defaultShowMode>
@@ -34,7 +34,7 @@
   <filterCondition><![CDATA[[{"field":"$StateLabel","operator":"IN","type":"00","ipField":",完成","numField":0,"daField":"","sfField":"","syField":"","match":",完成"},{"field":"单位名称","operator":"LIKE","type":"03","ipField":"","numField":0,"daField":"","sfField":"单位名称","syField":"","match":"单位名称"}]]]></filterCondition>
   <commonFilterCondition><![CDATA[[{"field":"单位名称","isCommonFilter":"true","paramKey":1688538497313}]]]></commonFilterCondition>
   <authorityCondition>[]</authorityCondition>
-  <openType>293</openType>
+  <openType>266</openType>
   <editMode>00</editMode>
   <width>0</width>
   <height>0</height>

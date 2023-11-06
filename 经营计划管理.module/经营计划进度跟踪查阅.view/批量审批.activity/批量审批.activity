@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<activity id="__EYTX2Kazzfg3bMC7sAa">
+<activity id="__MetxS3nt8RtjiWbucJt">
   <name>批量审批</name>
-  <parentId>__yQWaKoAy7nD02MgHDki</parentId>
+  <parentId>__PLMNwY0mFhHq8SLqLbX</parentId>
   <type>20</type>
   <onActionForm></onActionForm>
   <onActionView></onActionView>
@@ -13,7 +13,7 @@
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>
   <orderno>2</orderno>
-  <parentView>__yQWaKoAy7nD02MgHDki</parentView>
+  <parentView>__PLMNwY0mFhHq8SLqLbX</parentView>
   <impmappingconfigid></impmappingconfigid>
   <jumpType>0</jumpType>
   <expSub>false</expSub>

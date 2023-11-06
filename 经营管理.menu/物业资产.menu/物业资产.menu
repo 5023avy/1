@@ -4,11 +4,11 @@
   <parentId>__KAlBCSUWFZE4tbGdwZo</parentId>
   <description>物业资产</description>
   <opentarget>detail</opentarget>
-  <ico>{"icon":"/uploads/lib/icon/icon_administrators.png","icontype":"img"}</ico>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
   <superior>__KAlBCSUWFZE4tbGdwZo</superior>
   <linkType>06</linkType>
-  <directory>protal</directory>
-  <actionContent><![CDATA[http://10.12.3.2/static/dist/index.html#/]]></actionContent>
+  <moduleid></moduleid>
+  <actionContent><![CDATA[http://www.baidu.com]]></actionContent>
   <queryString><![CDATA[[]]]></queryString>
   <permissionType>public</permissionType>
   <showType>0</showType>

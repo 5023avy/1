@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__t3MHzfN4eC3HNIwuAvY">
+<column id="__Gx6uvvtGNKYcbRpTR5v">
   <name>当前审批状态</name>
-  <parentId>__yQWaKoAy7nD02MgHDki</parentId>
+  <parentId>__PLMNwY0mFhHq8SLqLbX</parentId>
   <width></width>
   <valueScript><![CDATA[]]></valueScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
-  <parentView>__yQWaKoAy7nD02MgHDki</parentView>
+  <parentView>__PLMNwY0mFhHq8SLqLbX</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <labelScript><![CDATA[]]></labelScript>
   <formid>__mHNWCzOldzpjIWij5Ce</formid>

@@ -23,7 +23,7 @@
   doc.findItem("公司名称").setValue(deptname); 
   process.doUpdate(doc);
 })()*/]]></afterActionScript>
-  <hiddenScript><![CDATA[true]]></hiddenScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
   <readonlyScript><![CDATA[]]></readonlyScript>
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>

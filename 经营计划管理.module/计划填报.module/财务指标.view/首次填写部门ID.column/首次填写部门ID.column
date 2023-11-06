@@ -4,7 +4,12 @@
   <parentId>__TMzy3zqmbMSm2hdkqYX</parentId>
   <width></width>
   <valueScript><![CDATA[]]></valueScript>
-  <hiddenScript><![CDATA[]]></hiddenScript>
+  <hiddenScript><![CDATA[#include "globalMethods";
+#include "process";
+(function () {
+  var doc = getCurrentDocument();
+  return !(ifCanEditByState() && ifUserInAuditorList(doc))
+})()]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
   <parentView>__TMzy3zqmbMSm2hdkqYX</parentView>

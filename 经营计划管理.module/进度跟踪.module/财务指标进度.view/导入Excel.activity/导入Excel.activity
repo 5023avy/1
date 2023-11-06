@@ -9,13 +9,13 @@
   <beforeActionScript><![CDATA[]]></beforeActionScript>
   <afterActionScript><![CDATA[#include "集团经营部";
 (function () {
-  delOldDataAfterImport('数据指标进度', "财务指标")
+  delOldDataAfterImport('数据指标进度', '财务指标')
 })()]]></afterActionScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <readonlyScript><![CDATA[]]></readonlyScript>
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>
-  <orderno>1</orderno>
+  <orderno>2</orderno>
   <parentView>__9uGraPRlaPgiEsaTVtK</parentView>
   <impmappingconfigid>__50ptRSEBXeHHuGIkv7z</impmappingconfigid>
   <jumpType>0</jumpType>

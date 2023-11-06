@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__X7olYbAgmV2M2n3SfyI">
+  <name>经营管理查阅员</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>查阅角色</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>169699304208500000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__wLrLoBSiqnIosis4yQH","resId":"__wLrLoBSiqnIosis4yQH","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__ng7ySCtA7odah0ZcXgG","resId":"__ng7ySCtA7odah0ZcXgG","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__eDmC9dUhENDbBNhQjXi","resId":"__eDmC9dUhENDbBNhQjXi","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__UepND2XmchnFkKkyz28","resId":"__UepND2XmchnFkKkyz28","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

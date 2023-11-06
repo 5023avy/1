@@ -3,11 +3,30 @@
   <name>提交</name>
   <parentId>__goBsOFp5lEYiwNUUdF3</parentId>
   <type>5</type>
-  <onActionFlow>__KTgIdIw5NSi39oP5nIX</onActionFlow>
+  <onActionFlow>__zc1Wvw85rn9J6cD6XC3</onActionFlow>
   <onActionPrint></onActionPrint>
   <colorType></colorType>
   <beforeActionScript><![CDATA[]]></beforeActionScript>
-  <afterActionScript><![CDATA[]]></afterActionScript>
+  <afterActionScript><![CDATA[#include "集团经营部"
+(function() {
+  updateFlowUser()
+  
+  var state = getStateLabel()
+  if(state != "完成") {
+    return false
+  }
+  var formName = "企业基础信息总览"
+  var process = getDocumentProcess();
+  var doc = getCurrentDocument()
+  var prevDoc = findBySQL("select * from tlk_" + formName 
+  + " where id='" + getItemValueAsString("上一版本ID") + "'")
+  if(isNotNull(prevDoc)) {
+    prevDoc.findItem('是否最新版本').setValue("否")
+    process.doUpdate(prevDoc)
+  }
+  doc.findItem('是否最新版本').setValue("是")
+  process.doUpdate(doc)
+})()]]></afterActionScript>
   <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
   <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
   <hiddenScript><![CDATA[]]></hiddenScript>

@@ -76,7 +76,6 @@
       var item = deptArr.get(0)
       var dataDeptId = item.get("departmentid")
       var userDept = getCompanyTheDeptBelongto(dataDeptId).dept // 获取部门所属公司，即用户所属公司信息
-      println("userDept==="+userDept);
       // var userDept = getUserDep(user) // 获取
       var deptId = String(userDept.getId())
       if(receDeptStr.indexOf(deptId) >= 0) {

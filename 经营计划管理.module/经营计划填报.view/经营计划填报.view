@@ -4,7 +4,7 @@
   <parentId>__jFu0Iao8HdByYKPzaHq</parentId>
   <showIsEdit>false</showIsEdit>
   <selectCheckbox>true</selectCheckbox>
-  <expandQueryForm>true</expandQueryForm>
+  <expandQueryForm>false</expandQueryForm>
   <orderno>0</orderno>
   <isAllowDrag>true</isAllowDrag>
   <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
@@ -29,7 +29,7 @@
   <sqlFilterScript><![CDATA[#include "process";
 (function () {
   var formName = '经营计划填报主表'
-  return getViewsData(formName, [] ,"", ['部门主要负责人'])
+  return getViewsData(formName, [], "", ['部门主要负责人'])
 })()]]></sqlFilterScript>
   <procedureFilterScript><![CDATA[]]></procedureFilterScript>
   <filterCondition><![CDATA[[{"field":"公司名称","operator":"LIKE","type":"03","ipField":"","numField":0,"daField":"","sfField":"公司名称","syField":"","match":"公司名称"}]]]></filterCondition>

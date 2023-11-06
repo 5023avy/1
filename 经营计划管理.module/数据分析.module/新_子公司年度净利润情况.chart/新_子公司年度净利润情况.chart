@@ -64,13 +64,15 @@
       totalTemp += data
     })
     totalData.push(formatNumber(totalTemp))
+    //println('totalTemp------------'+totalTemp)
+    // println('targetValue------------'+targetValue)
+    // completionRate.push(formatNumber((totalTemp/targetValue)*100))
     if(targetValue != 0) {
     	  completionRate.push(formatNumber((totalTemp/targetValue)*100))
     } else {
       completionRate.push(0)
     }
   }
-
   var stackArr = [{
     name: '预算年净利润总额',
     type: 'bar',
@@ -116,7 +118,7 @@
     smooth: true,
     data: completionRate
   })
-
+	   
   var option = {
     height: 400,
     grid: [

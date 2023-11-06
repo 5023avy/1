@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<activity id="__iP3UwptdJsmj6kfEQai">
+<activity id="__PkVPiuWn4Ocr6a50AYw">
   <name>新建</name>
-  <parentId>__yQWaKoAy7nD02MgHDki</parentId>
+  <parentId>__PLMNwY0mFhHq8SLqLbX</parentId>
   <type>2</type>
   <onActionForm>__mHNWCzOldzpjIWij5Ce</onActionForm>
   <onActionView></onActionView>
@@ -16,7 +16,7 @@
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>
   <orderno>0</orderno>
-  <parentView>__yQWaKoAy7nD02MgHDki</parentView>
+  <parentView>__PLMNwY0mFhHq8SLqLbX</parentView>
   <impmappingconfigid></impmappingconfigid>
   <jumpType>0</jumpType>
   <expSub>false</expSub>

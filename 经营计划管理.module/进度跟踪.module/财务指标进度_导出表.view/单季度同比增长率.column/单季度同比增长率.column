@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__2bKFZ3YoK52oYdgKYAL">
+<column id="__3RbnnJTQrKSjDd8EIws">
   <name>单季度同比增长率</name>
-  <parentId>__NF1VKGQBxDxrLWa19po</parentId>
+  <parentId>__Og6NNbUysTWBZiHcSbq</parentId>
   <width></width>
   <valueScript><![CDATA[]]></valueScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
-  <parentView>__NF1VKGQBxDxrLWa19po</parentView>
+  <parentView>__Og6NNbUysTWBZiHcSbq</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <labelScript><![CDATA[]]></labelScript>
   <formid>__P4B3fKBkJi437YjkBgF</formid>

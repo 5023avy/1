@@ -8,9 +8,9 @@
   <colorType></colorType>
   <beforeActionScript><![CDATA[]]></beforeActionScript>
   <afterActionScript><![CDATA[]]></afterActionScript>
-  <hiddenScript><![CDATA[/*(function(){
+  <hiddenScript><![CDATA[(function(){
 if (getWebUser().getName() == "系统管理员") {return false;}
-else {return true;}})()*/]]></hiddenScript>
+else {return true;}})()]]></hiddenScript>
   <readonlyScript><![CDATA[]]></readonlyScript>
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>

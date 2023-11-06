@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<activity id="__ucIOuHwejIctZ5xp97o">
+<activity id="__tvzAQfP6w1MrZuAauLB">
   <name>删除</name>
-  <parentId>__p8qVjzQsjgBBkANp1bu</parentId>
+  <parentId>__Bcxuixi2dRUcjqSHR7g</parentId>
   <type>3</type>
   <onActionForm></onActionForm>
   <onActionView></onActionView>
@@ -45,7 +45,7 @@
   <editMode>0</editMode>
   <fileNameScript><![CDATA[]]></fileNameScript>
   <orderno>1</orderno>
-  <parentView>__p8qVjzQsjgBBkANp1bu</parentView>
+  <parentView>__Bcxuixi2dRUcjqSHR7g</parentView>
   <impmappingconfigid></impmappingconfigid>
   <jumpType>0</jumpType>
   <expSub>false</expSub>

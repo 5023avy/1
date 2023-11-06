@@ -3,7 +3,7 @@
   <name>经营管理部</name>
   <parentId>__jFu0Iao8HdByYKPzaHq</parentId>
   <authorname></authorname>
-  <lastmodify>2023-10-16T11:09:21.392+08:00</lastmodify>
+  <lastmodify>2023-10-16T11:10:14.415+08:00</lastmodify>
   <subject>经营管理部</subject>
   <flow>&lt;cn.myapps.runtime.workflow.element.FlowDiagram&gt;
 &lt;flowstatus&gt;16&lt;/flowstatus&gt;
@@ -142,8 +142,8 @@
 &lt;name&gt;&#32463;&#21150;&#20154;&#22635;&#25253;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;169&lt;/x&gt;
-&lt;y&gt;201&lt;/y&gt;
+&lt;x&gt;159&lt;/x&gt;
+&lt;y&gt;197&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -171,7 +171,7 @@
 &lt;jumpTo&gt;NaN&lt;/jumpTo&gt;
 &lt;actorEditMode&gt;1&lt;/actorEditMode&gt;
 &lt;deptlist&gt;&lt;/deptlist&gt;
-&lt;namelist&gt;(R__2m8JUPbAZTx8PZQH6w9|&#23376;&#20844;&#21496;&#32463;&#33829;&#31649;&#29702;&#37096;&#36127;&#36131;&#20154;;)&lt;/namelist&gt;
+&lt;namelist&gt;(R__Luum6djlu6giWZo2xCy|&#21592;&#24037;;)&lt;/namelist&gt;
 &lt;realnamelist&gt;&lt;/realnamelist&gt;
 &lt;passcondition&gt;1&lt;/passcondition&gt;
 &lt;isApproverEdit&gt;false&lt;/isApproverEdit&gt;
@@ -238,8 +238,8 @@
 &lt;name&gt;&#36127;&#36131;&#20154;&#23457;&#26680;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;174&lt;/x&gt;
-&lt;y&gt;317&lt;/y&gt;
+&lt;x&gt;173&lt;/x&gt;
+&lt;y&gt;319&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -339,8 +339,8 @@
 &lt;name&gt;&#20998;&#31649;&#39046;&#23548;&#23457;&#26680;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;372&lt;/x&gt;
-&lt;y&gt;409&lt;/y&gt;
+&lt;x&gt;369&lt;/x&gt;
+&lt;y&gt;410&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -478,15 +478,14 @@
 &lt;endnodeid&gt;1681180841628&lt;/endnodeid&gt;
 &lt;ispassed&gt;false&lt;/ispassed&gt;
 &lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;(function () {              
-          var useNode = false          
-          var value = getItemValueAsString(&apos;&#20844;&#21496;&#21517;&#31216;&apos;)             
-          if(value.endsWith(@quot;&#25968;&#25454;&#20114;&#32852;&#20844;&#21496;@quot;)) {             
-            useNode = true             
-          }          
-          return useNode          
-        })()  
-  &lt;/condition&gt;
+&lt;condition&gt;(function () {            
+        var useNode = false        
+        var value = getItemValueAsString(&apos;&#20844;&#21496;&#21517;&#31216;&apos;)           
+        if(value.endsWith(@quot;&#25968;&#25454;&#20114;&#32852;&#20844;&#21496;@quot;)) {           
+          useNode = true           
+        }        
+        return useNode        
+      })()&lt;/condition&gt;
 &lt;filtercondition&gt;&lt;/filtercondition&gt;
 &lt;editMode&gt;01&lt;/editMode&gt;
 &lt;processDescription&gt;&lt;/processDescription&gt;
@@ -1310,14 +1309,14 @@
 &lt;endnodeid&gt;1681356401404&lt;/endnodeid&gt;
 &lt;ispassed&gt;false&lt;/ispassed&gt;
 &lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;(function () {             
-         var useNode = true         
-         var value = getItemValueAsString(&apos;&#20844;&#21496;&#21517;&#31216;&apos;)            
-         if(value.endsWith(@quot;&#25968;&#25454;&#20114;&#32852;&#20844;&#21496;@quot;)) {            
-           useNode = false            
-         }         
-         return useNode         
-       })()&lt;/condition&gt;
+&lt;condition&gt;(function () {           
+       var useNode = true       
+       var value = getItemValueAsString(&apos;&#20844;&#21496;&#21517;&#31216;&apos;)          
+       if(value.endsWith(@quot;&#25968;&#25454;&#20114;&#32852;&#20844;&#21496;@quot;)) {          
+         useNode = false          
+       }       
+       return useNode       
+     })()&lt;/condition&gt;
 &lt;filtercondition&gt;&lt;/filtercondition&gt;
 &lt;editMode&gt;01&lt;/editMode&gt;
 &lt;processDescription&gt;&lt;/processDescription&gt;

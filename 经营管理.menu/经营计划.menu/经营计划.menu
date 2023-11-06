@@ -4,7 +4,7 @@
   <parentId>__KAlBCSUWFZE4tbGdwZo</parentId>
   <description>经营计划</description>
   <opentarget>detail</opentarget>
-  <ico>{"icon":"/uploads/lib/icon/iconDataretrieval.png","icontype":"img"}</ico>
+  <ico>{"icon":"fa fa-usb","icontype":"font","iconFontColor":"undefined"}</ico>
   <superior>__KAlBCSUWFZE4tbGdwZo</superior>
   <linkType>00</linkType>
   <moduleid>__PMMAGdh7XQSkW07Mjea</moduleid>

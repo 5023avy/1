@@ -32,8 +32,8 @@ var subsidiary= [
     '轨道二号线三期公司',
     '城轨公司'];
 
-var subsidiary_new = [
-   '市轨道公司',
+var subsidiary_new= [
+    '市轨道公司',
     '市路桥公司',
     '东莞控股公司',
     '东莞巴士公司',

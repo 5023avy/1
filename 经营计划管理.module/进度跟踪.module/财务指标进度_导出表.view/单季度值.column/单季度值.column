@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__GmiAxERV8zmJLkiFGkX">
+<column id="__6jbjSEKuFrCTN7j3iD8">
   <name>单季度值</name>
-  <parentId>__NF1VKGQBxDxrLWa19po</parentId>
+  <parentId>__Og6NNbUysTWBZiHcSbq</parentId>
   <width></width>
   <valueScript><![CDATA[]]></valueScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
-  <parentView>__NF1VKGQBxDxrLWa19po</parentView>
+  <parentView>__Og6NNbUysTWBZiHcSbq</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <labelScript><![CDATA[]]></labelScript>
   <formid>__P4B3fKBkJi437YjkBgF</formid>

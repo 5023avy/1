@@ -10,7 +10,19 @@
   <afterActionScript><![CDATA[]]></afterActionScript>
   <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
   <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
-  <hiddenScript><![CDATA[]]></hiddenScript>
+  <hiddenScript><![CDATA[/*(function(){
+  var doc = getCurrentDocument();
+  var isTemp = doc.getIstmp()
+  var state = getStateLabel();
+  var edit = false
+  println('isTemp----------------'+isTemp)
+  println('state----------------'+state)
+  if(isTemp || state != '' ) {
+    edit = true
+  }
+  
+  return edit
+})()*/]]></hiddenScript>
   <readonlyScript><![CDATA[]]></readonlyScript>
   <startFlowScript><![CDATA[]]></startFlowScript>
   <editMode>0</editMode>

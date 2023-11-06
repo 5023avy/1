@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__DMGdaNkywTWnCAG88sv">
+<column id="__8hOKka4SfgrJD2HTa3S">
   <name>年份</name>
-  <parentId>__yQWaKoAy7nD02MgHDki</parentId>
-  <parentView>__yQWaKoAy7nD02MgHDki</parentView>
+  <parentId>__PLMNwY0mFhHq8SLqLbX</parentId>
+  <parentView>__PLMNwY0mFhHq8SLqLbX</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <formid>__mHNWCzOldzpjIWij5Ce</formid>
   <fieldName>年份</fieldName>

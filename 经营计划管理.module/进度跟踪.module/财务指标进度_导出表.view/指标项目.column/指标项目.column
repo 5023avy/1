@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__QwPDu3Pisb8IXgVTMsT">
+<column id="__H2xXqlQwL5fk9VnuVaO">
   <name>指标项目</name>
-  <parentId>__NF1VKGQBxDxrLWa19po</parentId>
-  <parentView>__NF1VKGQBxDxrLWa19po</parentView>
+  <parentId>__Og6NNbUysTWBZiHcSbq</parentId>
+  <parentView>__Og6NNbUysTWBZiHcSbq</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <formid>__P4B3fKBkJi437YjkBgF</formid>
   <fieldName>指标项目</fieldName>

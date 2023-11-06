@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__nisEUwn4y9UvvYwQRhf">
+<column id="__ScDz3WZKlsnvSKXlFEG">
   <name>截止时间</name>
-  <parentId>__p8qVjzQsjgBBkANp1bu</parentId>
+  <parentId>__Bcxuixi2dRUcjqSHR7g</parentId>
   <width></width>
   <valueScript><![CDATA[]]></valueScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
-  <parentView>__p8qVjzQsjgBBkANp1bu</parentView>
+  <parentView>__Bcxuixi2dRUcjqSHR7g</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <labelScript><![CDATA[]]></labelScript>
   <formid>__Lw68OhvJUhfXLcXwIys</formid>

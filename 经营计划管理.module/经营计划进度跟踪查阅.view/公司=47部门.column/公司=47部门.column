@@ -1,13 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<column id="__Q9h5ssEJE8enZ8vwscm">
+<column id="__CpnigrvGutiIu5JhzHf">
   <name>公司=47部门</name>
-  <parentId>__yQWaKoAy7nD02MgHDki</parentId>
+  <parentId>__PLMNwY0mFhHq8SLqLbX</parentId>
   <width>200</width>
   <valueScript><![CDATA[]]></valueScript>
   <hiddenScript><![CDATA[]]></hiddenScript>
   <beforeScript><![CDATA[]]></beforeScript>
   <afterScript><![CDATA[]]></afterScript>
-  <parentView>__yQWaKoAy7nD02MgHDki</parentView>
+  <parentView>__PLMNwY0mFhHq8SLqLbX</parentView>
   <type>COLUMN_TYPE_FIELD</type>
   <labelScript><![CDATA[]]></labelScript>
   <formid>__mHNWCzOldzpjIWij5Ce</formid>

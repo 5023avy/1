@@ -3,17 +3,21 @@
   <name>统计图表</name>
   <parentId>__45zCuPg9QIfnAoA27DS</parentId>
   <description>统计图表</description>
+  <multiLanguageLabel></multiLanguageLabel>
   <opentarget>detail</opentarget>
   <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
   <superior>__45zCuPg9QIfnAoA27DS</superior>
+  <linkName></linkName>
   <linkType></linkType>
-  <actionContent><![CDATA[]]></actionContent>
+  <moduleid></moduleid>
+  <directory></directory>
+  <actionContent><![CDATA[__X32x0kd1gNIwVZPmRdK]]></actionContent>
   <queryString><![CDATA[[]]]></queryString>
   <permissionType>public</permissionType>
   <showType>0</showType>
   <status>1</status>
   <isUsual>false</isUsual>
   <isMobile>false</isMobile>
-  <orderno>1</orderno>
+  <orderno>0</orderno>
   <showtotalrow>false</showtotalrow>
 </resourceVO>

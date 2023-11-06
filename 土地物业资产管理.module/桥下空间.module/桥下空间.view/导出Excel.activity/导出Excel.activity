@@ -16,7 +16,7 @@
   <parentView>__3gfewsuCz38YqRZevMH</parentView>
   <impmappingconfigid></impmappingconfigid>
   <jumpType>0</jumpType>
-  <expSub>false</expSub>
+  <expSub>true</expSub>
   <icon></icon>
   <disableFlowNode>false</disableFlowNode>
   <changeFlowOperator>false</changeFlowOperator>

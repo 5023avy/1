@@ -5,9 +5,9 @@
   <description>财务管理</description>
   <opentarget>detail</opentarget>
   <ico>{"icon":"/uploads/lib/icon/p93_Transfer.png","icontype":"img"}</ico>
-  <linkType></linkType>
-  <moduleid></moduleid>
-  <actionContent><![CDATA[]]></actionContent>
+  <linkType>01</linkType>
+  <moduleid>__CDrwwtEwcBtJPlymy2k</moduleid>
+  <actionContent><![CDATA[__X32x0kd1gNIwVZPmRdK]]></actionContent>
   <queryString><![CDATA[[]]]></queryString>
   <permissionType>private</permissionType>
   <showType>0</showType>

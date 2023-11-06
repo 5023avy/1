@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<ListView id="__p8qVjzQsjgBBkANp1bu">
+<ListView id="__Bcxuixi2dRUcjqSHR7g">
   <name>经营计划填报查阅</name>
   <parentId>__jFu0Iao8HdByYKPzaHq</parentId>
   <showIsEdit>false</showIsEdit>
@@ -21,7 +21,7 @@
   <collapsibleShowMode>normal</collapsibleShowMode>
   <showWaterMark>false</showWaterMark>
   <showActivityColumnType>0</showActivityColumnType>
-  <searchFormId>__9T7VGBymcDQzDFNFDx2</searchFormId>
+  <searchFormId>__YTDzeCbtkHZWtOxli9i</searchFormId>
   <autoCompose>true</autoCompose>
   <relatedForm>__Lw68OhvJUhfXLcXwIys</relatedForm>
   <permissionType>public</permissionType>
@@ -29,11 +29,11 @@
   <sqlFilterScript><![CDATA[#include "process";
 (function () {
   var formName = '经营计划填报主表'
-  return getViewsData(formName, [] ,"", ['部门主要负责人'])
+  return getViewsData(formName, [], "", ['部门主要负责人'])
 })()]]></sqlFilterScript>
   <procedureFilterScript><![CDATA[]]></procedureFilterScript>
   <filterCondition><![CDATA[[{"field":"公司名称","operator":"LIKE","type":"03","ipField":"","numField":0,"daField":"","sfField":"公司名称","syField":"","match":"公司名称"},{"field":"公司名称","operator":"IN","type":"03","ipField":"","numField":0,"daField":"","sfField":"是否筛选集团主流程","syField":"","match":"是否筛选集团主流程"}]]]></filterCondition>
-  <commonFilterCondition><![CDATA[[{"field":"公司名称","isCommonFilter":"true","paramKey":1697000227785},{"field":"是否筛选集团主流程","isCommonFilter":"true","paramKey":1697180697356}]]]></commonFilterCondition>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
   <authorityCondition>[]</authorityCondition>
   <openType>293</openType>
   <editMode>00</editMode>

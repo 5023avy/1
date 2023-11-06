@@ -11,7 +11,7 @@
   <authRolesId></authRolesId>
   <authRolesName></authRolesName>
   <tabTags><![CDATA[[]]]></tabTags>
-  <published>false</published>
+  <published>true</published>
   <setup>true</setup>
   <icon>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img", "imgUrl": "/uploads/lib/icon_menu_default.png"}</icon>
   <icontype>img</icontype>

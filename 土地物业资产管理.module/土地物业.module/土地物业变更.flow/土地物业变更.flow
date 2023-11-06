@@ -3,7 +3,7 @@
   <name>土地物业变更</name>
   <parentId>__w4cctsUvjX1wfcxQpxv</parentId>
   <authorname></authorname>
-  <lastmodify>2023-09-19T09:57:38.486+08:00</lastmodify>
+  <lastmodify>2023-10-20T08:58:02.859+08:00</lastmodify>
   <subject>土地物业变更</subject>
   <flow>&lt;cn.myapps.runtime.workflow.element.FlowDiagram&gt;
 &lt;flowstatus&gt;16&lt;/flowstatus&gt;
@@ -18,8 +18,8 @@
 &lt;name&gt;&#24320;&#22987;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;195&lt;/x&gt;
-&lt;y&gt;3&lt;/y&gt;
+&lt;x&gt;245&lt;/x&gt;
+&lt;y&gt;2&lt;/y&gt;
 &lt;width&gt;50&lt;/width&gt;
 &lt;height&gt;50&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -49,7 +49,7 @@
       })()]]&gt;&lt;/actorListScript&gt;
 &lt;jumpNameScript&gt;&lt;![CDATA[]]&gt;&lt;/jumpNameScript&gt;
 &lt;jump&gt;false&lt;/jump&gt;
-&lt;jumpTo&gt;undefined&lt;/jumpTo&gt;
+&lt;jumpTo&gt;NaN&lt;/jumpTo&gt;
 &lt;actorEditMode&gt;1&lt;/actorEditMode&gt;
 &lt;deptlist&gt;&lt;/deptlist&gt;
 &lt;namelist&gt;(R__KeP0DmGPavicojPSwKQ|&#22303;&#22320;&#29289;&#19994;&#36164;&#20135;&#31649;&#29702;_&#30452;&#23646;&#20844;&#21496;&#32463;&#21150;&#20154;;)&lt;/namelist&gt;
@@ -119,8 +119,8 @@
 &lt;name&gt;&#32463;&#21150;&#20154;&#22635;&#25253;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;145.35000228881836&lt;/x&gt;
-&lt;y&gt;144.8000030517578&lt;/y&gt;
+&lt;x&gt;196&lt;/x&gt;
+&lt;y&gt;141&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -208,8 +208,8 @@
 &lt;name&gt;&#19978;&#32423;&#32463;&#21150;&#20154;&#19979;&#21457;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;292&lt;/x&gt;
-&lt;y&gt;55&lt;/y&gt;
+&lt;x&gt;353&lt;/x&gt;
+&lt;y&gt;51&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -223,63 +223,6 @@
 &lt;isstartandnext&gt;false&lt;/isstartandnext&gt;
 &lt;_iscurrent&gt;false&lt;/_iscurrent&gt;
 &lt;/cn.myapps.runtime.workflow.element.ManualNode&gt;
-&lt;cn.myapps.runtime.workflow.element.Relation&gt;
-&lt;state&gt;&lt;/state&gt;
-&lt;startnodeid&gt;1692952094116&lt;/startnodeid&gt;
-&lt;endnodeid&gt;1692952113426&lt;/endnodeid&gt;
-&lt;ispassed&gt;false&lt;/ispassed&gt;
-&lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;&lt;/condition&gt;
-&lt;filtercondition&gt;&lt;/filtercondition&gt;
-&lt;editMode&gt;&lt;/editMode&gt;
-&lt;processDescription&gt;&lt;/processDescription&gt;
-&lt;formlist&gt;undefined&lt;/formlist&gt;
-&lt;action&gt;&lt;/action&gt;
-&lt;pointstack&gt;32;44;187;12&lt;/pointstack&gt;
-&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
-&lt;id&gt;1692952117642&lt;/id&gt;
-&lt;name&gt;&lt;/name&gt;
-&lt;scale&gt;0&lt;/scale&gt;
-&lt;note&gt;&lt;/note&gt;
-&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
-&lt;cn.myapps.runtime.workflow.element.Relation&gt;
-&lt;state&gt;&lt;/state&gt;
-&lt;startnodeid&gt;1692952094116&lt;/startnodeid&gt;
-&lt;endnodeid&gt;1692952095644&lt;/endnodeid&gt;
-&lt;ispassed&gt;false&lt;/ispassed&gt;
-&lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;&lt;/condition&gt;
-&lt;filtercondition&gt;&lt;/filtercondition&gt;
-&lt;editMode&gt;&lt;/editMode&gt;
-&lt;processDescription&gt;&lt;/processDescription&gt;
-&lt;formlist&gt;undefined&lt;/formlist&gt;
-&lt;action&gt;&lt;/action&gt;
-&lt;pointstack&gt;32;44;187;125&lt;/pointstack&gt;
-&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
-&lt;id&gt;1692952119440&lt;/id&gt;
-&lt;name&gt;&lt;/name&gt;
-&lt;scale&gt;0&lt;/scale&gt;
-&lt;note&gt;&lt;/note&gt;
-&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
-&lt;cn.myapps.runtime.workflow.element.Relation&gt;
-&lt;state&gt;&lt;/state&gt;
-&lt;startnodeid&gt;1692952113426&lt;/startnodeid&gt;
-&lt;endnodeid&gt;1692952095644&lt;/endnodeid&gt;
-&lt;ispassed&gt;false&lt;/ispassed&gt;
-&lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;&lt;/condition&gt;
-&lt;filtercondition&gt;&lt;/filtercondition&gt;
-&lt;editMode&gt;&lt;/editMode&gt;
-&lt;processDescription&gt;&lt;/processDescription&gt;
-&lt;formlist&gt;undefined&lt;/formlist&gt;
-&lt;action&gt;&lt;/action&gt;
-&lt;pointstack&gt;295;70;147;199&lt;/pointstack&gt;
-&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
-&lt;id&gt;1692952137800&lt;/id&gt;
-&lt;name&gt;&lt;/name&gt;
-&lt;scale&gt;0&lt;/scale&gt;
-&lt;note&gt;&lt;/note&gt;
-&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
 &lt;cn.myapps.runtime.workflow.element.ManualNode&gt;
 &lt;actorListScript&gt;&lt;![CDATA[#include @quot;&#38598;&#22242;&#32463;&#33829;&#37096;@quot;     
      (function () {     
@@ -357,8 +300,8 @@
 &lt;name&gt;&#37096;&#38376;&#36127;&#36131;&#20154;&#23457;&#26680;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;142&lt;/x&gt;
-&lt;y&gt;257&lt;/y&gt;
+&lt;x&gt;111&lt;/x&gt;
+&lt;y&gt;264&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -378,13 +321,22 @@
 &lt;endnodeid&gt;1692952146994&lt;/endnodeid&gt;
 &lt;ispassed&gt;false&lt;/ispassed&gt;
 &lt;isreturn&gt;false&lt;/isreturn&gt;
-&lt;condition&gt;&lt;/condition&gt;
+&lt;condition&gt;(function () {                    
+                var useNode = true                
+                var value = getItemValueAsString(&apos;&#20844;&#21496;&apos;)        
+                  var dep = getDeptById(value)       
+                  var dep_name = dep.getName()         
+                  if(dep_name.endsWith(@quot;&#38598;&#22242;@quot;)) {            
+                  useNode = false                   
+                }                
+                return useNode                
+              })()&lt;/condition&gt;
 &lt;filtercondition&gt;&lt;/filtercondition&gt;
-&lt;editMode&gt;&lt;/editMode&gt;
+&lt;editMode&gt;01&lt;/editMode&gt;
 &lt;processDescription&gt;&lt;/processDescription&gt;
-&lt;formlist&gt;undefined&lt;/formlist&gt;
+&lt;formlist&gt;&lt;/formlist&gt;
 &lt;action&gt;&lt;/action&gt;
-&lt;pointstack&gt;142;144;139;259&lt;/pointstack&gt;
+&lt;pointstack&gt;353;244;139;259&lt;/pointstack&gt;
 &lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
 &lt;id&gt;1692952153737&lt;/id&gt;
 &lt;name&gt;&lt;/name&gt;
@@ -465,8 +417,8 @@
 &lt;name&gt;&#38598;&#22242;&#32463;&#21150;&#20154;&#23457;&#26680;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;142&lt;/x&gt;
-&lt;y&gt;364&lt;/y&gt;
+&lt;x&gt;174&lt;/x&gt;
+&lt;y&gt;362&lt;/y&gt;
 &lt;width&gt;150&lt;/width&gt;
 &lt;height&gt;70&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -507,8 +459,8 @@
 &lt;name&gt;&#23436;&#25104;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
-&lt;x&gt;206&lt;/x&gt;
-&lt;y&gt;477&lt;/y&gt;
+&lt;x&gt;527&lt;/x&gt;
+&lt;y&gt;373&lt;/y&gt;
 &lt;width&gt;50&lt;/width&gt;
 &lt;height&gt;50&lt;/height&gt;
 &lt;m_width&gt;50&lt;/m_width&gt;
@@ -537,6 +489,91 @@
 &lt;pointstack&gt;152;362;204;477&lt;/pointstack&gt;
 &lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
 &lt;id&gt;1692952637498&lt;/id&gt;
+&lt;name&gt;&lt;/name&gt;
+&lt;scale&gt;0&lt;/scale&gt;
+&lt;note&gt;&lt;/note&gt;
+&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;state&gt;&lt;/state&gt;
+&lt;startnodeid&gt;1692952094116&lt;/startnodeid&gt;
+&lt;endnodeid&gt;1692952095644&lt;/endnodeid&gt;
+&lt;ispassed&gt;false&lt;/ispassed&gt;
+&lt;isreturn&gt;false&lt;/isreturn&gt;
+&lt;condition&gt;&lt;/condition&gt;
+&lt;filtercondition&gt;&lt;/filtercondition&gt;
+&lt;editMode&gt;&lt;/editMode&gt;
+&lt;processDescription&gt;&lt;/processDescription&gt;
+&lt;formlist&gt;undefined&lt;/formlist&gt;
+&lt;action&gt;&lt;/action&gt;
+&lt;pointstack&gt;196;5;145;144&lt;/pointstack&gt;
+&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
+&lt;id&gt;1697699538395&lt;/id&gt;
+&lt;name&gt;&lt;/name&gt;
+&lt;scale&gt;0&lt;/scale&gt;
+&lt;note&gt;&lt;/note&gt;
+&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;state&gt;&lt;/state&gt;
+&lt;startnodeid&gt;1692952094116&lt;/startnodeid&gt;
+&lt;endnodeid&gt;1692952113426&lt;/endnodeid&gt;
+&lt;ispassed&gt;false&lt;/ispassed&gt;
+&lt;isreturn&gt;false&lt;/isreturn&gt;
+&lt;condition&gt;&lt;/condition&gt;
+&lt;filtercondition&gt;&lt;/filtercondition&gt;
+&lt;editMode&gt;&lt;/editMode&gt;
+&lt;processDescription&gt;&lt;/processDescription&gt;
+&lt;formlist&gt;undefined&lt;/formlist&gt;
+&lt;action&gt;&lt;/action&gt;
+&lt;pointstack&gt;196;3;292;55&lt;/pointstack&gt;
+&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
+&lt;id&gt;1697699553932&lt;/id&gt;
+&lt;name&gt;&lt;/name&gt;
+&lt;scale&gt;0&lt;/scale&gt;
+&lt;note&gt;&lt;/note&gt;
+&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;state&gt;&lt;/state&gt;
+&lt;startnodeid&gt;1692952113426&lt;/startnodeid&gt;
+&lt;endnodeid&gt;1692952095644&lt;/endnodeid&gt;
+&lt;ispassed&gt;false&lt;/ispassed&gt;
+&lt;isreturn&gt;false&lt;/isreturn&gt;
+&lt;condition&gt;&lt;/condition&gt;
+&lt;filtercondition&gt;&lt;/filtercondition&gt;
+&lt;editMode&gt;&lt;/editMode&gt;
+&lt;processDescription&gt;&lt;/processDescription&gt;
+&lt;formlist&gt;undefined&lt;/formlist&gt;
+&lt;action&gt;&lt;/action&gt;
+&lt;pointstack&gt;289;53;145;144&lt;/pointstack&gt;
+&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
+&lt;id&gt;1697699556791&lt;/id&gt;
+&lt;name&gt;&lt;/name&gt;
+&lt;scale&gt;0&lt;/scale&gt;
+&lt;note&gt;&lt;/note&gt;
+&lt;/cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;cn.myapps.runtime.workflow.element.Relation&gt;
+&lt;state&gt;&lt;/state&gt;
+&lt;startnodeid&gt;1692952095644&lt;/startnodeid&gt;
+&lt;endnodeid&gt;1692952195712&lt;/endnodeid&gt;
+&lt;ispassed&gt;false&lt;/ispassed&gt;
+&lt;isreturn&gt;false&lt;/isreturn&gt;
+&lt;condition&gt;(function () {                     
+                 var useNode = false                 
+                 var value = getItemValueAsString(&apos;&#20844;&#21496;&apos;)            
+                 var dep = getDeptById(value)      
+                 var dep_name = dep.getName()    
+                 if(dep_name.endsWith(@quot;&#38598;&#22242;@quot;)) {                    
+                   useNode = true                    
+                 }                 
+                 return useNode                 
+               })()&lt;/condition&gt;
+&lt;filtercondition&gt;&lt;/filtercondition&gt;
+&lt;editMode&gt;01&lt;/editMode&gt;
+&lt;processDescription&gt;&lt;/processDescription&gt;
+&lt;formlist&gt;&lt;/formlist&gt;
+&lt;action&gt;&lt;/action&gt;
+&lt;pointstack&gt;268;284;191;482&lt;/pointstack&gt;
+&lt;validateScript&gt;&lt;![CDATA[]]&gt;&lt;/validateScript&gt;
+&lt;id&gt;1697701398539&lt;/id&gt;
 &lt;name&gt;&lt;/name&gt;
 &lt;scale&gt;0&lt;/scale&gt;
 &lt;note&gt;&lt;/note&gt;
