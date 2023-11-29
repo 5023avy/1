@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
-<styleRepositoryVO id="__fQrLqxbeu1hM8oJ0awS">
-  <name>echarts</name>
-  <parentId>__avYbKPJJjObzoPrV2er</parentId>
-  <content><![CDATA[.formwrapper .formTable-wrap .calctext-control{
-  display: block!important
-}]]></content>
-  <version>0</version>
-</styleRepositoryVO>
