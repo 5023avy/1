@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__kTkUQRzOGhjljUaVCcO">
+  <name>轨道二号线运营月报</name>
+  <parentId>__WPhrxy08jmaYUEbr9dv</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  var startDate = getItemValueAsDate('开始月份')
+  var endDate = getItemValueAsDate('结束月份')
+  var monthRange = getPast6Months()
+  if(isNotNull(startDate) && isNotNull(endDate)) {
+    monthRange = getMonthsBetween(startDate,endDate)
+  }
+
+  var formName = '轨道二号线运营数据';
+  var formatDate = []
+  var sqlFilter = []
+  var data1 = []
+  monthRange.forEach(function(value) {
+    formatDate.push(String(format(value,"yyyy年M月")))
+    sqlFilter.push("'" + format(value,"yyyy-MM") + "'");
+  })
+
+  var sql = "select domainid, DATE_FORMAT(item_日期, '%Y-%m') AS month, \
+   sum(item_轨道二号线客流量) as item_轨道二号线客流量汇总 \
+   from tlk_" + formName + " where DATE_FORMAT(item_日期, '%Y-%m') in (" + sqlFilter.join(',') + ")" + 
+   "GROUP BY DATE_FORMAT(item_日期, '%Y-%m') ORDER BY DATE_FORMAT(item_日期, '%Y-%m')";
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var itemValue1 = item.getItemValueAsFloat('轨道二号线客流量汇总')
+      data1.push(parseFloat(itemValue1.toFixed(2)))
+    }
+  }
+  var length = formatDate.length - 1
+  var legend1 = "轨道二号线客运量（万人次）"
+  var option = {
+    grid: [
+      {left: '8%', right: '8%', height: '60%', top: '10%', bottom: '10%' },
+    ],
+    title: {
+      text: '轨道二号线' + formatDate[0] + '-' + formatDate[length] + "运营数据图",
+      left: 'center',
+    },
+    toolbox: {
+      right: '10%',
+      feature: {
+        saveAsImage: { show: true }
+      }
+    },
+    legend: {
+      data: [legend1],
+      bottom: '18%'
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: formatDate,
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        name: '客运量',
+        axisLabel: {
+          formatter: '{value} 万人次'
+        }
+      },
+    ],
+    series: [
+      {
+        name: legend1,
+        type: 'bar',
+        barMaxWidth: '40',
+        label: {
+          show: true,
+          position: 'top'
+        },
+        data: data1
+      },
+    ]
+  };
+  return option
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[{"field":"开始月份","isCommonFilter":"true","paramKey":1690447518534},{"field":"结束月份","isCommonFilter":"true","paramKey":1690447519054}]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId>__UfVXTuR6D4sJmH483Cj</searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

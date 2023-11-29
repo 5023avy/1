@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<summaryCfgVO id="__u4Z9IQhL6YjRPqoNn4t">
+  <name>超时提醒</name>
+  <parentId>__EGRvGCgDmXDNMn3m4w0</parentId>
+  <title>超时提醒</title>
+  <type>00</type>
+  <formId>__EGRvGCgDmXDNMn3m4w0</formId>
+  <fieldNames>下发用户;公司;年份;截止时间</fieldNames>
+  <summaryScript><![CDATA[]]></summaryScript>
+  <scope>1</scope>
+  <isShowTags>0</isShowTags>
+</summaryCfgVO>

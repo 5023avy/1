@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__b9jQ01awpD8le73Gv7N">
+  <name>子公司企业信息管理部门员工</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>qyxx001</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>168376946871500000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__aluhbr6vY7J7Ghswo1o","resId":"__aluhbr6vY7J7Ghswo1o","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__TgZKgraHSY0ornsm753","resId":"__TgZKgraHSY0ornsm753","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__SQfJnbK6SO0SXkS72tz">
+  <name>源数据</name>
+  <parentId>__TgZKgraHSY0ornsm753</parentId>
+  <description>源数据</description>
+  <multiLanguageLabel></multiLanguageLabel>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon_menu_default.png","icontype":"img"}</ico>
+  <superior>__TgZKgraHSY0ornsm753</superior>
+  <linkName></linkName>
+  <linkType>01</linkType>
+  <moduleid>__mJfQDLm8NzwJoki8LOL</moduleid>
+  <directory></directory>
+  <actionContent><![CDATA[__i9yKvimRbUNpa13k4r5]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>public</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>0</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

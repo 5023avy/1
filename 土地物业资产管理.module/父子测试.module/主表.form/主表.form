@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__qfTdfyQCIu95Fhj5UVe">
+  <name>主表</name>
+  <parentId>__zWQhOkYrijULtCzeVXn</parentId>
+  <description></description>
+  <sortId>169509166590800000</sortId>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="9d4a9f77-19a4-09c1-6e65-4623dc49b16c" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="3" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="关联ID" id="9c548b08-0997-f3c5-45a0-1e52e2490980" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="以第一条数据的ID为后续版本的关联ID" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" widthunit="px" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">关联ID</span>
+        </div><div class="baseCon fieldId" fieldid="9c548b08-0997-f3c5-45a0-1e52e2490980" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="桥下空间信息" id="dfaeb685-a5f7-e657-a1f4-86faf82d3fd8" draggable="true" scope="tabField" myselfrows="100" layout="horizontal" openall="true" tabname="桥下空间信息" showmode="1" editprop="editTabField" selectedscript="" relstr="[{'name':'桥下空间信息','type':'form','moduleId':'__zWQhOkYrijULtCzeVXn','formId':'__Cjf8vwGtn5uYFBUAGXT','recalculate':true,'relate':true,'hiddenScript':'','readOnlyScript':'','hiddenPrintScript':'','selectRefreshScript':''}]" tabselwidth="" style="display: inline-block; width: 100%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;" name0="桥下空间信息" relate0="true"><div class="baseCon fieldId" style="overflow:auto" fieldid="dfaeb685-a5f7-e657-a1f4-86faf82d3fd8">
+            <div class="normalTabDiv"><a name="name0" class="normalTabCheck">桥下空间信息</a>
+            </div>
+            <div class="normalTabPanelDiv">
+                <tab-content><div draggable="true" name="容器1" id="eb8ccc27-bdbc-e414-0257-d86080bf234e" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="5" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="镇区" id="c1b9bf87-777b-9eb0-26ff-f22f6812f059" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" widthunit="px" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">镇区</span>
+        </div><div class="baseCon fieldId" fieldid="c1b9bf87-777b-9eb0-26ff-f22f6812f059" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="占用面积" id="b13e7c1a-3316-e7a8-710f-3ec16e945ded" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="占用面积（㎡）" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" widthunit="px" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">占用面积</span>
+        </div><div class="baseCon fieldId" fieldid="b13e7c1a-3316-e7a8-710f-3ec16e945ded" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="桥梁名称" id="4ac09e61-2708-b96b-8296-f93c15bf7ef2" draggable="true" scope="inputField" myselfrows="100" layout="horizontal" fieldtype="VALUE_TYPE_VARCHAR" numberpattern="00.00" defaultvalueisnull="false" texttype="text" fieldkeyevent="Tabkey" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" secrettext="false" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editInputField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" width="200" widthunit="px" style="display: inline-block; width: 100%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">桥梁名称</span>
+        </div><div class="baseCon fieldId" fieldid="4ac09e61-2708-b96b-8296-f93c15bf7ef2" style="height: 30px;">
+        <input type="text" class="base-field " readonly="" style="width:200px"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="桥下空间子信息" id="3ab1368e-f785-a29e-db1c-f9007cf111ef" draggable="true" scope="includeField" myselfrows="100" layout="horizontal" refreshonchanged="false" calculateonrefresh="false" refreshmode="0" refreshfields="" editprop="editInputField" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" includetype="0" module="__zWQhOkYrijULtCzeVXn" viewid="__41OTca5RCi4y4mgR8D5" relate="true" fixation="false" fixationheight="0" generateview="" includeelwidth="" includepercentage="px" readonlyscript="" style="display: inline-block; width: 100%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;" dialogview=""><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">桥下空间子信息</span>
+        </div><div class="baseCon fieldId" fieldid="3ab1368e-f785-a29e-db1c-f9007cf111ef" style="height: 30px;">
+        <img src="images/includeField.png"></div><div class="delete"><i class="btn-delete" title="删除"></i></div></div><div class="placeholder d-none"></div></div></tab-content>
+            </div>
+            
+        </div><div class="delete"><i class="btn-delete" title="删除"></i></div></div><div class="placeholder d-none"></div></div>]]></templatecontext>
+  <type>1</type>
+  <styleId>__8FhGAldDeRjIkgXAtCE</styleId>
+  <showLog>false</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>0</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <dataModelId></dataModelId>
+</form>

@@ -1,0 +1,726 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__d3IzPUU0XIAQ8pFiFaZ">
+  <name>globalMethods</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>全局方法</description>
+  <content><![CDATA[/**
+ * 获取顶级部门，顶级部门只有一个
+ */
+function getTopDept () {
+  var dept = getDepartmentByLevel(0)
+  return dept.get(0)
+}
+
+/**
+ * 根据部门id获取部门信息
+ * @param {string} deptid 
+ * @returns 
+ */
+function getDeptById(deptid) {
+  var process = getDepartmentProcess();
+  var dept = process.doView(deptid);
+  return dept;
+}
+
+// 获取用户默认所属公司信息
+function getUserDep(webuser){
+  var deptid = webuser.getDefaultDepartment();
+  var process = getDepartmentProcess();
+  var dept = process.doView(deptid);
+  var did = dept.getId();
+  var depName = dept.getName();
+  var depLevel = dept.getLevel();
+  var headquarters = null; // 是否存在本部
+  if(depName.endsWith('本部')) {
+    headquarters = dept
+  }
+  while(!depName.endsWith('公司') && !depName.endsWith('集团')) {
+    dept = dept.getSuperior();
+    did = dept.getId();
+    depName = dept.getName();
+    depLevel = dept.getLevel();
+    if(depName.endsWith('本部')) {
+      headquarters = dept
+    }
+  }
+  return {"did":did, "depName": String(depName), "depLevel": depLevel, "headquarters": headquarters} ;
+}
+
+/**
+ * 获取指定部门所属公司
+ * @param {*} deptId 部门ID 
+ * @returns 公司对象
+ */
+function getCompanyTheDeptBelongto(deptId) {
+  var dept = getDeptById(deptId)
+  var deptName = dept.getName()
+  var headquarters = null; // 是否存在本部
+  if(deptName.endsWith('本部')) {
+    headquarters = dept
+  }
+  while (!deptName.endsWith('公司') && !deptName.endsWith('集团')) {
+    dept = dept.getSuperior();
+    deptName = dept.getName()
+    if(deptName.endsWith('本部')) {
+      headquarters = dept
+    }
+  }
+  return {dept: dept, headquarters: headquarters}
+}
+
+// 根据表名称获取表id
+function getFormidByFormname(formName) {
+		  var formProcess = getFormProcess();  
+  var form = formProcess.doViewByFormName(formName,getApplication());//bug_01为表单名，getApplication()是拿到对应的软件id，你把他写死就好
+  var formid =form.getId();
+  return formid
+}
+
+// 生成唯一id
+function getUniqueId() {
+  var uuid = new Packages.cn.myapps.util.sequence.Sequence();   
+  var uid = uuid.getSequence();   
+  return uid;
+}
+
+
+function setTitle (title,fontSize,color) {
+  var f = fontSize || '18';
+  var c = color || '#5f9ea0';
+  var htmls = '<div style="display: flex;align-items: center;margin-top: 5px;margin-bottom: 10px;"><span style="display: inline-block;width:4px;height: 20px;background-color: #4b92ee;"></span> \
+  <div style="display: inline-block; margin-left: 10px;font-weight: bold;font-size: '
+    + f+ 'px; color: #333;">' + title + '</div></div>'
+  return htmls;
+}
+
+/**
+ * 判断视图是否来源于菜单
+ * @return 
+ */
+function ifViewSourceFromMenu() {
+  var viweSource = getParameter('source');
+  if("menu".equals(viweSource)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+/**
+ * 判断用户是否属于某个角色
+ * @param {*} user 
+ * @param {*} roleName 
+ * @returns Boolean
+ */
+function ifUserBelongsToRole(user,roleName){
+  var roles = user.getRoles()  //获取指定用户的所属角色集合
+  var result = false
+  for(var iter=roles.iterator();roles !=null && iter.hasNext();){
+    var role=iter.next();
+    var rolename=role.getName();
+    if(rolename == roleName) {
+    	result = true;
+      break;
+    }
+  }
+  return result;
+}
+
+/**
+ * 获取用户所属公司id及其所有下属公司id集合
+ * @param {*} webuser 
+ * @param {*} targetLevel 指定下属公司层级，默认-1为所有下属公司
+ * @param {*} ifGetDept 是否获取用户所属公司的部门，默认为false
+ * @param {*} fixDeptId 指定部门，为空时读取用户默认部门所属公司，不为空时获取用户在指定部门所属公司
+ * @returns 
+ */
+function getUserDepIdAndSubDepIds(webuser, targetLevel, ifGetDept, fixDeptId) {
+  if(isNotNull(fixDeptId)) {
+    var dept = getCompanyTheDeptBelongto(fixDeptId) // 获取部门所属公司，即用户所属公司信息
+    var userCompany = dept.dept
+    var deptId = String(userCompany.getId())
+    var level = userCompany.getLevel()
+  } else {
+    var dept = getUserDep(webuser);
+    var deptId = dept.did;
+    var level = dept.depLevel
+  }
+  var subids = [deptId];
+  targetLevel = targetLevel || -1
+  findCompaniesByLevel(deptId, targetLevel, level, subids,[]);
+
+  if(ifGetDept) {
+    var parentId = deptId
+    if(isNotNull(dept.headquarters)) {
+      parentId = dept.headquarters.getId()
+    }
+    var deptUnderList = getDepartmentsByParent(parentId);
+    for (var iter = deptUnderList.iterator(); iter.hasNext();) {
+      var deptUnder = iter.next();
+      var deptName = deptUnder.getName();
+      var subDeptId = deptUnder.getId();
+      if (!deptName.endsWith('公司')) { 
+        subids.push(subDeptId)
+      }
+    }
+  }
+  return subids;
+}
+
+
+/**
+  * 根据公司id递归查询该公司下某个层级的所有子孙公司
+  * @deptId 当前用户所属公司id
+  * @level 获取到某一层级的子孙公司，-1为获取所有层级
+  * @currentLevel 当前用户所属公司的层级
+  * @subids 父子公司id集合
+  * @subnames 父子公司name集合
+*/
+function findCompaniesByLevel(deptId, level, currentLevel, subids,subnames) {
+  var subDeptList = getDepartmentsByParent(deptId);
+  if (subDeptList !== null && (currentLevel < level || level <0)) {
+    for (var iter = subDeptList.iterator(); iter.hasNext();) {
+      var subDept = iter.next();
+      var subId = subDept.getId();
+      var subName = subDept.getName();
+      if (subName.endsWith('公司')) { // || subName.indexOf('管理处') >= 0
+        subids.push(subId);
+        subnames.push(subName);
+      }
+      // 递归调用，查找下一级部门
+      findCompaniesByLevel(subId, level, currentLevel + 1, subids,subnames);
+    }
+  }
+}
+
+/**
+ * 获取指定角色下属于某个层级的用户集合
+ * @param roleName 角色名 
+ * @param level 用户所属层级
+ */
+function initChargeIds(roleName,level){
+  var roleid = getRoleIdByName(roleName); //获取对应角色ID
+  var userArr = getUsersByRoleId(roleid); //根据角色，获取该角色下所有用户集合
+  var users = [];
+  var userIds = [];
+  for (var iter = userArr.iterator(); userArr != null && iter.hasNext(); ) {
+      var user = iter.next();
+      var userDep = getUserDep(user)// 获取用户所属公司
+      if(userDep.depLevel == level) { // 返回公司层级等于要求层级的用户
+      	  users.push(user);
+        userIds.push(user.getId());
+      }
+  }
+  return {"users":users, "userIds": userIds}
+}
+
+
+/**
+ * 判断某个数据是否在对象数组中
+ * @param {*} data 数据
+ * @param {*} fieldName 字段名
+ * @param {*} array 数组
+ * @returns 
+ */
+function findDataInArray(data, fieldName, array) {
+  var result = null
+  array.forEach(function(item) {
+    // 判断每个元素的 name 属性是否与指定的 name 相等
+    if (item[fieldName] === data) {
+      result = item;
+    }
+  });
+
+  return result;
+}
+
+/**
+ * 获取指定层级的部门并输出为options
+ * @param {number} level 
+ * @returns 
+ */
+function getDepartmentOptionByLevel(level) {
+  var opts = createOptions();
+  var deptUnderList = getDepartmentByLevel(level);
+  for (var iter = deptUnderList.iterator(); iter.hasNext();) {
+    var deptUnder = iter.next();
+    var deptName = deptUnder.getName();
+    var deptId = deptUnder.getId();
+    opts.add(deptName, deptId);
+  }
+  return opts;
+}
+
+/**
+ * 获取用户所属公司及其下属公司,并输出为options
+ * @param {number} targetLevel 指定下属公司层级，默认-1为所有下属公司
+ * @param {boolean} ifGetDept 是否获取用户所属公司的部门，默认为false
+ * @param {boolean} setAll 是否默认添加“所有公司”，默认为false
+ * @param {boolean} showBelongCompany 是否需要显示用户所属公司，默认为false
+ * @param {*} fixDeptId 指定部门，为空时读取用户默认部门所属公司，不为空时获取用户在指定部门所属公司
+ * @returns 
+ */
+function getUserDepartmentOption(targetLevel, ifGetDept, setAll, showBelongCompany, fixDeptId) {
+  var user = getWebUser(); // 内置方法
+  if(isNotNull(fixDeptId)) {
+    var dept = getCompanyTheDeptBelongto(fixDeptId) // 获取部门所属公司，即用户所属公司信息
+    var userCompany = dept.dept
+    var dId = String(userCompany.getId())
+    var dName = userCompany.getName()
+    var dLevel = userCompany.getLevel()
+  } else {
+    // 获取用户所属公司及其下属公司
+    var dept = getUserDep(user) // 获取用户所属公司信息
+    var dId = dept.did
+    var dName = dept.depName
+    var dLevel = dept.depLevel
+  }
+  var subids = []
+  var subnames = []
+
+  if(showBelongCompany) {
+    subids.push(dId)
+    subnames.push(dName)
+  }
+
+  targetLevel = targetLevel || -1
+  findCompaniesByLevel(dId, targetLevel, dLevel, subids,subnames)
+  var opts = createOptions();
+  if(setAll) {
+    opts.add('所有公司', 'all');
+  }
+  subids.forEach(function(value, index) {
+    opts.add(subnames[index], value);
+  })
+  if(ifGetDept) {
+    var parentId = dId
+    if(isNotNull(dept.headquarters)) {
+      parentId = dept.headquarters.getId()
+    }
+    var deptUnderList = getDepartmentsByParent(parentId);
+    for (var iter = deptUnderList.iterator(); iter.hasNext();) {
+      var deptUnder = iter.next();
+      var deptName = deptUnder.getName();
+      var deptId = deptUnder.getId();
+      if (!deptName.endsWith('公司') && !deptName.endsWith('领导')) { 
+        opts.add(String(deptName), deptId);
+      }
+    }
+  }
+  return opts;
+}
+
+/**
+ * 将多选下拉框的数据转为数组，数据用单引号''包含，主要用于sql语句查询
+ * @param {string} 字段名 
+ * @returns 
+ */
+function dropdownMulti(fieldName) {
+  var data = getItemValueAsString(fieldName)
+  var result = []
+  if(data != '' && data != null) {
+    var arr = data.split(';')
+    result = arr.map(function(value) {
+      return "'" + value + "'"
+    })
+  }
+  return result
+}
+
+function formatNumber(num) {
+  // 使用 toFixed() 方法将数字保留2位小数
+  var fixedNumber = parseFloat(num.toFixed(2));
+
+  // 返回保留2位小数后的数字
+  return fixedNumber;
+}
+
+/**
+ * 递归查询一个数据并回调函数
+ * @param {array} array 
+ * @param {object} source 
+ * @param {function} callFun 
+ */
+function recursionArr(array, source, callFun1,callFun2) {
+  for (var i = 0; i < array.length; i++) {
+    var item = array[i];
+    callFun1(item, source);
+
+    if (item.children) {
+      recursionArr(item.children, source, callFun1,callFun2);
+      if(callFun2) {
+        callFun2(item)
+      }
+      // if(item.sumChilren) {
+      //   item.children.forEach(function(temp) {
+      //     item.value += temp.value
+      //   })
+      // }
+    }
+  }
+}
+
+/**
+ * 去除字符串中的千分符
+ * @param {string} fieldName 字段名
+ * @returns 
+ */
+function removeThousandsSeparator(fieldName) {
+  var str = getItemValueAsString(fieldName)
+  var result = '';
+  // 使用正则表达式匹配逗号，并使用空字符串进行替换
+  if(str) {
+    result = str.split(',').join('');
+  }
+  return result;
+}
+
+/**
+ * tooltip显示添加单位
+ * @param {array} unit 
+ * @returns 
+ */
+function formatterTooltip(unit) {
+  return "function(params) {\
+      var tooltipLines = params.map(function(item,index) {\
+        var originalTooltip = item.marker + ' ' + item.seriesName + '：   <strong>' + item.value + '</strong>';\
+        var formattedTooltip = originalTooltip + unit[index];\
+        return formattedTooltip;\
+      });\
+      \
+      var formattedTooltip = tooltipLines.join('<br>');\
+      var axisLabel = params[0].axisValueLabel;\
+      if (axisLabel) {\
+        formattedTooltip = '<strong>' + axisLabel + '</strong><br>' + formattedTooltip;\
+      }\
+      return formattedTooltip;\
+  }"
+}
+
+/**
+ * 调用第三方接口，默认使用application/json
+ * @param {string} url 
+ * @param {string} method 
+ * @param {object array} requestProperty 请求头参数
+ * @param {object json} paramsObj 发送请求参数
+ * @returns 
+ */
+function useHttpRequest(url, method, requestProperty, paramsObj) {
+  var buffer = new Packages.java.lang.StringBuffer();
+  var url = new Packages.java.net.URL(url);
+  var httpUrlConn = url.openConnection();
+  httpUrlConn.setDoOutput(true);
+  httpUrlConn.setDoInput(true);
+  httpUrlConn.setUseCaches(false);
+  httpUrlConn.setRequestMethod(method);
+  httpUrlConn.setRequestProperty("contentType", "UTF-8");
+  httpUrlConn.setRequestProperty("content-type", "application/json");
+  httpUrlConn.setRequestProperty("dataType", "json");
+  requestProperty.forEach(function(item) {
+    httpUrlConn.setRequestProperty(item.key, item.value);
+  })
+  println('httpUrlConn------------------'+httpUrlConn)
+  println('headers------------------'+httpUrlConn.getRequestProperties())
+  
+  var paramsStr = JSON.stringify(paramsObj)
+  var outputStream = httpUrlConn.getOutputStream();
+
+  // 将请求参数写入输出流
+  var writer = new Packages.java.io.OutputStreamWriter(outputStream);
+  writer.write(paramsStr);
+  writer.flush();
+  
+  // 关闭输出流
+  writer.close();
+  outputStream.close();
+
+  // 将返回的输入流转换成字符串
+  var inputStream = httpUrlConn.getInputStream();
+  var inputStreamReader = new Packages.java.io.InputStreamReader(inputStream, "utf-8");
+  var bufferedReader = new Packages.java.io.BufferedReader(inputStreamReader);
+
+  var str = null;
+  while ((str = bufferedReader.readLine()) != null) {
+    buffer.append(str);
+  }
+  bufferedReader.close();
+  inputStreamReader.close();
+  // 释放资源
+  inputStream.close();
+  inputStream = null;
+  httpUrlConn.disconnect();
+  var jsonObject = Packages.net.sf.json.JSONObject.fromObject(buffer.toString());
+  return jsonObject
+}
+
+
+/**
+ * 获取链接前缀
+ */
+function getServerUrl() {
+  var request = $WEB.getParamsTable().getHttpRequest();
+  //"http://" + request.getServerName()+":" + request.getServerPort() + request.getContextPath();
+  var serverName = "http://" + request.getServerName()+":" + request.getServerPort();
+  var url= serverName + '/static/portal/vue/index.html#' 
+  return url
+}
+
+/**
+   * 获取某个日期的前一周日期
+   * @param {string} dateString 指定日期，可为空，传空则默认日期为当天
+   * @returns 前一周日期数组
+   */
+  function getPreviousWeekDates(dateString) {
+    const date = dateString ? parseDate(dateString, "yyyy-MM-dd") : new Date()
+    const oneDayMilliseconds = 24 * 60 * 60 * 1000; // One day in milliseconds
+  
+    const dayOfWeek = date.getDay();
+  
+    const daysToSubtract = (dayOfWeek === 0 ? 6 : dayOfWeek) + 6
+  
+    const firstDayOfPreviousWeek = new Date(date.getTime() - daysToSubtract * oneDayMilliseconds);
+    const lastDayOfPreviousWeek = new Date(firstDayOfPreviousWeek.getTime() + 6 * oneDayMilliseconds);
+    const previousWeekDates = [];
+    for (var d = firstDayOfPreviousWeek; d <= lastDayOfPreviousWeek; d = new Date(d.getTime() + oneDayMilliseconds)) {
+      previousWeekDates.push(d);
+    }
+  
+    return previousWeekDates;
+  }
+
+/**
+ * 使用iframe加载charts，主要在表单的计算脚本使用
+ * @param {*} chartId 
+ * @param {*} iframeHeight 
+ * @returns 
+ */
+function getIframeLoadCharts(chartId, iframeHeight) {
+  var appId = getApplication();
+  var url = getServerUrl();
+  var iframeSrc = url + '/open?appId=' + appId 
+  + '&actionContent=' + chartId + '&linkType=02';
+  iframeHeight = iframeHeight || '500px'; // iframe 的高度
+
+  var htmlString = '<html><head></head><body>';
+  htmlString += '<iframe id="iframe" style="width: 100%" src="' + iframeSrc + '" height="' + iframeHeight + '"></iframe>';
+  htmlString += '</body></html>';
+  return htmlString;
+}
+
+  /**
+ * 获取当前月份过去6个月
+ * @param {string yyyy-MM-dd} dateString 
+ * @returns 
+ */
+  function getPast6Months(dateString) {
+    var date = dateString ? parseDate(dateString, "yyyy-MM-dd") : new Date()
+    var pastMonths = [];
+    var monthStrArr = []
+    for (var i = 1; i < 7; i++) {
+      var monthString = getYear(date) + '-' + (getMonth(date) - i) + '-' + '01'
+      monthStrArr.unshift(monthString);
+    }
+    pastMonths = monthStrArr.map(function(value) {
+      var pastMonth = parseDate(value,"yyyy-M-dd")
+      return pastMonth
+    })
+
+    return pastMonths;
+  }
+
+/**
+ * 获取两个给定日期之间的所有日期
+ * @param {date} 开始日期 
+ * @param {date} 结束日期
+ * @returns 
+ */
+function getDatesBetween(startDate, endDate) {
+  const dates = [];
+  const currentDate = new Date(startDate);
+  const lastDate = new Date(endDate);
+  
+  while (currentDate <= lastDate) {
+    dates.push(new Date(currentDate));
+    currentDate.setDate(currentDate.getDate() + 1);
+  }
+  
+  return dates;
+}
+
+/**
+ * 获取两个给定日期之间的月份
+ * @param {date} startMonth 
+ * @param {date} endMonth 
+ * @returns date array
+ */
+function getMonthsBetween(startMonth, endMonth) {
+  var months = [];
+  var currentMonth = new Date(startMonth);
+  var lastMonth = new Date(endMonth);
+  while (currentMonth.getTime() <= lastMonth.getTime()) {
+    var year = getYear(currentMonth)
+    var month = getMonth(currentMonth) //currentMonth.getMonth() + 1; // getMonth() 返回的是 0-11，所以要加 1
+    var formattedMonth = parseDate((year + '-' + month + '-01'),"yyyy-M-dd")
+    months.push(formattedMonth);
+    
+    currentMonth.setMonth(currentMonth.getMonth() + 1);
+  }
+  return months;
+}
+
+
+/**
+ * 初始化插入数据库表数据的必填id
+ * @param {string} formName 插入表的表名
+ * @returns 
+ */
+function initInsertAreaId (formName) {
+  var domainid = getDomainid();
+  var applicationId = getApplication();
+  var formid = getFormidByFormname(formName)
+  // var uuid = new Packages.cn.myapps.util.sequence.Sequence();
+  // var id = uuid.getSequence()+"--"+ formid;
+
+  var fieldName = ' domainid, applicationId, formid'
+  var valueStr = "'" + domainid + "','" + applicationId + "','"  + formid + "'"
+  return { fieldName: fieldName, valueStr: valueStr, domainid:domainid, applicationId:applicationId, formid:formid }
+}
+
+/**
+ * 生成插入数据库表的数据id
+ * @param {string} formId 表id，可通过 getFormidByFormname(formName) 方法获取
+ * @returns 
+ */
+function initDataId (formId) {
+  var uuid = new Packages.cn.myapps.util.sequence.Sequence();
+  var id = uuid.getSequence()+"--" + formId;
+  return id
+}
+
+
+//创建角色
+function createRole() {
+  var process = getRoleProcess();
+  var role = new Packages.cn.myapps.common.model.role.Role();
+  role.setName("员工");
+  role.setRoleNo("YG");
+  role.setStatus(1);
+  role.setDefaultRole(true);
+  role.setParentId("Applicationid");
+  role.setApplicationid("Applicationid");
+  process.save(role);
+  // process.delete(applicationId, roleid); // 删除角色
+}
+
+/**
+ * 创建一条新表单数据
+ * @param {string} formName 表单 
+ * @param {user} user 用户
+ * @param {array} dataArr 数据集，{type, key, value}，type：数据类型，key：字段名，value：数据值
+ */
+function createNewFormData(formName, user, dataArr) {
+  var formProcess = getFormProcess();                              
+  var docProcess = getDocumentProcess(); 
+  var domainid = getDomainid();
+  var applicationId = getApplication();
+  var newForm = formProcess.doViewByFormName(formName, applicationId); 
+  var newDoc = docProcess.doNew(newForm, user, createParamsTable()); 
+  newDoc.setIstmp(false); 
+  newDoc.setDomainid(domainid);  
+  dataArr.forEach(function(item) {
+    switch(item.type) {
+      case 'string':
+      default:
+        newDoc.addStringItem(item.key, item.value); 
+        break;
+      case 'date': // 日期类型
+        newDoc.addDateItem(item.key, item.value); 
+        break;
+      case 'int': // 整数
+        newDoc.addIntItem(item.key, item.value); 
+        break;
+      case 'double': // 双精度浮点型
+        newDoc.addDoubleItem(item.key, item.value); 
+        break;
+      case 'float': // 单精度浮点型
+        newDoc.addFloatItem(item.key, item.value); 
+        break;
+      case 'long': // 长整型
+        newDoc.addLongItem(item.key, item.value); 
+        break;
+      case 'text': // 大文本
+        newDoc.addTextItem(item.key, item.value); 
+        break;
+      case 'parent':
+        newDoc.setParent(item.value);  
+        break;
+    } 
+  })
+  //println("newDoc="+newDoc);
+  //println("AUTHORDEPT="+newDoc.getAuthorDeptIndex());
+  //println("AUTHORDEPT="+getAuthorDeptIndex());
+  //println("AUTHORDEPTID="+AUTHORDEPTID);
+  docProcess.doCreate(newDoc);
+  return newDoc;
+}
+
+/**
+ * 自动更新网格视图数据
+ */
+function updateGridView () { 
+  var process = getDocumentProcess(); 
+  var doc = getCurrentDocument() 
+  var user = getWebUser()
+  process.doCreateOrUpdate(doc, user)
+}
+
+
+/**
+ * 获取指定公司和角色下的用户集合
+ * @param {*} companyId 公司id
+ * @param {*} roleName 角色名称
+ * @returns 用户集合数组
+ */
+function getUserUnderDeptByRoleName(companyId, roleName) {
+  var users = []
+  var roleid = getRoleIdByName(roleName); //获取对应角色ID
+  var userArr = getUsersByRoleId(roleid); // 根据角色，获取该角色下所有用户集合
+  for (var iter = userArr.iterator(); userArr != null && iter.hasNext(); ) {
+    var user = iter.next();
+    var userDeptArr = getDeptByUserIdAndRoleName(user.getId(), roleid) // 用户指定角色所属部门，可能有多个
+    if(userDeptArr!=null && userDeptArr.size() > 0){
+      var iter2 = userDeptArr.iterator();
+      while(iter2 != null && iter2.hasNext()){
+        var item = iter2.next();
+        var itemDeptId = item.get("departmentid")
+        var itemCompany = getCompanyTheDeptBelongto(itemDeptId).dept
+        // 判断用户指定角色所属部门的所属公司，是否与指定公司相同
+        if(itemCompany.getId().equals(companyId)) {
+          users.push(user)
+          break;
+        }
+      }
+    }
+    // var userDep = getUserDep(user)// 获取用户所属公司, 函数库 globalMethods
+    // var userDepId = userDep.did
+    // if(deptId.equals(userDepId)) {
+    //   users.push(user)
+    // }
+  }
+  return users
+}
+
+
+/**
+ * 查询用户某个角色所属的具体部门，需配置数据源obpm5
+ * @param {*} userId 用户id
+ * @param {*} roleId 角色id
+ */
+function getDeptByUserIdAndRoleName(userId, roleId) {
+  var sql = "select * from t_user_department_role_set where USERID='" + userId
+            +"' and ROLEID='" + roleId + "'"
+  var query = queryByDSName("obpm5",sql)
+ return query;
+}]]></content>
+  <version>0</version>
+</repositoryVO>

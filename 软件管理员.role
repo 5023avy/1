@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<role id="__SkxFN7kzaM1iEVpboKw">
+  <name>软件管理员</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <roleNo>系统管理员</roleNo>
+  <status>1</status>
+  <defaultRole>false</defaultRole>
+  <sortId>168567614858700000</sortId>
+  <permissions><![CDATA[[{"operationCode":1002,"operationId":"__7vLigIDZHJxX5xCoDuu","resId":"__7vLigIDZHJxX5xCoDuu","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__aluhbr6vY7J7Ghswo1o","resId":"__aluhbr6vY7J7Ghswo1o","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__Sd6RIwTy8nExAKwjWql","resId":"__Sd6RIwTy8nExAKwjWql","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__3pQP7UOYMr4WJOdGNN4","resId":"__3pQP7UOYMr4WJOdGNN4","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__8Jxp5n7ZaaGqtdDM3XM","resId":"__8Jxp5n7ZaaGqtdDM3XM","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__ng7ySCtA7odah0ZcXgG","resId":"__ng7ySCtA7odah0ZcXgG","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__Q1mzXw1YNuwbVz9hUtq","resId":"__Q1mzXw1YNuwbVz9hUtq","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__EClIIvo9Jy2lseJFSLD","resId":"__EClIIvo9Jy2lseJFSLD","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__evZG4YaOgnK9IPncBSU","resId":"__evZG4YaOgnK9IPncBSU","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__svCgKmMgWG4C6u0toiz","resId":"__svCgKmMgWG4C6u0toiz","resName":"菜单","resType":2,"roleId":"","type":1},{"operationCode":1002,"operationId":"__O5NTP2RndHxpxKXEptu","resId":"__O5NTP2RndHxpxKXEptu","resName":"菜单","resType":2,"roleId":"","type":1}]]]></permissions>
+</role>

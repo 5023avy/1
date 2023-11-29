@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__WLxigkxa4Dro3Nuw9so">
+  <name>启动流程</name>
+  <parentId>__NAhrNsIknUjLB7iIkEN</parentId>
+  <type>13</type>
+  <onActionFlow></onActionFlow>
+  <onActionPrint></onActionPrint>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[#include "constant";
+(function () {
+  // 如果选择的数据已在执行变更流程，则暂停下发
+  var formName = '土地物业'
+  var relativeId = getItemValueAsString('关联ID');
+  var inProcess = [] // 已在执行变更流程的数据
+  var relativeIdArr = relativeId.split(";")
+  relativeIdArr.forEach(function(value) {
+    var sql = "select * from tlk_" + formName + " where item_关联ID='" + value 
+      +"' and statelabel IS NOT NULL and statelabel <> '' and statelabel <> '完成'";
+        println("sql---"+sql);
+    var datas = findBySQL(sql);
+    if(isNotNull(datas)) {
+      var name = '"' + datas.getItemValueAsString('土地所属企业名称') + "__" 
+      + datas.getItemValueAsString('地址') + '"'
+      inProcess.push(name)
+    }
+  })
+
+  if(inProcess.length) return inProcess.join('; ') + '已在执行变更流程。'
+})()
+
+]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <retractBeforeActionScript><![CDATA[]]></retractBeforeActionScript>
+  <retractAfterActionScript><![CDATA[]]></retractAfterActionScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <startFlowScript><![CDATA[]]></startFlowScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <iconurl></iconurl>
+  <orderno>2</orderno>
+  <stateToShow></stateToShow>
+  <parentForm>__NAhrNsIknUjLB7iIkEN</parentForm>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>1</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <actionScript><![CDATA[#include "globalMethods";
+
+(function () {
+  var formName = '土地物业';
+  var roleName = "土地物业资产管理_下属公司经办人"
+  var docProcess = getDocumentProcess(); //获取文档操作对象
+  var currentUser =  getWebUser()
+
+  var deadline = getItemValueAsDate('截止时间')
+  var desc = getItemValueAsString('备注');
+  var ids = getItemValueAsString('ids');
+  if(!isNotNull(ids)) {
+    //createAlert("无数据变更！")
+    return;
+  }
+  var idsArr = ids.split(";")
+  idsArr = idsArr.map(function(value){
+    return "'" + value + "'"
+  }) 
+  var sql = "select * from tlk_" + formName + " where id in (" + idsArr.join(",") +")";
+  //println("sql===="+sql);
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var companyId = item.getItemValueAsString('公司')
+      //println("companyId===="+companyId);
+      var users = getUserUnderDeptByRoleName(companyId, roleName)
+      // println("users===="+users);
+      // println("users.length===="+users.length);
+      if(users.length <= 0) {
+        continue;
+      }
+      var user = users[0]
+      var itemMap = item.getItemMap()
+      var keySet = itemMap.keySet()
+      var version = item.getItemValueAsInt('版本号') + 1;
+      var insertData = [{
+        type: 'int',
+        key: "版本号",
+        value: version
+      }, {
+        type: 'date',
+        key: '截止时间',
+        value: deadline,
+      }, {
+        key: '流程备注',
+        value: desc,
+      }, {
+        key: '最新版本',
+        value: '否',
+      }, {
+        key: '数据来源',
+        value: '变更',
+      }, {
+        key: '下发用户',
+        value: user.getId(),
+      }, {
+        key: '上一版本ID',
+        value: item.getId(),
+      }]
+      for (var iter2 = keySet.iterator(); keySet != null && iter2.hasNext(); ) {
+        var key = String(iter2.next());
+        if(key!='截止时间' && key != '版本号' && key!='最新版本' 
+        && key != '流程备注' && key != '数据来源' && key != '下发用户'&& key != '上一版本ID') {
+          insertData.push({
+            key: key,
+            value: itemMap.get(key)
+          })
+        }
+      }
+      var newDoc = createNewFormData(formName, user, insertData)
+      var params = getParamsTable();
+      params.setParameter("_flowid", '__mr0R3g7bhkJKRFQwxy1');
+      docProcess.doStartFlowOrUpdate(newDoc, params, currentUser); // 用户必须符合流程节点的指定用户权限
+      docProcess.doFlow(newDoc, params, '1692952113426', ['1692952095644'], '86', '请按要求准时提交', currentUser);
+    }
+  }
+  
+})()
+
+]]></actionScript>
+  <workFlowType>0</workFlowType>
+  <contextMenu>false</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <transpond></transpond>
+  <targetList>|</targetList>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

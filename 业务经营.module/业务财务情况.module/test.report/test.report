@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report id="__IxXUOXsJhf7ysFinep5">
+  <name>test</name>
+  <parentId>__CDrwwtEwcBtJPlymy2k</parentId>
+  <description></description>
+  <scriptTemplate><![CDATA[]]></scriptTemplate>
+  <xmlTemplate><![CDATA[]]></xmlTemplate>
+  <dataSourceType>DATASOURCE_TYPE_SQL</dataSourceType>
+  <dataSourceSearchForm></dataSourceSearchForm>
+  <dataSourceSqlScript><![CDATA[(function(){
+  return "SELECT * FROM tlk_业务财务情况表;"
+})()]]></dataSourceSqlScript>
+  <dataSourceCustomScript><![CDATA[]]></dataSourceCustomScript>
+  <expression><![CDATA[{}]]></expression>
+  <dataSourceName>数据源</dataSourceName>
+  <isDefaultStyle>1</isDefaultStyle>
+  <viewId>__X32x0kd1gNIwVZPmRdK</viewId>
+  <reportExampleName></reportExampleName>
+  <procedureScript></procedureScript>
+  <subReportId></subReportId>
+  <formId></formId>
+  <isPrint>1</isPrint>
+  <templateType>JRXML</templateType>
+</report>

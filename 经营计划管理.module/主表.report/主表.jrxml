@@ -1,0 +1,73 @@
+<jasperReport name="主表" xmlns = "http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"  pageWidth = "595" pageHeight = "842" columnWidth = "555" leftMargin = "0" rightMargin = "0" topMargin = "0" bottomMargin = "0" isIgnorePagination="false" isFloatColumnFooter="true" uuid = "3307204f-1763-b36c-c02f-45b69bf615c8">
+<property name="ireport.zoom" value="1.0"/>
+<property name="ireport.x" value="0"/>
+<property name="ireport.y" value="0"/>
+<queryString language="SQL"><![CDATA["select * from tlk_经营业务指标01"]]></queryString>
+<field name="序号" class="java.lang.String">
+<fieldDescription><![CDATA[序号]]></fieldDescription>
+</field>
+<field name="填报内容" class="java.lang.String">
+<fieldDescription><![CDATA[填报内容]]></fieldDescription>
+</field>
+<field name="公司" class="java.lang.String">
+<fieldDescription><![CDATA[公司]]></fieldDescription>
+</field>
+<field name="截止时间" class="java.lang.String">
+<fieldDescription><![CDATA[截止时间]]></fieldDescription>
+</field>
+<field name="备注" class="java.lang.String">
+<fieldDescription><![CDATA[备注]]></fieldDescription>
+</field>
+<field name="附件" class="java.lang.String">
+<fieldDescription><![CDATA[附件]]></fieldDescription>
+</field>
+<background><band splitType="Stretch"/></background>
+<title>
+<band height = "120" splitType = "Stretch">
+</band>
+</title>
+<pageHeader>
+<band height = "120" splitType = "Stretch">
+</band>
+</pageHeader>
+<columnHeader>
+<band height = "120" splitType = "Stretch">
+</band>
+</columnHeader>
+<detail>
+<band height = "120" splitType = "Stretch">
+<subreport>
+<reportElement x = "257" y = "21" uuid = "c8353ab8-cd46-1448-a094-a8c02f29f020" width = "208" height = "64" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "子报表" />
+ <dataSourceExpression><![CDATA[$P{REPORT_DATA__KREIeSiDGyQkDSAwfyI}]]></dataSourceExpression>
+<subreportExpression><![CDATA["/storage/workspace/集团流程管理.application/经营计划管理.module/财务计划.report/财务计划.jasper"]]></subreportExpression>
+</subreport>
+<textField isBlankWhenNull = "true" isStretchWithOverflow = "true" >
+<reportElement x = "61" y = "21" uuid = "2be8c11b-8b98-5028-23c4-d95fbafab39b" width = "100" height = "24" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "$F{序号}" />
+<box>
+<pen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<topPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<leftPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<bottomPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<rightPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+</box>
+<textElement textAlignment = "Center" verticalAlignment = "Middle"  markup = "none" >
+<font fontName = "SansSerif" size = "12" isItalic = "false" isBold = "false" isUnderline = "false" isStrikeThrough = "false" isPdfEmbedded = "false" pdfFontName = "STSong-Light" pdfEncoding = "UniGB-UCS2-H" />
+<paragraph leftIndent = "0" firstLineIndent = "0" rightIndent = "0" tabStopWidth = "40" />
+</textElement>
+<textFieldExpression><![CDATA[$F{序号}]]></textFieldExpression>
+</textField>
+</band>
+</detail>
+<columnFooter>
+<band height = "120" splitType = "Stretch">
+</band>
+</columnFooter>
+<pageFooter>
+<band height = "120" splitType = "Stretch">
+</band>
+</pageFooter>
+<summary>
+<band height = "120" splitType = "Stretch">
+</band>
+</summary>
+</jasperReport>

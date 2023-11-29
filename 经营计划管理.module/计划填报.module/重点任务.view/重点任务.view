@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__uTXK8RO6Mk52UADjGsx">
+  <name>重点任务</name>
+  <parentId>__8xR5QstkqIflP8HoPDz</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>2</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>30</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-07-26T22:22:14.000+08:00</lastModifyTime>
+  <readonly>false</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId></searchFormId>
+  <autoCompose>true</autoCompose>
+  <relatedForm>__xaAC5M44hxPzRKMZ0Wc</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "集团经营部";
+(function () {
+  return getIndexViewData('重点任务01')
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <authorityCondition>[]</authorityCondition>
+  <openType>277</openType>
+  <editMode>00</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>

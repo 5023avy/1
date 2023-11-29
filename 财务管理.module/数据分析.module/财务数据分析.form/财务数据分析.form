@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__fC1K1KQsnOIPXdg09Xc">
+  <name>财务数据分析</name>
+  <parentId>__KwtCFs6N1jmrg65Gm1k</parentId>
+  <description></description>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="7ea01140-739c-3658-a0c0-dbb748b2773b" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="37" myselfrows="100" containerheight="100" borderwidth="1" containerwidth="500" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="成本收入利润月份趋势图" id="ce961d77-084e-85ea-8872-dd1e09db05c7" draggable="true" scope="calctextField" myselfrows="95" layout="horizontal" calculateonrefresh="false" valuescript="%23include@nbsp;@quot;globalMethods@quot;;&#13;(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;var@nbsp;appId@nbsp;=@nbsp;getApplication();&#13;@nbsp;@nbsp;var@nbsp;url@nbsp;=@nbsp;getServerUrl();&#13;@nbsp;@nbsp;var@nbsp;iframeSrc@nbsp;=@nbsp;url@nbsp;+@nbsp;@#146;/open?appId=@#146;@nbsp;+@nbsp;appId@nbsp;&#13;@nbsp;@nbsp;+@nbsp;@#146;&amp;actionContent=__3L5ILnVKgFrxWdZ5SkH&amp;linkType=02@#146;;&#13;@nbsp;@nbsp;var@nbsp;iframeWidth@nbsp;=@nbsp;@#146;800px@#146;;@nbsp;//@nbsp;iframe@nbsp;的宽度&#13;@nbsp;@nbsp;var@nbsp;iframeHeight@nbsp;=@nbsp;@#146;450px@#146;;@nbsp;//@nbsp;iframe@nbsp;的高度&#13;&#13;@nbsp;@nbsp;var@nbsp;htmlString@nbsp;=@nbsp;@#146;@lt;html@gt;@lt;head@gt;@lt;/head@gt;@lt;body@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;iframe@nbsp;id=@quot;iframe@quot;@nbsp;style=@quot;width:@nbsp;100%@quot;@nbsp;src=@quot;@#146;@nbsp;+@nbsp;iframeSrc@nbsp;+@nbsp;@#146;@quot;@nbsp;height=@quot;@#146;@nbsp;+@nbsp;iframeHeight@nbsp;+@nbsp;@#146;@quot;@gt;@lt;/iframe@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;/body@gt;@lt;/html@gt;@#146;;&#13;@nbsp;@nbsp;return@nbsp;htmlString;&#13;})()" style="display: inline-block; width: 95%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">成本收入利润月份趋势图</span>
+        </div><div class="baseCon fieldId" fieldid="ce961d77-084e-85ea-8872-dd1e09db05c7" style="height: 30px;">
+        <img src="images/calctextField.png"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="各项成本支出" id="a3a1c983-474c-a9de-7610-03a70629e5e3" draggable="true" scope="calctextField" myselfrows="95" layout="horizontal" calculateonrefresh="false" valuescript="%23include@nbsp;@quot;globalMethods@quot;;&#13;(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;var@nbsp;appId@nbsp;=@nbsp;getApplication();&#13;@nbsp;@nbsp;var@nbsp;url@nbsp;=@nbsp;getServerUrl();&#13;@nbsp;@nbsp;var@nbsp;iframeSrc@nbsp;=@nbsp;url@nbsp;+@nbsp;@#146;/open?appId=@#146;@nbsp;+@nbsp;appId@nbsp;&#13;@nbsp;@nbsp;+@nbsp;@#146;&amp;actionContent=__xzw2tkihPHVKSM9KUqb&amp;linkType=02@#146;;&#13;@nbsp;@nbsp;var@nbsp;iframeWidth@nbsp;=@nbsp;@#146;800px@#146;;@nbsp;//@nbsp;iframe@nbsp;的宽度&#13;@nbsp;@nbsp;var@nbsp;iframeHeight@nbsp;=@nbsp;@#146;350px@#146;;@nbsp;//@nbsp;iframe@nbsp;的高度&#13;&#13;@nbsp;@nbsp;var@nbsp;htmlString@nbsp;=@nbsp;@#146;@lt;html@gt;@lt;head@gt;@lt;/head@gt;@lt;body@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;iframe@nbsp;id=@quot;iframe@quot;@nbsp;style=@quot;width:@nbsp;100%@quot;@nbsp;src=@quot;@#146;@nbsp;+@nbsp;iframeSrc@nbsp;+@nbsp;@#146;@quot;@nbsp;height=@quot;@#146;@nbsp;+@nbsp;iframeHeight@nbsp;+@nbsp;@#146;@quot;@gt;@lt;/iframe@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;/body@gt;@lt;/html@gt;@#146;;&#13;@nbsp;@nbsp;return@nbsp;htmlString;&#13;})()" style="display: inline-block; width: 95%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">各项成本支出</span>
+        </div><div class="baseCon fieldId" fieldid="a3a1c983-474c-a9de-7610-03a70629e5e3" style="height: 30px;">
+        <img src="images/calctextField.png"></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="成本收入利润正负图" id="3f75f45b-c9f9-c082-cc69-bb343525145a" draggable="true" scope="calctextField" myselfrows="95" layout="horizontal" calculateonrefresh="false" valuescript="%23include@nbsp;@quot;globalMethods@quot;;&#13;(function@nbsp;()@nbsp;{&#13;@nbsp;@nbsp;var@nbsp;appId@nbsp;=@nbsp;getApplication();&#13;@nbsp;@nbsp;var@nbsp;url@nbsp;=@nbsp;getServerUrl();&#13;@nbsp;@nbsp;var@nbsp;iframeSrc@nbsp;=@nbsp;url@nbsp;+@nbsp;@#146;/open?appId=@#146;@nbsp;+@nbsp;appId@nbsp;&#13;@nbsp;@nbsp;+@nbsp;@#146;&amp;actionContent=__4YRteemBrpXsAwUGWcE&amp;linkType=02@#146;;&#13;@nbsp;@nbsp;var@nbsp;iframeWidth@nbsp;=@nbsp;@#146;800px@#146;;@nbsp;//@nbsp;iframe@nbsp;的宽度&#13;@nbsp;@nbsp;var@nbsp;iframeHeight@nbsp;=@nbsp;@#146;400px@#146;;@nbsp;//@nbsp;iframe@nbsp;的高度&#13;&#13;@nbsp;@nbsp;var@nbsp;htmlString@nbsp;=@nbsp;@#146;@lt;html@gt;@lt;head@gt;@lt;/head@gt;@lt;body@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;iframe@nbsp;id=@quot;iframe@quot;@nbsp;style=@quot;width:@nbsp;100%@quot;@nbsp;src=@quot;@#146;@nbsp;+@nbsp;iframeSrc@nbsp;+@nbsp;@#146;@quot;@nbsp;height=@quot;@#146;@nbsp;+@nbsp;iframeHeight@nbsp;+@nbsp;@#146;@quot;@gt;@lt;/iframe@gt;@#146;;&#13;@nbsp;@nbsp;htmlString@nbsp;+=@nbsp;@#146;@lt;/body@gt;@lt;/html@gt;@#146;;&#13;@nbsp;@nbsp;return@nbsp;htmlString;&#13;})()" style="display: inline-block; width: 95%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">成本收入利润正负图</span>
+        </div><div class="baseCon fieldId" fieldid="3f75f45b-c9f9-c082-cc69-bb343525145a" style="height: 30px;">
+        <img src="images/calctextField.png"></div><div class="delete"><i class="btn-delete" title="删除"></i></div></div></div>]]></templatecontext>
+  <type>1</type>
+  <styleId>__fQrLqxbeu1hM8oJ0awS</styleId>
+  <showLog>false</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>1</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"财务数据分析","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <layoutType>horizontal</layoutType>
+</form>

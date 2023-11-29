@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<form id="__nNgS85xE0Mqvz2Kqiwl">
+  <name>运营日报查询表单</name>
+  <parentId>__WPhrxy08jmaYUEbr9dv</parentId>
+  <description></description>
+  <sortId>169044328080400000</sortId>
+  <templatecontext><![CDATA[<div draggable="true" name="容器1" id="65b76403-9143-4c78-f329-2d1ad4b9aedf" scope="formPanel" class="" data-empty-tip="从左侧拖拽来添加控件" nameindex="3" style="height: 100%; border: none rgb(255, 255, 255); padding: 20px 20px 40px; overflow: hidden; margin: 0px auto; background-color: rgb(255, 255, 255);"><div name="开始日期" id="e1936e0f-cda6-00e0-3787-b665e4a04c0b" draggable="true" scope="dataField" myselfrows="25" layout="horizontal" datepattern="YMD" limit="false" prev_name="" texttype="text" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editDataField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" fieldtype="VALUE_TYPE_DATE" width="150" style="display: inline-block; width: 25%; border-left: 5px solid rgb(255, 255, 255); border-top-color: rgb(255, 255, 255); border-right-color: rgb(255, 255, 255); border-bottom-color: rgb(255, 255, 255); background-color: rgb(255, 255, 255); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">开始日期</span>
+        </div><div class="baseCon fieldId" fieldid="e1936e0f-cda6-00e0-3787-b665e4a04c0b" style="height: 30px;width:90%">
+        <input type="text" class="base-field" readonly="" style="width:150px"><i class="publicFieldIcon dataFieldIcon" style="position:relative"></i></div><div class="delete d-none"><i class="btn-delete" title="删除"></i></div></div><div name="结束日期" id="2bacd0e8-7227-c272-760e-9b5d032e9774" draggable="true" scope="dataField" myselfrows="25" layout="horizontal" datepattern="YMD" limit="false" prev_name="" texttype="text" readonlyshowvalonly="true" refreshonchanged="false" calculateonrefresh="false" mobile="true" refreshmode="0" refreshfields="" discript="" placeholder="" editprop="editDataField" editmode="01" valuescript="" processdescription="[];[]" processprevalue="[]" filtercondition="" isdefaultvalue="false" validatelibs="" validaterule="" instantvalidate="false" hiddenscript="" hiddenvalue="" hiddenprintscript="" printhiddenvalue="" readonlyscript="" fieldtype="VALUE_TYPE_DATE" width="150" style="display: inline-block; width: 25%; border-left: 5px solid rgb(13, 179, 166); border-top-color: rgb(13, 179, 166); border-right-color: rgb(13, 179, 166); border-bottom-color: rgb(13, 179, 166); background-color: rgb(235, 248, 251); position: relative; vertical-align: top;"><div style="padding: 5px 0;line-height: 20px;color: #3d464d;font-weight: 600;">
+        <span class="baseLabel-title" style="font-size: 14px;color: #3d464d;">结束日期</span>
+        </div><div class="baseCon fieldId" fieldid="2bacd0e8-7227-c272-760e-9b5d032e9774" style="height: 30px;width:90%">
+        <input type="text" class="base-field" readonly="" style="width:150px"><i class="publicFieldIcon dataFieldIcon" style="position:relative"></i></div><div class="delete"><i class="btn-delete" title="删除"></i></div></div><div class="placeholder d-none"></div></div>]]></templatecontext>
+  <type>256</type>
+  <styleId></styleId>
+  <showLog>false</showLog>
+  <showLogType>default</showLogType>
+  <openComment>false</openComment>
+  <commentTitleScript><![CDATA[]]></commentTitleScript>
+  <commentFlagScript><![CDATA[]]></commentFlagScript>
+  <commentHiddenScrtipt><![CDATA[]]></commentHiddenScrtipt>
+  <commentExecuteScript><![CDATA[]]></commentExecuteScript>
+  <recordMode>every</recordMode>
+  <recordModeScript><![CDATA[]]></recordModeScript>
+  <showType>new</showType>
+  <showWaterMark>false</showWaterMark>
+  <waterMarkScript></waterMarkScript>
+  <version>0</version>
+  <isopenablescript><![CDATA[]]></isopenablescript>
+  <iseditablescript><![CDATA[]]></iseditablescript>
+  <mappingStr><![CDATA[{"formName":"","tableName":"","columnMappings":[]}]]></mappingStr>
+  <orderno>1</orderno>
+  <permissionType>public</permissionType>
+  <dataModelId></dataModelId>
+</form>

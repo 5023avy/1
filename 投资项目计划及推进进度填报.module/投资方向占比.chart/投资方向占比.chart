@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__dSxJCB1cXoVCQTeE06H">
+  <name>投资方向占比</name>
+  <parentId>__HJBpBItQWEMZOZKMZoP</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+var option = {
+  tooltip: {
+    trigger: 'item',
+    formatter: '{b} {c} %',
+  },
+  color: ['#5470c6', '#91cc75', '#fac858', '#ee6666', '#73c0de', '#3ba272', '#fc8452', '#9a60b4', '#ea7ccc','red'],
+  title: [
+    {
+      left: '40%',
+      top: '0%',
+      text: '企业投资规模占比'
+    },
+    {
+      left: '10%',
+      top: '28%',
+      text: '投资类型分类与占比'
+    },
+    {
+      left: '70%',
+      top: '28%',
+      text: '计划投资行业分布情况'
+    }
+  ],
+  series: [
+    {
+      name: '企业投资规模占比',
+      type: 'pie',
+      radius: '40%',
+      center: ['50%','35%'],
+      height: 450,
+      data: [
+        { value: 35.97, name: '东莞控股' },
+        { value: 30.73, name: '市路桥公司' },
+        { value: 12.89, name: '交投置业' },
+        { value: 11.25, name: '轨道二号线三期公司' },
+        { value: 8.16, name: '集团本部' },
+        { value: 1, name: '东莞福民公司' }
+      ],
+      label: {
+        show: true,
+        formatter: '{b}\n{time|{c} %}',
+        rich: {
+          time: {
+            padding:[6,0,0,0],
+            color: '#999'
+          }
+        }
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.2)'
+        }
+      }
+    },
+    {
+      name: '投资类型分类与占比',
+      type: 'pie',
+      radius: '38%',
+      center: ['20%','70%'],
+      height: 500,
+      colorBy: 'data',
+      data: [
+        { value: 62.58, name: '固定资产投资',itemStyle: {
+          color: '#b56d6d'
+        } },
+        { value: 2.45, name: '股权投资' },
+        { value: 26.81, name: '无形资产投资' },
+        { value: 8.16, name: '其他' }
+      ],
+      label: {
+        show: true,
+        formatter: '{b}\n{time|{c} %}',
+        rich: {
+          time: {
+            padding:[6,0,0,0],
+            color: '#999'
+          }
+        }
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.2)'
+        }
+      }
+    },
+    {
+      name: '计划投资行业分布情况',
+      type: 'pie',
+      radius: '38%',
+      center: ['80%','70%'],
+      height: 500,
+      data: [
+        { value: 0.74, name: '交通上下游产业投资' },
+        { value: 13.64, name: '物业改造或开发' },
+        { value: 38.06, name: '轨道交通' },
+        { value: 39.06, name: '高速公路' },
+        { value: 8.5, name: '其他' }
+      ],
+      label: {
+        show: true,
+        formatter: '{b}\n{time|{c} %}',
+        rich: {
+          time: {
+            padding:[6,0,0,0],
+            color: '#999'
+          }
+        }
+      },
+      emphasis: {
+        itemStyle: {
+          shadowBlur: 10,
+          shadowOffsetX: 0,
+          shadowColor: 'rgba(0, 0, 0, 0.5)'
+        }
+      }
+    }
+  ]
+};
+ return option;
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

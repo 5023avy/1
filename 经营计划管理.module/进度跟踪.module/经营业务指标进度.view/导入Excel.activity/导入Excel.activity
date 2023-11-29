@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__SeNE6c9jjmclBNamScv">
+  <name>导入Excel</name>
+  <parentId>__vxfIKynOEeahRyenEuN</parentId>
+  <type>27</type>
+  <onActionForm></onActionForm>
+  <onActionView></onActionView>
+  <colorType></colorType>
+  <beforeActionScript><![CDATA[]]></beforeActionScript>
+  <afterActionScript><![CDATA[#include "集团经营部";
+(function () {
+  delOldDataAfterImport('数据指标进度', '经营业务指标')
+})()]]></afterActionScript>
+  <hiddenScript><![CDATA[]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>2</orderno>
+  <parentView>__vxfIKynOEeahRyenEuN</parentView>
+  <impmappingconfigid>__QeualjCWcjEvaehuvMc</impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon></icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

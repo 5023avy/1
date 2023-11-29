@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__Vyb3fzHwuKXs3VLB8FA">
+  <name>businessOperation</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>企业运营数据管理</description>
+  <content><![CDATA[function getBusinessOperationCharts (dateString, formName, formField,  legend, yAxisLabel, title) {
+  var startdate = getItemValueAsDate('开始日期')
+  var enddate = getItemValueAsDate('结束日期')
+  var dateRange = getPreviousWeekDates(dateString)
+  if(isNotNull(startdate) && isNotNull(enddate)) {
+    dateRange = getDatesBetween(startdate, enddate)
+  }
+  var xAxisData = []
+  var sqlFilter = []
+  var data = []
+  dateRange.forEach(function(value) {
+    xAxisData.push(String(format(value,"M月dd日")))
+    sqlFilter.push("'" + format(value,"yyyy-MM-dd") + "'");
+    data.push(0)
+  })
+
+  var sql = "select * from tlk_" + formName + " where DATE_FORMAT(item_日期, '%Y-%m-%d') in (" + sqlFilter.join(',') + ")";
+  var query = queryBySQL(sql);
+  if(query!=null && query.size() > 0){
+    var iter = query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var date = item.getItemValueAsDate('日期')
+      dateRange.forEach(function(value, index) {
+        if(format(value,"yyyy-MM-dd").equals(format(date,"yyyy-MM-dd"))) {
+          var itemValue = item.getItemValueAsFloat(formField)
+          data[index] = parseFloat(itemValue.toFixed(2))
+        }
+      })
+    }
+  }
+  var length = xAxisData.length - 1
+  var year = getYear(dateRange[length])
+  var legend1 = legend + "（" + yAxisLabel + "）"
+  var legend2 = legend + '折线图'
+  var option = {
+    grid: [
+      { left: '5%', right: '5%', height: '60%', top: '10%', bottom: '10%' },
+    ],
+    title: {
+      text: title + year + '年' + xAxisData[0] + '-' + xAxisData[length] + "运营数据图",
+      left: 'center',
+    },
+    toolbox: {
+      right: '10%',
+      feature: {
+        saveAsImage: { show: true }
+      }
+    },
+    legend: {
+      data: [legend1, legend2],
+      bottom: '18%'
+    },
+    xAxis: [
+      {
+        type: 'category',
+        data: xAxisData,
+      }
+    ],
+    yAxis: [
+      {
+        type: 'value',
+        name: legend,
+        axisLabel: {
+          formatter: '{value} ' + yAxisLabel
+        }
+      },
+    ],
+    series: [
+      {
+        name: legend1,
+        type: 'bar',
+        barMaxWidth: '40',
+        label: {
+          show: true,
+          position: 'top'
+        },
+        data: data
+      },
+      {
+        name: legend2,
+        lineStyle: {
+          color: '#c0504d'
+        },
+        itemStyle: {
+          color: '#c0504d'
+        },
+        type: 'line',
+        data: data
+      }
+    ]
+  };
+  return option
+}
+
+
+/**
+ * 根据文档的审批状态和临时状态确定是否可编辑
+ * 审批状态不为空或临时文档支持编辑
+ * @returns 
+ */
+function ifCanEditByStateAndIstmp() {
+  var doc = getCurrentDocument()
+  var state = getStateLabel()
+  var edit = true
+  if(isNotNull(state) || doc.getIstmp()) {
+    edit = true
+  } else {
+    edit = false
+  }
+  return edit
+}
+
+/**
+ * 根据数据的导入状态判断是否可编辑
+ * @returns 
+ */
+function ifCanEditByImport() {
+  var value = getItemValueAsString('是否导入')
+  var edit = true
+  if(value=='是') {
+    edit = false
+  }
+  return edit
+}
+
+/**
+ * 设置日历视图月视图数据展示内容
+ * @param {string} fieldName 
+ * @param {*} value 
+ * @returns 
+ */
+function setContentOfCalendarViewBox(fieldName, value) {
+  var fieldValue = getItemValueAsString(fieldName);
+  if(isNotNull(fieldValue)) {
+    value = fieldValue
+  }
+	var html="<div class='custom-date-box-card'>\
+  <div class='custom-date-box-card-label'>" + fieldName + "</div>\
+  <div class='custom-date-box-card-value'>" + value + "</div></div>";
+	return html;
+}
+
+
+]]></content>
+  <version>0</version>
+</repositoryVO>

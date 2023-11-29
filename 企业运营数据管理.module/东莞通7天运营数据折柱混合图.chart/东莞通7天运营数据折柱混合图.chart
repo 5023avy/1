@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__SVDHgtWkJOeG7nlP0Xd">
+  <name>东莞通7天运营数据折柱混合图</name>
+  <parentId>__WPhrxy08jmaYUEbr9dv</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  return getBusinessOperationCharts('', '东莞通服务', '卡消费',  '卡消费', '万笔', '东莞通')
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[{"field":"开始日期","isCommonFilter":"true","paramKey":1690444342584},{"field":"结束日期","isCommonFilter":"true","paramKey":1690444343033}]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId>__nNgS85xE0Mqvz2Kqiwl</searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

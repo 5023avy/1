@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__dFmUUBTxYPMBGZmViT7">
+  <name>constant</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>静态数据</description>
+  <content><![CDATA[// 数据源名称
+var dsName = "数据源";
+
+// 季度
+var seasons = "第一季度;第二季度;第三季度;第四季度";
+
+// 季度数组
+function getSeasonsArr() {
+  var arr = seasons.split(";");
+  return arr;
+}
+
+// 集团下一级公司列表
+var subsidiary= [
+    '市轨道公司',
+    '市路桥公司',
+    '东莞控股公司',
+    '东莞巴士公司',
+    '交通实业公司',
+    '数据互联公司',
+    '东莞通公司',
+    '数汇公司',
+    '福民公司',
+    '虎门港澳公司',
+    '交投置业公司',
+    '交业公司',
+    '轨道二号线三期公司',
+    '城轨公司'];
+
+var subsidiary_new= [
+    '市轨道公司',
+    '市路桥公司',
+    '东莞控股公司',
+    '东莞巴士公司',
+    '交通实业公司',
+    '数据互联公司',
+    '东莞通公司',
+    '数汇公司',
+    '福民公司',
+    '虎门港澳客运公司',
+    '交投置业公司',
+    '交业公司',
+    '轨道二号线三期公司',
+    '城轨公司'];
+
+// 业务版块
+var BusinessSection = [
+    '高速运营',
+    '公交运营',
+    '轨道运营',
+    '停车服务',
+    '港航水运',
+    '驾考服务',
+    '养护工程',
+    '新能源',
+    '成品油销售',
+    '预制构件',
+    '工程检测',
+    '数字业务',
+    '类金融',
+    '土地物业开发租赁',
+    '其他'];
+
+// 财务业务版块
+var FinanceBusiness = [
+  {
+    name:'高速运营', 
+    from: ['市路桥公司', '东莞控股公司']
+  },
+  {
+    name:'公交运营', 
+    from: ['东莞巴士公司']
+  },
+  {
+    name:'轨道运营', 
+    from: ['市轨道公司']
+  },
+  {
+    name:'停车服务', 
+    from: ['交通实业公司']
+  },
+  {
+    name:'港航水运', 
+    from: ['虎门港澳公司']
+  },
+  {
+    name:'驾考服务', 
+    from: ['交通实业公司']
+  },
+  {
+    name:'养护工程', 
+    from: ['市路桥公司']
+  },
+  {
+    name:'新能源', 
+    from: ['东莞控股公司']
+  },
+  {
+    name:'成品油销售', 
+    from: ['市路桥公司']
+  },
+  {
+    name:'预制构件', 
+    from: ['市路桥公司']
+  },
+  {
+    name:'工程检测', 
+    from: ['交业公司']
+  },
+  {
+    name:'数字业务', 
+    from: ["数据互联公司","东莞通公司","数汇公司"]
+  },
+  {
+    name:'类金融', 
+    from: ['东莞控股公司']
+  },
+  {
+    name:'土地物业开发租赁', 
+    from: ["市路桥公司","市轨道公司","东莞控股公司","东莞巴士公司","交通实业公司",
+    "福民公司"]
+  },
+  {
+    name:'其他', 
+    from: ['all']
+  }
+];
+var costType = ['折旧','人工成本','商品成本','利息','其他成本','补贴','投资金额','投资标的','所得税'];
+var months = ['一月', '二月', '三月', '四月', '五月', '六月', '七月', '八月', '九月', '十月', '十一月', '十二月'];
+
+var subJyPersonInCharge = "子公司经营管理部经办人";
+var subCwPersonInCharge = "子公司财务管理部负责人";
+var subTzPersonInCharge = "子公司投资管理部经办人";
+
+var investmentType = "固定资产投资;股权投资;无形资产投资;金融投资;其他未包括的类别"
+
+
+
+]]></content>
+  <version>0</version>
+</repositoryVO>

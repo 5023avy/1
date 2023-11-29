@@ -1,0 +1,142 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__0kcBNnDuTezhlMdEc3w">
+  <name>生成表单数据</name>
+  <parentId>__TMzy3zqmbMSm2hdkqYX</parentId>
+  <type>1</type>
+  <onActionForm></onActionForm>
+  <onActionView>__TMzy3zqmbMSm2hdkqYX</onActionView>
+  <colorType>rgba(255, 153, 0, 1)</colorType>
+  <beforeActionScript><![CDATA[#include "constant";
+(function () {
+  var formName = "财务指标01";
+  var domainid = getDomainid();
+  var applicationId = getApplication();
+  var docProcess = getDocumentProcess(); //获取文档操作对象
+  var formProcess = getFormProcess(); //获取表单操作对象
+  var currentUser = getWebUser();
+
+  //var parentDoc = getRelateDocument();
+  var parentDoc = getParentDocument();
+  var parentId = parentDoc.getId();
+  var companyName = parentDoc.getItemValueAsString('公司名称'); 
+  var companyId = parentDoc.getItemValueAsString('公司'); 
+  var year = parentDoc.getItemValueAsDate('年份'); 
+  var parCompanyId = parentDoc.getItemValueAsString('上级公司ID'); 
+
+  var selectSql = "select * FROM tlk_指标定义 order by item_序号";
+  var query = queryBySQL(selectSql);
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var Form = formProcess.doViewByFormName(formName, applicationId); //获取要生成数据的表单名称
+      var newDoc = docProcess.doNew(Form, currentUser, createParamsTable());
+      var dept = getDeptById(companyId)
+ 	     var orderbyno = dept.getOrderByNo()
+      var order = item.getItemValueAsInt('序号')
+      var order2 = orderbyno * 1000 + order
+      newDoc.setIstmp(false); 
+      newDoc.setDomainid(domainid); 
+      newDoc.setParent(parentId); 
+      newDoc.addDateItem('年份', year);  
+      newDoc.addStringItem('公司', companyId);  
+      newDoc.addStringItem('公司名称', companyName); 
+      newDoc.addStringItem('指标分类', item.getItemValueAsString('指标分类'));  
+      newDoc.addStringItem('指标项目', item.getItemValueAsString('指标项目'));  
+      newDoc.addIntItem('序号', order);  
+      newDoc.addIntItem('全局序号', order2);  
+      newDoc.addStringItem('所属公司', companyId);  
+      newDoc.addStringItem('所属公司名称', companyName);  
+      newDoc.addStringItem('上级公司ID', parCompanyId); 
+      docProcess.doCreate(newDoc);  
+    }
+  }
+})()
+
+// (function () {
+//   var formName = "财务指标01";
+//   var domainid = getDomainid();
+//   var applicationId = getApplication();
+//   var uuid = new Packages.cn.myapps.util.sequence.Sequence();
+//   var formid= getFormidByFormname(formName,applicationId);
+//   var parentDoc = getParentDocument();
+//   var parentId = parentDoc.getId();
+//   var companyName = parentDoc.getItemValueAsString('公司名称'); 
+//   var companyId = parentDoc.getItemValueAsString('公司'); 
+//   var year = parentDoc.getItemValueAsDate('年份'); 
+//   var selectSql = "select * FROM tlk_指标定义 order by item_序号";
+//   var query = queryBySQL(selectSql);
+//   if(query!=null){
+//     var iter  =query.iterator();
+//     while(iter != null && iter.hasNext()){
+//       var item = iter.next();
+//       var insertSql = "insert into tlk_" + formName + " (item_公司, item_公司名称, item_年份,\
+//         item_指标分类,item_指标项目,item_指标序号,\
+//         id,domainid,applicationId,formid,parent, created) values ('"
+//         + companyId + "','" 
+//         + companyName + "','" 
+//         + year + "','" 
+//         + item.getItemValueAsString('指标分类') + "','" 
+//         + item.getItemValueAsString('指标项目') + "','"
+//         + item.getItemValueAsString('序号') + "','"
+//         + uuid.getSequence()+"--"+ formid + "','"
+//         + domainid + "','"
+//         + applicationId + "','" 
+//         + formid + "','" 
+//         + parentId + "','" 
+//         + getCurDate("yyyy-MM-dd HH:mm:ss")
+//         + "')";
+//       insertByDSName(dsName,insertSql);
+//     }
+//   }
+// })()]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <hiddenScript><![CDATA[#include "集团经营部";
+(function () {
+  if(!ifCanEditByState()) {return true;}
+  var parentDoc = getParentDocument();
+  var childs2 = parentDoc.getChilds("财务指标01");
+  var size = childs2.size();
+  
+  // 判断当前用户是否在审批人列表
+  var parentDoc = getRelateDocument()
+  var ifCharge = ifUserInAuditorList(parentDoc)
+  if(ifCharge) {  // 当前审批人可编辑 
+    if(size>0) { // 已初始化指标，隐藏按钮
+      return true
+    } else { 
+      return false
+    }
+  } else { // 非经办人不显示
+    return true
+  }
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>0</orderno>
+  <parentView>__TMzy3zqmbMSm2hdkqYX</parentView>
+  <impmappingconfigid></impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon>{"icon":"fa fa-edit","type":"font"}</icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<report id="__6wn46KEG9p5pbN2YVWd">
+  <name>121</name>
+  <parentId>__3GqqmnTboOucMBH4I79</parentId>
+  <description></description>
+  <scriptTemplate><![CDATA[]]></scriptTemplate>
+  <xmlTemplate><![CDATA[]]></xmlTemplate>
+  <dataSourceType>DATASOURCE_TYPE_VIEW</dataSourceType>
+  <dataSourceSearchForm></dataSourceSearchForm>
+  <dataSourceSqlScript><![CDATA[]]></dataSourceSqlScript>
+  <dataSourceCustomScript><![CDATA[]]></dataSourceCustomScript>
+  <dataSourceName></dataSourceName>
+  <isDefaultStyle></isDefaultStyle>
+  <viewId>__8zCZcYijjkPpg1CMhJT</viewId>
+  <reportExampleName></reportExampleName>
+  <procedureScript></procedureScript>
+  <subReportId></subReportId>
+  <formId></formId>
+  <isPrint>0</isPrint>
+  <templateType>JRXML</templateType>
+</report>

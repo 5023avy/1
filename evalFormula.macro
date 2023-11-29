@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<repositoryVO id="__Dz6H2VRpPMO4hkxVk6v">
+  <name>evalFormula</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>解析计算公式并执行计算</description>
+  <content><![CDATA[function evaluateFormula(objArray) {
+  const objMap = {};
+
+  objArray.forEach(obj => {
+    if (!obj.formula) {
+      objMap[obj.name] = obj.value;
+    }
+  });
+
+  objArray.forEach(obj => {
+    if (obj.formula && !objMap[obj.name]) {
+      const formula = obj.formula;
+      const variables = formula.match(/[a-zA-Z_\u4e00-\u9fa5][a-zA-Z0-9_\u4e00-\u9fa5]*/g);
+      let isValid = true;
+
+      variables.forEach(variable => {
+        if (!objMap[variable]) {
+          isValid = false;
+        }
+      });
+
+      if (isValid) {
+        const postfixExpression = convertToPostfix(formula);
+        const result = evaluatePostfix(postfixExpression, objMap);
+        objMap[obj.name] = result;
+      }
+    }
+  });
+
+  objArray.forEach(obj => {
+    if (objMap[obj.name]) {
+      obj.value = objMap[obj.name];
+    }
+  });
+}
+
+// 将中缀表达式转换为逆波兰表达式（后缀表达式）
+function convertToPostfix(infixExpression) {
+  const operatorPrecedence = {
+    '+': 1,
+    '-': 1,
+    '*': 2,
+    '/': 2,
+  };
+
+  const postfixExpression = [];
+  const operatorStack = [];
+
+  const tokens = tokenizeExpression(infixExpression);
+
+  tokens.forEach(token => {
+    if (isNumber(token) || isVariable(token)) {
+      postfixExpression.push(token);
+    } else if (isOperator(token)) {
+      while (
+        operatorStack.length > 0 &&
+        operatorPrecedence[token] <= operatorPrecedence[operatorStack[operatorStack.length - 1]]
+      ) {
+        postfixExpression.push(operatorStack.pop());
+      }
+      operatorStack.push(token);
+    } else if (token === '(') {
+      operatorStack.push(token);
+    } else if (token === ')') {
+      while (operatorStack.length > 0 && operatorStack[operatorStack.length - 1] !== '(') {
+        postfixExpression.push(operatorStack.pop());
+      }
+      operatorStack.pop(); // Remove '(' from the stack
+    }
+  });
+
+  while (operatorStack.length > 0) {
+    postfixExpression.push(operatorStack.pop());
+  }
+
+  return postfixExpression;
+}
+
+// 判断是否为数字
+function isNumber(token) {
+  return /^\d+(\.\d+)?$/.test(token);
+}
+
+// 判断是否为变量
+function isVariable(token) {
+  return /^[a-zA-Z_\u4e00-\u9fa5][a-zA-Z0-9_\u4e00-\u9fa5]*$/.test(token);
+}
+
+// 判断是否为运算符
+function isOperator(token) {
+  return /^[-+*/]$/.test(token);
+}
+
+// 对表达式进行标记化，将数字、变量、运算符、括号等分开
+function tokenizeExpression(expression) {
+  return expression
+    .replace(/\s+/g, '') // 移除空格
+    .split(/([-+*/()])/) // 拆分成数组
+    .filter(token => token !== ''); // 移除空元素
+}
+
+// 根据逆波兰表达式计算结果
+function evaluatePostfix(postfixExpression, objMap) {
+  const stack = [];
+
+  postfixExpression.forEach(token => {
+    if (isNumber(token)) {
+      stack.push(parseFloat(token));
+    } else if (isVariable(token)) {
+      stack.push(objMap[token]);
+    } else if (isOperator(token)) {
+      const operand2 = stack.pop();
+      const operand1 = stack.pop();
+
+      let result;
+
+      switch (token) {
+        case '+':
+          result = operand1 + operand2;
+          break;
+        case '-':
+          result = operand1 - operand2;
+          break;
+        case '*':
+          result = operand1 * operand2;
+          break;
+        case '/':
+          result = operand1 / operand2;
+          break;
+      }
+
+      stack.push(result);
+    }
+  });
+
+  return stack.pop();
+}
+
+// 示例数据
+const data = [
+  { name: 'a', value: 1 },
+  { name: 'b', value: 2 },
+  { name: 'c', value: 3 },
+  { name: 'd', value: 0, formula: '(a + b) / c' },
+];
+
+// 调用函数进行计算
+evaluateFormula(data);
+
+// 输出结果
+data.forEach(obj => {
+  console.log(obj.name + ': ' + obj.value);
+});
+]]></content>
+  <version>0</version>
+</repositoryVO>

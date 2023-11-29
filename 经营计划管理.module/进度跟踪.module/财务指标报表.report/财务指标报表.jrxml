@@ -1,0 +1,127 @@
+<jasperReport name="财务指标报表" xmlns = "http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi = "http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation = "http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd"  pageWidth = "595" pageHeight = "842" columnWidth = "555" leftMargin = "0" rightMargin = "0" topMargin = "0" bottomMargin = "0" isIgnorePagination="true" isFloatColumnFooter="true" uuid = "510a4031-c927-53db-e82c-2b2544325e29">
+<property name="ireport.zoom" value="1.0"/>
+<property name="ireport.x" value="0"/>
+<property name="ireport.y" value="0"/>
+<field name="年份" class="java.lang.String">
+<fieldDescription><![CDATA[年份]]></fieldDescription>
+</field>
+<field name="季度" class="java.lang.String">
+<fieldDescription><![CDATA[季度]]></fieldDescription>
+</field>
+<field name="指标分类" class="java.lang.String">
+<fieldDescription><![CDATA[指标分类]]></fieldDescription>
+</field>
+<field name="指标项目" class="java.lang.String">
+<fieldDescription><![CDATA[指标项目]]></fieldDescription>
+</field>
+<field name="companyName" class="java.lang.String">
+<fieldDescription><![CDATA[companyName]]></fieldDescription>
+</field>
+<field name="年度经营目标值" class="java.lang.String">
+<fieldDescription><![CDATA[年度经营目标值]]></fieldDescription>
+</field>
+<field name="上半年预测值" class="java.lang.String">
+<fieldDescription><![CDATA[上半年预测值]]></fieldDescription>
+</field>
+<field name="同比增长率" class="java.lang.String">
+<fieldDescription><![CDATA[同比增长率]]></fieldDescription>
+</field>
+<field name="年度经营目标累计完成率" class="java.lang.String">
+<fieldDescription><![CDATA[年度经营目标累计完成率]]></fieldDescription>
+</field>
+<field name="季度预估值" class="java.lang.String">
+<fieldDescription><![CDATA[季度预估值]]></fieldDescription>
+</field>
+<field name="季度实际值" class="java.lang.String">
+<fieldDescription><![CDATA[季度实际值]]></fieldDescription>
+</field>
+<background><band splitType="Stretch"/></background>
+<title>
+<band height = "120" splitType = "Stretch">
+</band>
+</title>
+<pageHeader>
+<band height = "0" splitType = "Stretch">
+</band>
+</pageHeader>
+<columnHeader>
+<band height = "0" splitType = "Stretch">
+</band>
+</columnHeader>
+<detail>
+<band height = "25" splitType = "Stretch">
+<textField isBlankWhenNull = "true" isStretchWithOverflow = "true" >
+<reportElement x = "201" y = "0" uuid = "614a402e-d2ea-9533-1bd8-eceef80e70ad" width = "100" height = "24" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "$F{指标分类}" />
+<box>
+<pen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<topPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<leftPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<bottomPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<rightPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+</box>
+<textElement textAlignment = "Center" verticalAlignment = "Middle"  markup = "none" >
+<font fontName = "SansSerif" size = "12" isItalic = "false" isBold = "false" isPdfEmbedded = "false" pdfFontName = "STSong-Light" pdfEncoding = "UniGB-UCS2-H" />
+<paragraph leftIndent = "0" rightIndent = "0" firstLineIndent = "0" tabStopWidth = "40" />
+</textElement>
+<textFieldExpression><![CDATA[$F{指标分类}]]></textFieldExpression>
+</textField>
+<textField isBlankWhenNull = "true" isStretchWithOverflow = "true" >
+<reportElement x = "301" y = "0" uuid = "a9afd14c-cb3c-eab0-2118-fafb235389c8" width = "100" height = "24" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "$F{指标项目}" />
+<box>
+<pen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<topPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<leftPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<bottomPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<rightPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+</box>
+<textElement textAlignment = "Center" verticalAlignment = "Middle"  markup = "none" >
+<font fontName = "SansSerif" size = "12" isItalic = "false" isBold = "false" isPdfEmbedded = "false" pdfFontName = "STSong-Light" pdfEncoding = "UniGB-UCS2-H" />
+<paragraph leftIndent = "0" rightIndent = "0" firstLineIndent = "0" tabStopWidth = "40" />
+</textElement>
+<textFieldExpression><![CDATA[$F{指标项目}]]></textFieldExpression>
+</textField>
+<textField isBlankWhenNull = "true" isStretchWithOverflow = "true" >
+<reportElement x = "402" y = "0" uuid = "6c6fd64b-5c81-e074-4c23-88993b4056dc" width = "100" height = "24" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "$F{公司名称}" />
+<box>
+<pen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<topPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<leftPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<bottomPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<rightPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+</box>
+<textElement textAlignment = "Center" verticalAlignment = "Middle"  markup = "none" >
+<font fontName = "SansSerif" size = "12" isItalic = "false" isBold = "false" isPdfEmbedded = "false" pdfFontName = "STSong-Light" pdfEncoding = "UniGB-UCS2-H" />
+<paragraph leftIndent = "0" rightIndent = "0" firstLineIndent = "0" tabStopWidth = "40" />
+</textElement>
+<textFieldExpression><![CDATA[$F{公司名称}]]></textFieldExpression>
+</textField>
+<textField isBlankWhenNull = "true" isStretchWithOverflow = "true" >
+<reportElement x = "502" y = "0" uuid = "b6756816-e324-3c71-ec07-c178f9c3ab64" width = "100" height = "24" forecolor = "#000000" backcolor = "#ffffff" isRemoveLineWhenBlank = "false" isPrintWhenDetailOverflows = "true" mode = "Opaque" isPrintInFirstWholeBand = "true" isPrintRepeatedValues = "true" key = "$F{季度预估值}" />
+<box>
+<pen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<topPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<leftPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<bottomPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+<rightPen lineWidth="1" lineColor="#000000" lineStyle="Solid"/>
+</box>
+<textElement textAlignment = "Center" verticalAlignment = "Middle"  markup = "none" >
+<font fontName = "SansSerif" size = "12" isItalic = "false" isBold = "false" isPdfEmbedded = "false" pdfFontName = "STSong-Light" pdfEncoding = "UniGB-UCS2-H" />
+<paragraph leftIndent = "0" rightIndent = "0" firstLineIndent = "0" tabStopWidth = "40" />
+</textElement>
+<textFieldExpression><![CDATA[$F{季度预估值}]]></textFieldExpression>
+</textField>
+</band>
+</detail>
+<columnFooter>
+<band height = "0" splitType = "Stretch">
+</band>
+</columnFooter>
+<pageFooter>
+<band height = "0" splitType = "Stretch">
+</band>
+</pageFooter>
+<summary>
+<band height = "0" splitType = "Stretch">
+</band>
+</summary>
+</jasperReport>

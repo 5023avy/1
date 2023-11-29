@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<activity id="__0O4lKasacNVFHOleX8M">
+  <name>生成表单数据</name>
+  <parentId>__EQxyZjpQ3KImpKwqfao</parentId>
+  <type>1</type>
+  <onActionForm></onActionForm>
+  <onActionView>__EQxyZjpQ3KImpKwqfao</onActionView>
+  <colorType>rgba(255, 153, 0, 1)</colorType>
+  <beforeActionScript><![CDATA[#include "constant";
+(function () {
+  var domainid = getDomainid();
+  var applicationId = getApplication();
+  var uuid = new Packages.cn.myapps.util.sequence.Sequence();
+  var formid= getFormidByFormname('财务指标',applicationId);
+  var parentDoc = getParentDocument();
+  var parentId = parentDoc.getId();
+  var company = parentDoc.getItemValueAsString('公司'); 
+  var year = parentDoc.getItemValueAsDate('年份'); 
+  var selectSql = "select * FROM tlk_指标定义 order by item_序号";
+  var query = queryBySQL(selectSql);
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var item = iter.next();
+      var insertSql = "insert into tlk_财务指标 (item_指标分类,item_指标项目,item_指标序号,\
+        id,domainid,applicationId,formid,parent, created) values ('"
+        + item.getItemValueAsString('指标分类') + "','" 
+        + item.getItemValueAsString('指标项目') + "','"
+        + item.getItemValueAsString('序号') + "','"
+        + uuid.getSequence()+"--"+ formid + "','"
+        + domainid + "','"
+        + applicationId + "','" 
+        + formid + "','" 
+        + parentId + "','" 
+        + getCurDate("yyyy-MM-dd HH:mm:ss")
+        + "')";
+      insertByDSName(dsName,insertSql);
+    }
+  }
+})()]]></beforeActionScript>
+  <afterActionScript><![CDATA[]]></afterActionScript>
+  <hiddenScript><![CDATA[#include "globalMethods";
+#include "process";
+(function () {
+  if(!ifCanEditByState()) {return true;}
+  var user = getWebUser();
+  var parentDoc = getParentDocument();
+  var childs2 = parentDoc.getChilds("财务指标");
+  var size = childs2.size();
+
+  // 判断当前用户是否在审批人列表
+  var ifCharge = ifUserInAuditorList(parentDoc)
+  if(ifCharge) {  // 当前审批人可编辑 
+    if(size>0) { // 已初始化指标，隐藏按钮
+      return true
+    } else { 
+      return false
+    }
+  } else { // 非经办人不显示
+    return true
+  }
+})()]]></hiddenScript>
+  <readonlyScript><![CDATA[]]></readonlyScript>
+  <editMode>0</editMode>
+  <fileNameScript><![CDATA[]]></fileNameScript>
+  <orderno>0</orderno>
+  <parentView>__EQxyZjpQ3KImpKwqfao</parentView>
+  <impmappingconfigid></impmappingconfigid>
+  <jumpType>0</jumpType>
+  <expSub>false</expSub>
+  <icon>{"icon":"fa fa-pencil-square-o","type":"font"}</icon>
+  <disableFlowNode>false</disableFlowNode>
+  <changeFlowOperator>false</changeFlowOperator>
+  <changeFlowCc>false</changeFlowCc>
+  <multiLanguageLabel></multiLanguageLabel>
+  <dispatcherMode>0</dispatcherMode>
+  <dispatcherUrl><![CDATA[]]></dispatcherUrl>
+  <dispatcherParams><![CDATA[[{"paramKey":"","paramValue":""}]]]></dispatcherParams>
+  <jumpMode>0</jumpMode>
+  <jumpActOpenType>0</jumpActOpenType>
+  <withOld>false</withOld>
+  <actionType>0</actionType>
+  <actionDispatcherUrlScript><![CDATA[]]></actionDispatcherUrlScript>
+  <actionSelection>0</actionSelection>
+  <relatedFormId></relatedFormId>
+  <workFlowType>0</workFlowType>
+  <contextMenu>true</contextMenu>
+  <showInToolbar>true</showInToolbar>
+  <label><![CDATA[]]></label>
+  <processPreview>false</processPreview>
+</activity>

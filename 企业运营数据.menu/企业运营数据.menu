@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<resourceVO id="__KndnJ33DpA6KMCQDurS">
+  <name>企业运营数据</name>
+  <parentId>__avYbKPJJjObzoPrV2er</parentId>
+  <description>企业运营数据</description>
+  <opentarget>detail</opentarget>
+  <ico>{"icon":"/uploads/lib/icon/p09_data.png","icontype":"img"}</ico>
+  <linkType></linkType>
+  <actionContent><![CDATA[]]></actionContent>
+  <queryString><![CDATA[[]]]></queryString>
+  <permissionType>private</permissionType>
+  <showType>0</showType>
+  <status>1</status>
+  <isUsual>false</isUsual>
+  <isMobile>false</isMobile>
+  <orderno>5</orderno>
+  <showtotalrow>false</showtotalrow>
+</resourceVO>

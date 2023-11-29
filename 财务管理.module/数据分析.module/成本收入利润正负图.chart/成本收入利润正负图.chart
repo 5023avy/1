@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<chart id="__4YRteemBrpXsAwUGWcE">
+  <name>成本收入利润正负图</name>
+  <parentId>__KwtCFs6N1jmrg65Gm1k</parentId>
+  <description></description>
+  <scripttext><![CDATA[(function () {
+  
+  var monthNumbers = [1,2,3,4,5,6,7,8,9,10,11,12]
+  var sql = "select * from tlk_业务财务情况表 where YEAR(item_日期)='2023' and statelabel in ('',null,'完成')";
+  var query = queryBySQL(sql); // FinanceBusiness 
+  var income = []; // 每月收入
+  var profit = []; // 每月利润
+  var cost = []; // 每月成本
+
+  if(query!=null){
+    var iter  =query.iterator();
+    while(iter != null && iter.hasNext()){
+      var data = iter.next();
+      var date = data.getItemValueAsString('日期')
+      if(date && date.indexOf('-')) {
+        var month = Number(date.split('-')[1])
+      }
+      monthNumbers.forEach(function (monthNumber, index) {
+        if(month == monthNumber) {
+          if(!income[index]) {
+            income[index] = 0
+          }
+          if(!profit[index]) {
+            profit[index] = 0
+          }
+          if(!cost[index]) {
+            cost[index] = 0
+          }
+          FinanceBusiness.forEach(function(item) {
+            income[index] += data.getItemValueAsDouble(item.name + '收入')
+            profit[index] += data.getItemValueAsDouble(item.name + '利润')
+          })
+          costType.forEach(function(value) {
+            cost[index] += data.getItemValueAsDouble(value)
+          })
+        }
+        
+      })
+      
+    }
+  }
+  income = income.map(function(value) {
+    return formatNumber(value)
+  })
+  profit = profit.map(function(value) {
+    return formatNumber(value)
+  })
+  cost = cost.map(function(value) {
+    return -formatNumber(value)
+  })
+  var option = {
+    height: 400,
+     grid: [
+      { right: '8%', top: '10%', height: '43%' },
+    ],
+    title: {
+    	   text: '成本收入利润正负图'
+    },
+    tooltip: {
+      trigger: 'axis',
+    },
+   
+    toolbox: {
+      feature: {
+        // restore: { show: true },
+        saveAsImage: { show: true }
+      }
+    },
+    legend: {
+      data: ['利润','成本', '收入', ]
+    },
+    xAxis: [
+      {
+        type: 'value'
+      }
+    ],
+    yAxis: [
+      {
+        type: 'category',
+        axisTick: {
+          show: false
+        },
+        data: ['一月', '二月', '三月', '四月', '五月', '六月'], //  '七月', '八月', '九月', '十月', '十一月', '十二月'
+      }
+    ],
+    series: [
+      {
+        name: '利润',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        data: profit
+      },
+      {
+        name: '成本',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        stack: 'Total',
+        data: cost
+      },
+      {
+        name: '收入',
+        type: 'bar',
+        label: {
+          show: true,
+          position: 'inside'
+        },
+        stack: 'Total',
+        data: income
+      },
+      
+    ]
+  };
+  return option;
+})()]]></scripttext>
+  <commonFilterCondition><![CDATA[[]]]></commonFilterCondition>
+  <viewId></viewId>
+  <searchFormId></searchFormId>
+  <fontSize>12</fontSize>
+  <chartName></chartName>
+</chart>

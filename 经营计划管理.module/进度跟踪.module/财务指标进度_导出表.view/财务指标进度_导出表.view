@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<ListView id="__Og6NNbUysTWBZiHcSbq">
+  <name>财务指标进度_导出表</name>
+  <parentId>__xSTWtxZDyTP1C8gCvum</parentId>
+  <showIsEdit>false</showIsEdit>
+  <selectCheckbox>true</selectCheckbox>
+  <expandQueryForm>false</expandQueryForm>
+  <orderno>0</orderno>
+  <isAllowDrag>true</isAllowDrag>
+  <dataSourceId>__P7kfDzYkojswfhuyrxw</dataSourceId>
+  <pagination>true</pagination>
+  <pageLines>30</pageLines>
+  <showTotalRow>true</showTotalRow>
+  <refresh>false</refresh>
+  <refreshAll>false</refreshAll>
+  <newPage>false</newPage>
+  <lastModifyTime>2023-07-24T19:07:40.000+08:00</lastModifyTime>
+  <readonly>true</readonly>
+  <displayType>relatedForm</displayType>
+  <defaultShowMode>month</defaultShowMode>
+  <collapsibleShowMode>normal</collapsibleShowMode>
+  <showWaterMark>false</showWaterMark>
+  <showActivityColumnType>0</showActivityColumnType>
+  <searchFormId>__N3j7eGbggP1efDwu3y3</searchFormId>
+  <autoCompose>true</autoCompose>
+  <relatedForm>__P4B3fKBkJi437YjkBgF</relatedForm>
+  <permissionType>public</permissionType>
+  <filterScript><![CDATA[]]></filterScript>
+  <sqlFilterScript><![CDATA[#include "constant"
+(function() {
+    var yearString=getItemValueAsString("年份");
+    var season=getItemValueAsString("季度值");
+    var index=getItemValueAsString("财务指标");
+    var companylist = [];
+
+    var sql_companylist = "select * from (SELECT *, \
+	CASE \
+			WHEN RIGHT (item_公司名称, 1 )= '部' THEN \
+			( \
+				LENGTH( item_公司名称)- LENGTH( \
+				REPLACE ( item_公司名称, '公司/', '' )))/ LENGTH( '公司/' ) \
+			WHEN RIGHT ( item_公司名称, 2 )= '公司' THEN \
+			( \
+			LENGTH(item_公司名称)- LENGTH( REPLACE ( item_公司名称, '公司', '' ) ))/ LENGTH( '公司' ) ELSE - 1  \
+		END isSelect, \
+		CASE \
+			WHEN RIGHT (item_公司名称, 1 )= '部' THEN  \
+			LEFT(item_公司名称, locate('公司/',item_公司名称)+1) \
+			WHEN RIGHT (item_公司名称, 2 )= '公司' THEN \
+			LEFT(item_公司名称, locate('公司',item_公司名称)+1) ELSE - 1 \
+		END item_companyName \
+	FROM \
+		tlk_数据指标进度)tlk_数据指标进度 where tlk_数据指标进度.isSelect=1 GROUP BY tlk_数据指标进度.item_companyName";
+    var query = queryBySQL(sql_companylist);
+    if (query != null) {
+        var iter = query.iterator();
+        while (iter != null && iter.hasNext()) {
+            doc = iter.next();
+            rtn = doc.getItemValueAsString("companyName");
+            companylist.push(rtn);
+        }
+    }
+var companyStr =companylist.join(";");
+    var temp_sub = [];
+    subsidiary_new.forEach(function(item) {
+        if (companyStr.indexOf(item)>-1) {
+            temp_sub.push(item);
+        }
+    });
+
+    var sqlSeason = "";
+    if (isNotNull(season)){
+    	sqlSeason = " and item_季度='"+season+"'";
+    }
+    var sqlIndex = "";
+    if (isNotNull(index)){
+    	sqlIndex = " and item_指标项目='"+index+"'";
+    }
+    var sql = "select * from (SELECT *, \
+	CASE \
+			WHEN RIGHT (item_公司名称, 1 )= '部' THEN \
+			( \
+				LENGTH( item_公司名称)- LENGTH( \
+				REPLACE ( item_公司名称, '公司/', '' )))/ LENGTH( '公司/' ) \
+			WHEN RIGHT ( item_公司名称, 2 )= '公司' THEN \
+			( \
+			LENGTH(item_公司名称)- LENGTH( REPLACE ( item_公司名称, '公司', '' ) ))/ LENGTH( '公司' ) ELSE - 1  \
+		END isSelect, \
+		CASE \
+			WHEN RIGHT (item_公司名称, 1 )= '部' THEN  \
+			LEFT(item_公司名称, locate('公司/',item_公司名称)+1) \
+			WHEN RIGHT (item_公司名称, 2 )= '公司' THEN \
+			LEFT(item_公司名称, locate('公司',item_公司名称)+1) ELSE - 1 \
+		END item_companyName \
+	FROM \
+		tlk_数据指标进度) tlk_数据指标进度 where tlk_数据指标进度.item_子任务指标='财务指标' and tlk_数据指标进度.isSelect=1 and YEAR(item_年份)='"+yearString+"' "+ sqlSeason+sqlIndex+" GROUP BY tlk_数据指标进度.item_companyName ORDER by field(item_companyName,\"" + temp_sub.join("\",\"") + "\") asc";
+  println(sql);
+  return sql;
+})()]]></sqlFilterScript>
+  <procedureFilterScript><![CDATA[]]></procedureFilterScript>
+  <filterCondition><![CDATA[[{"field":"子任务指标","operator":"=","type":"00","ipField":"财务指标","numField":0,"daField":"","sfField":"","syField":"","match":"财务指标"},{"field":"季度","operator":"=","type":"03","ipField":"","numField":0,"daField":"","sfField":"季度值","syField":"","match":"季度值"},{"field":"指标项目","operator":"=","type":"03","ipField":"","numField":0,"daField":"","sfField":"财务指标","syField":"","match":"财务指标"},{"field":"年份","operator":"=","type":"03","ipField":"","numField":0,"daField":"","sfField":"年份","syField":"","match":"年份"}]]]></filterCondition>
+  <commonFilterCondition><![CDATA[[{"field":"季度值","isCommonFilter":"true","paramKey":1697091290800},{"field":"财务指标","isCommonFilter":"true","paramKey":1697091293119}]]]></commonFilterCondition>
+  <authorityCondition>[{"_authFields":"","_authFieldScope":""}]</authorityCondition>
+  <openType>277</openType>
+  <editMode>02</editMode>
+  <width>0</width>
+  <height>0</height>
+</ListView>
